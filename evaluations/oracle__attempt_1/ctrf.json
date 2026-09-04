@@ -11,19 +11,19 @@
     },
     "tests": [
       {
-        "duration": 208,
+        "duration": 247,
         "message": "requirement satisfied",
         "name": "U1",
         "status": "passed"
       },
       {
-        "duration": 228,
+        "duration": 326,
         "message": "requirement satisfied",
         "name": "U2",
         "status": "passed"
       },
       {
-        "duration": 226,
+        "duration": 280,
         "message": "requirement satisfied",
         "name": "U3",
         "status": "passed"
@@ -59,13 +59,13 @@
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "U9",
         "status": "passed"
       },
       {
-        "duration": 500,
+        "duration": 671,
         "message": "requirement satisfied",
         "name": "U10",
         "status": "passed"
@@ -77,13 +77,13 @@
         "status": "passed"
       },
       {
-        "duration": 263,
+        "duration": 956,
         "message": "requirement satisfied",
         "name": "U12",
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 8,
         "message": "requirement satisfied",
         "name": "U13",
         "status": "passed"
@@ -95,7 +95,7 @@
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "S2",
         "status": "passed"
@@ -113,7 +113,7 @@
         "status": "passed"
       },
       {
-        "duration": 3,
+        "duration": 4,
         "message": "requirement satisfied",
         "name": "S5",
         "status": "passed"
@@ -137,19 +137,19 @@
         "status": "passed"
       },
       {
-        "duration": 224,
+        "duration": 256,
         "message": "requirement satisfied",
         "name": "S9",
         "status": "passed"
       },
       {
-        "duration": 437,
+        "duration": 548,
         "message": "requirement satisfied",
         "name": "S10",
         "status": "passed"
       },
       {
-        "duration": 219,
+        "duration": 217,
         "message": "requirement satisfied",
         "name": "S11",
         "status": "passed"
@@ -173,19 +173,19 @@
         "status": "passed"
       },
       {
-        "duration": 275,
+        "duration": 217,
         "message": "requirement satisfied",
         "name": "S15",
         "status": "passed"
       },
       {
-        "duration": 233,
+        "duration": 235,
         "message": "requirement satisfied",
         "name": "S16",
         "status": "passed"
       },
       {
-        "duration": 234,
+        "duration": 238,
         "message": "requirement satisfied",
         "name": "S17",
         "status": "passed"
@@ -197,7 +197,7 @@
         "status": "passed"
       },
       {
-        "duration": 225,
+        "duration": 237,
         "message": "requirement satisfied",
         "name": "S19",
         "status": "passed"
@@ -227,7 +227,7 @@
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "S24",
         "status": "passed"
@@ -263,7 +263,7 @@
         "status": "passed"
       },
       {
-        "duration": 237,
+        "duration": 231,
         "message": "requirement satisfied",
         "name": "S30",
         "status": "passed"

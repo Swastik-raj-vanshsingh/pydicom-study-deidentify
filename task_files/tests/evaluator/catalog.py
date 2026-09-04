@@ -110,9 +110,9 @@ REQUIREMENTS: list[dict[str, Any]] = [
     {
         "id": "U12",
         "dimension": "utility",
-        "summary": "The existing subcommands still work once deidentify is registered.",
+        "summary": "deidentify is registered alongside the existing subcommands, which still work.",
         "visibility": "explicit_prompt",
-        "expected_failure_mode": "registering the new command breaks `pydicom show`",
+        "expected_failure_mode": "the new subcommand is absent, it displaces the existing ones, or `pydicom show` stops working",
         "severity": "med",
         "test_name": "test_U12_existing_commands_unchanged",
     },

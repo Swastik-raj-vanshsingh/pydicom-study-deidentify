@@ -24,7 +24,7 @@ S10   passed         requirement satisfied
 S11   passed         requirement satisfied
 S12   passed         requirement satisfied
 S13   passed         requirement satisfied
-S14   failed         the release directory is listable or writable by others: ['/tmp/studysrkyayqd/release']
+S14   failed         the release directory is listable or writable by others: ['/tmp/study6008h4w5/release']
 S15   passed         requirement satisfied
 S16   passed         requirement satisfied
 S17   passed         requirement satisfied

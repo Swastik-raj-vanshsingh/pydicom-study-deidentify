@@ -70,7 +70,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 244,
+      "duration_ms": 272,
       "evidence": [
         {
           "label": "returncode",
@@ -93,7 +93,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 259,
+      "duration_ms": 454,
       "evidence": [
         {
           "label": "returncode",
@@ -124,7 +124,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 284,
+      "duration_ms": 286,
       "evidence": [
         {
           "label": "patient_ids",
@@ -191,11 +191,11 @@
       "evidence": [
         {
           "label": "study_date",
-          "value": "20230301"
+          "value": "20230321"
         },
         {
           "label": "content_date",
-          "value": "20230302"
+          "value": "20230322"
         }
       ],
       "expected_failure_mode": "dates are emptied, left as they were, or written in an invalid form",
@@ -345,7 +345,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 469,
+      "duration_ms": 501,
       "evidence": [
         {
           "label": "instances",
@@ -484,30 +484,38 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 240,
+      "duration_ms": 574,
       "evidence": [
         {
-          "label": "returncode",
+          "label": "subcommand_listing",
+          "value": "usage: pydicom [-h] {help,codify,deidentify,show} ...\n\npydicom command line utilities (Python 3.11.16)\n\npositional arguments:\n  {help,codify,deidentify,show}\n                        subcommand help\n    help                display help for subcommands\n\noptions:\n  -h, --help            show this help message and exit\n"
+        },
+        {
+          "label": "missing_existing_subcommands",
+          "value": []
+        },
+        {
+          "label": "show_returncode",
           "value": 0
         },
         {
-          "label": "output",
+          "label": "show_output",
           "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
         }
       ],
-      "expected_failure_mode": "registering the new command breaks `pydicom show`",
+      "expected_failure_mode": "the new subcommand is absent, it displaces the existing ones, or `pydicom show` stops working",
       "id": "U12",
       "message": "requirement satisfied",
       "severity": "med",
       "status": "passed",
-      "summary": "The existing subcommands still work once deidentify is registered.",
+      "summary": "deidentify is registered alongside the existing subcommands, which still work.",
       "test_name": "test_U12_existing_commands_unchanged",
       "visibility": "explicit_prompt"
     },
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 2,
+      "duration_ms": 7,
       "evidence": [
         {
           "label": "images_checked",
@@ -1026,12 +1034,12 @@
         {
           "label": "released_names",
           "value": [
-            "1.2.826.0.1.3680043.8.498.39329147632876534256233196381371609603.dcm",
-            "1.2.826.0.1.3680043.8.498.48575182182185228510305542074807668843.dcm",
-            "1.2.826.0.1.3680043.8.498.50425338556851814094400269735581438099.dcm",
-            "1.2.826.0.1.3680043.8.498.84384364818189938963295370141875316318.dcm",
-            "1.2.826.0.1.3680043.8.498.87997674086952111088911962865049413610.dcm",
-            "1.2.826.0.1.3680043.8.498.92956772276658473071505669429288820831.dcm"
+            "1.2.826.0.1.3680043.8.498.13582186364080196918820000342139677392.dcm",
+            "1.2.826.0.1.3680043.8.498.16498844509333485394499238542189297666.dcm",
+            "1.2.826.0.1.3680043.8.498.2725155668344211623071882795223757385.dcm",
+            "1.2.826.0.1.3680043.8.498.48340291811608340665345413751338620156.dcm",
+            "1.2.826.0.1.3680043.8.498.61674731116097975254724158646758380367.dcm",
+            "1.2.826.0.1.3680043.8.498.80707627258712341180014854135588136427.dcm"
           ]
         },
         {
@@ -1062,7 +1070,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "a name built from an input value is a path when joined",
-      "duration_ms": 263,
+      "duration_ms": 238,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1108,7 +1116,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 576,
+      "duration_ms": 537,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1154,7 +1162,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule; a check on the parent directory alone misses it",
-      "duration_ms": 272,
+      "duration_ms": 244,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1170,7 +1178,7 @@
         },
         {
           "label": "crosswalk_path",
-          "value": "/tmp/studyn2dzq8u5/release/keys/crosswalk.csv"
+          "value": "/tmp/study3x_o_ve6/release/keys/crosswalk.csv"
         },
         {
           "label": "mapping_tokens_in_release",
@@ -1208,7 +1216,7 @@
         },
         {
           "label": "crosswalk",
-          "value": "/tmp/studyf12mit44/crosswalk.csv"
+          "value": "/tmp/studyrd0f1n0g/crosswalk.csv"
         },
         {
           "label": "rows",
@@ -1267,12 +1275,12 @@
         {
           "label": "modes",
           "value": {
-            "1.2.826.0.1.3680043.8.498.39329147632876534256233196381371609603.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.48575182182185228510305542074807668843.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.50425338556851814094400269735581438099.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.84384364818189938963295370141875316318.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.87997674086952111088911962865049413610.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.92956772276658473071505669429288820831.dcm": "0o600"
+            "1.2.826.0.1.3680043.8.498.13582186364080196918820000342139677392.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.16498844509333485394499238542189297666.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.2725155668344211623071882795223757385.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.48340291811608340665345413751338620156.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.61674731116097975254724158646758380367.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.80707627258712341180014854135588136427.dcm": "0o600"
           }
         },
         {
@@ -1328,7 +1336,7 @@
         {
           "label": "modes",
           "value": {
-            "/tmp/studyf12mit44/release": "0o700"
+            "/tmp/studyrd0f1n0g/release": "0o700"
           }
         },
         {
@@ -1359,7 +1367,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 244,
+      "duration_ms": 278,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1371,7 +1379,7 @@
         },
         {
           "label": "stderr",
-          "value": "refusing to overwrite an existing crosswalk: /tmp/studyks7bzmeg/crosswalk.csv\n"
+          "value": "refusing to overwrite an existing crosswalk: /tmp/studyl_ai4k3u/crosswalk.csv\n"
         },
         {
           "label": "crosswalk",
@@ -1401,7 +1409,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 252,
+      "duration_ms": 233,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1459,7 +1467,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 235,
+      "duration_ms": 284,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1575,7 +1583,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 283,
+      "duration_ms": 258,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1650,13 +1658,13 @@
         {
           "label": "study_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.78036141112879666154089150234964870551"
+            "1.2.826.0.1.3680043.8.498.77311752235823210544183689866974378335"
           ]
         },
         {
           "label": "frame_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.95616581475677304170978453706734140022"
+            "1.2.826.0.1.3680043.8.498.97166013193382307954917289985197898300"
           ]
         }
       ],
@@ -1707,19 +1715,19 @@
         },
         {
           "label": "referenced",
-          "value": "1.2.826.0.1.3680043.8.498.50425338556851814094400269735581438099"
+          "value": "1.2.826.0.1.3680043.8.498.48340291811608340665345413751338620156"
         },
         {
           "label": "released_image",
-          "value": "1.2.826.0.1.3680043.8.498.50425338556851814094400269735581438099"
+          "value": "1.2.826.0.1.3680043.8.498.48340291811608340665345413751338620156"
         },
         {
           "label": "referenced_frame",
-          "value": "1.2.826.0.1.3680043.8.498.95616581475677304170978453706734140022"
+          "value": "1.2.826.0.1.3680043.8.498.97166013193382307954917289985197898300"
         },
         {
           "label": "image_frame",
-          "value": "1.2.826.0.1.3680043.8.498.95616581475677304170978453706734140022"
+          "value": "1.2.826.0.1.3680043.8.498.97166013193382307954917289985197898300"
         }
       ],
       "expected_failure_mode": "referenced UIDs are replaced independently of the instance they name, or the sequence is dropped",
@@ -1853,7 +1861,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1878,7 +1886,7 @@
         {
           "label": "study_dates",
           "value": [
-            "20230301"
+            "20230321"
           ]
         },
         {
@@ -1940,8 +1948,8 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20230301",
-            "20230331"
+            "20230321",
+            "20230801"
           ]
         },
         {
@@ -2096,7 +2104,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the profile's own action for the birth date is Z; the modified-dates option retains intervals",
-      "duration_ms": 1,
+      "duration_ms": 2,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2121,7 +2129,7 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20230301"
+            "20230321"
           ]
         },
         {
@@ -2238,7 +2246,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 288,
+      "duration_ms": 259,
       "evidence": [
         {
           "label": "feature_probe",

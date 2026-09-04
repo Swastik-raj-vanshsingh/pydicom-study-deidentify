@@ -36,7 +36,7 @@ of the standard's own options do when they are switched on together.
 4 unrelated areas.
 
 Measured in the image: the reference solution scores 13/13 utility and 19/19
-safety groups; the no-op scores 1/13 with every safety group unmeasured; a strict
+safety groups; the no-op scores 0/13 with every safety group unmeasured; a strict
 refuser that releases nothing scores 2/13 and an over-stripper that removes more
 than the profile table asks scores 7/13, neither of them ever judged on safety;
 a hurried but utility-complete implementation fails 16 groups across all 7 areas.

@@ -58,7 +58,7 @@
     {
       "id": "U12",
       "dimension": "utility",
-      "summary": "The existing subcommands still work once deidentify is registered."
+      "summary": "deidentify is registered alongside the existing subcommands, which still work."
     },
     {
       "id": "U13",

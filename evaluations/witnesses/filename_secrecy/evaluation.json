@@ -70,7 +70,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 229,
+      "duration_ms": 216,
       "evidence": [
         {
           "label": "returncode",
@@ -93,7 +93,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 276,
+      "duration_ms": 240,
       "evidence": [
         {
           "label": "returncode",
@@ -124,7 +124,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 294,
+      "duration_ms": 228,
       "evidence": [
         {
           "label": "patient_ids",
@@ -191,11 +191,11 @@
       "evidence": [
         {
           "label": "study_date",
-          "value": "20240213"
+          "value": "20231215"
         },
         {
           "label": "content_date",
-          "value": "20240214"
+          "value": "20231216"
         }
       ],
       "expected_failure_mode": "dates are emptied, left as they were, or written in an invalid form",
@@ -345,7 +345,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 503,
+      "duration_ms": 449,
       "evidence": [
         {
           "label": "instances",
@@ -484,23 +484,31 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 237,
+      "duration_ms": 462,
       "evidence": [
         {
-          "label": "returncode",
+          "label": "subcommand_listing",
+          "value": "usage: pydicom [-h] {help,codify,deidentify,show} ...\n\npydicom command line utilities (Python 3.11.16)\n\npositional arguments:\n  {help,codify,deidentify,show}\n                        subcommand help\n    help                display help for subcommands\n\noptions:\n  -h, --help            show this help message and exit\n"
+        },
+        {
+          "label": "missing_existing_subcommands",
+          "value": []
+        },
+        {
+          "label": "show_returncode",
           "value": 0
         },
         {
-          "label": "output",
+          "label": "show_output",
           "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
         }
       ],
-      "expected_failure_mode": "registering the new command breaks `pydicom show`",
+      "expected_failure_mode": "the new subcommand is absent, it displaces the existing ones, or `pydicom show` stops working",
       "id": "U12",
       "message": "requirement satisfied",
       "severity": "med",
       "status": "passed",
-      "summary": "The existing subcommands still work once deidentify is registered.",
+      "summary": "deidentify is registered alongside the existing subcommands, which still work.",
       "test_name": "test_U12_existing_commands_unchanged",
       "visibility": "explicit_prompt"
     },
@@ -1022,33 +1030,33 @@
         {
           "label": "released_names",
           "value": [
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.16108843094530984640502041271224494781.dcm",
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.38068027253645968190280994495179813955.dcm",
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.42550794851322541880536230759475938276.dcm",
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.53683178115068025897806703733634287387.dcm",
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.82090414160432919486354768080100300430.dcm",
-            "MRN-8842-PHI/1.2.826.0.1.3680043.8.498.3395373098556464682011975756225289915.dcm"
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.13835445528397786811186167404334703040.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.30724016546174028132419205588481529646.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.67628991833326774802857518155442330550.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.74329109030663604828804560500581461476.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.7627129087085667250258087675110330803.dcm",
+            "MRN-8842-PHI/1.2.826.0.1.3680043.8.498.2493410807004714461369333782805961626.dcm"
           ]
         },
         {
           "label": "offending",
           "value": {
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.16108843094530984640502041271224494781.dcm": [
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.13835445528397786811186167404334703040.dcm": [
               "MRN-7731-PHI"
             ],
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.38068027253645968190280994495179813955.dcm": [
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.30724016546174028132419205588481529646.dcm": [
               "MRN-7731-PHI"
             ],
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.42550794851322541880536230759475938276.dcm": [
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.67628991833326774802857518155442330550.dcm": [
               "MRN-7731-PHI"
             ],
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.53683178115068025897806703733634287387.dcm": [
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.74329109030663604828804560500581461476.dcm": [
               "MRN-7731-PHI"
             ],
-            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.82090414160432919486354768080100300430.dcm": [
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.7627129087085667250258087675110330803.dcm": [
               "MRN-7731-PHI"
             ],
-            "MRN-8842-PHI/1.2.826.0.1.3680043.8.498.3395373098556464682011975756225289915.dcm": [
+            "MRN-8842-PHI/1.2.826.0.1.3680043.8.498.2493410807004714461369333782805961626.dcm": [
               "MRN-8842-PHI"
             ]
           }
@@ -1056,7 +1064,7 @@
       ],
       "expected_failure_mode": "output files keep the input file name or are named after the original SOP Instance UID or patient",
       "id": "S8",
-      "message": "the release's file names carry original identifiers: {'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.16108843094530984640502041271224494781.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.38068027253645968190280994495179813955.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.42550794851322541880536230759475938276.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.53683178115068025897806703733634287387.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.82090414160432919486354768080100300430.dcm': ['MRN-7731-PHI'], 'MRN-8842-PHI/1.2.826.0.1.3680043.8.498.3395373098556464682011975756225289915.dcm': ['MRN-8842-PHI']}",
+      "message": "the release's file names carry original identifiers: {'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.13835445528397786811186167404334703040.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.30724016546174028132419205588481529646.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.67628991833326774802857518155442330550.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.74329109030663604828804560500581461476.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.7627129087085667250258087675110330803.dcm': ['MRN-7731-PHI'], 'MRN-8842-PHI/1.2.826.0.1.3680043.8.498.2493410807004714461369333782805961626.dcm': ['MRN-8842-PHI']}",
       "not_evaluated_conditions": "the command is absent, or the run releases nothing",
       "positive_control": "at least one file is released",
       "severity": "high",
@@ -1077,7 +1085,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "a name built from an input value is a path when joined",
-      "duration_ms": 252,
+      "duration_ms": 310,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1098,14 +1106,14 @@
         {
           "label": "written_outside_the_release",
           "value": [
-            "sibling/escaped-7731/1.2.826.0.1.3680043.8.498.30808176509443509762495090590566135618.dcm",
-            "sibling/escaped-7731/1.2.826.0.1.3680043.8.498.37578609208060824922620313566752499402.dcm"
+            "sibling/escaped-7731/1.2.826.0.1.3680043.8.498.71186632808462762995600663796268553196.dcm",
+            "sibling/escaped-7731/1.2.826.0.1.3680043.8.498.76237881088044939443746493179907278207.dcm"
           ]
         }
       ],
       "expected_failure_mode": "the output path is built from the original Patient ID",
       "id": "S9",
-      "message": "the run wrote 2 file(s) outside the release directory, where the identifier pointed: ['sibling/escaped-7731/1.2.826.0.1.3680043.8.498.30808176509443509762495090590566135618.dcm', 'sibling/escaped-7731/1.2.826.0.1.3680043.8.498.37578609208060824922620313566752499402.dcm']",
+      "message": "the run wrote 2 file(s) outside the release directory, where the identifier pointed: ['sibling/escaped-7731/1.2.826.0.1.3680043.8.498.71186632808462762995600663796268553196.dcm', 'sibling/escaped-7731/1.2.826.0.1.3680043.8.498.76237881088044939443746493179907278207.dcm']",
       "not_evaluated_conditions": "the command is absent",
       "positive_control": "the command runs and its output is recorded",
       "severity": "high",
@@ -1126,7 +1134,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 532,
+      "duration_ms": 454,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1172,7 +1180,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule; a check on the parent directory alone misses it",
-      "duration_ms": 309,
+      "duration_ms": 236,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1188,7 +1196,7 @@
         },
         {
           "label": "crosswalk_path",
-          "value": "/tmp/studyk5w_5fbm/release/keys/crosswalk.csv"
+          "value": "/tmp/studys_7udayd/release/keys/crosswalk.csv"
         },
         {
           "label": "mapping_tokens_in_release",
@@ -1226,7 +1234,7 @@
         },
         {
           "label": "crosswalk",
-          "value": "/tmp/studyd00w73jq/crosswalk.csv"
+          "value": "/tmp/study46t7dkg7/crosswalk.csv"
         },
         {
           "label": "rows",
@@ -1285,12 +1293,12 @@
         {
           "label": "modes",
           "value": {
-            "1.2.826.0.1.3680043.8.498.16108843094530984640502041271224494781.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.3395373098556464682011975756225289915.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.38068027253645968190280994495179813955.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.42550794851322541880536230759475938276.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.53683178115068025897806703733634287387.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.82090414160432919486354768080100300430.dcm": "0o600"
+            "1.2.826.0.1.3680043.8.498.13835445528397786811186167404334703040.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.2493410807004714461369333782805961626.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.30724016546174028132419205588481529646.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.67628991833326774802857518155442330550.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.74329109030663604828804560500581461476.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.7627129087085667250258087675110330803.dcm": "0o600"
           }
         },
         {
@@ -1346,9 +1354,9 @@
         {
           "label": "modes",
           "value": {
-            "/tmp/studyd00w73jq/release": "0o700",
-            "/tmp/studyd00w73jq/release/MRN-7731-PHI": "0o700",
-            "/tmp/studyd00w73jq/release/MRN-8842-PHI": "0o700"
+            "/tmp/study46t7dkg7/release": "0o700",
+            "/tmp/study46t7dkg7/release/MRN-7731-PHI": "0o700",
+            "/tmp/study46t7dkg7/release/MRN-8842-PHI": "0o700"
           }
         },
         {
@@ -1379,7 +1387,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 318,
+      "duration_ms": 222,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1391,7 +1399,7 @@
         },
         {
           "label": "stderr",
-          "value": "refusing to overwrite an existing crosswalk: /tmp/studyvz7x78dg/crosswalk.csv\n"
+          "value": "refusing to overwrite an existing crosswalk: /tmp/studyndleudq6/crosswalk.csv\n"
         },
         {
           "label": "crosswalk",
@@ -1421,7 +1429,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 301,
+      "duration_ms": 235,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1479,7 +1487,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 272,
+      "duration_ms": 260,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1595,7 +1603,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 274,
+      "duration_ms": 231,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1670,13 +1678,13 @@
         {
           "label": "study_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.62520760382776139028912671598810779784"
+            "1.2.826.0.1.3680043.8.498.47407366787608965201407706031351054055"
           ]
         },
         {
           "label": "frame_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.65445115591921565399220939133390281737"
+            "1.2.826.0.1.3680043.8.498.3523545375434007916029705923656640672"
           ]
         }
       ],
@@ -1727,19 +1735,19 @@
         },
         {
           "label": "referenced",
-          "value": "1.2.826.0.1.3680043.8.498.82090414160432919486354768080100300430"
+          "value": "1.2.826.0.1.3680043.8.498.13835445528397786811186167404334703040"
         },
         {
           "label": "released_image",
-          "value": "1.2.826.0.1.3680043.8.498.82090414160432919486354768080100300430"
+          "value": "1.2.826.0.1.3680043.8.498.13835445528397786811186167404334703040"
         },
         {
           "label": "referenced_frame",
-          "value": "1.2.826.0.1.3680043.8.498.65445115591921565399220939133390281737"
+          "value": "1.2.826.0.1.3680043.8.498.3523545375434007916029705923656640672"
         },
         {
           "label": "image_frame",
-          "value": "1.2.826.0.1.3680043.8.498.65445115591921565399220939133390281737"
+          "value": "1.2.826.0.1.3680043.8.498.3523545375434007916029705923656640672"
         }
       ],
       "expected_failure_mode": "referenced UIDs are replaced independently of the instance they name, or the sequence is dropped",
@@ -1898,7 +1906,7 @@
         {
           "label": "study_dates",
           "value": [
-            "20240213"
+            "20231215"
           ]
         },
         {
@@ -1960,8 +1968,8 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20230713",
-            "20240213"
+            "20230801",
+            "20231215"
           ]
         },
         {
@@ -2141,7 +2149,7 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20240213"
+            "20231215"
           ]
         },
         {
@@ -2258,7 +2266,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 293,
+      "duration_ms": 230,
       "evidence": [
         {
           "label": "feature_probe",

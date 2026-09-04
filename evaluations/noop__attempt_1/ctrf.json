@@ -2,22 +2,22 @@
   "reportFormat": "CTRF",
   "results": {
     "summary": {
-      "failed": 12,
+      "failed": 13,
       "other": 0,
-      "passed": 1,
+      "passed": 0,
       "pending": 0,
       "skipped": 34,
       "tests": 47
     },
     "tests": [
       {
-        "duration": 235,
+        "duration": 261,
         "message": "pydicom deidentify --help did not succeed; the subcommand is not registered",
         "name": "U1",
         "status": "failed"
       },
       {
-        "duration": 227,
+        "duration": 280,
         "message": "the command failed on a study with nothing wrong in it",
         "name": "U2",
         "status": "failed"
@@ -65,7 +65,7 @@
         "status": "failed"
       },
       {
-        "duration": 474,
+        "duration": 467,
         "message": "the file in a subdirectory of the input directory was not released",
         "name": "U10",
         "status": "failed"
@@ -77,10 +77,10 @@
         "status": "failed"
       },
       {
-        "duration": 258,
-        "message": "requirement satisfied",
+        "duration": 249,
+        "message": "the deidentify subcommand is not registered, so there is no change whose effect on the existing subcommands could be judged",
         "name": "U12",
-        "status": "passed"
+        "status": "failed"
       },
       {
         "duration": 1,
@@ -143,7 +143,7 @@
         "status": "skipped"
       },
       {
-        "duration": 294,
+        "duration": 328,
         "message": "utility incomplete; safety not measured",
         "name": "S10",
         "status": "skipped"

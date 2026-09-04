@@ -3,7 +3,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 208,
+      "duration_ms": 247,
       "evidence": [
         {
           "label": "returncode",
@@ -21,7 +21,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 228,
+      "duration_ms": 326,
       "evidence": [
         {
           "label": "returncode",
@@ -47,7 +47,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 226,
+      "duration_ms": 280,
       "evidence": [
         {
           "label": "patient_ids",
@@ -104,11 +104,11 @@
       "evidence": [
         {
           "label": "study_date",
-          "value": "20230401"
+          "value": "20230509"
         },
         {
           "label": "content_date",
-          "value": "20230402"
+          "value": "20230510"
         }
       ],
       "id": "U5",
@@ -202,7 +202,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 1,
+      "duration_ms": 2,
       "evidence": [
         {
           "label": "instances",
@@ -233,7 +233,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 500,
+      "duration_ms": 671,
       "evidence": [
         {
           "label": "instances",
@@ -362,14 +362,22 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 263,
+      "duration_ms": 956,
       "evidence": [
         {
-          "label": "returncode",
+          "label": "subcommand_listing",
+          "value": "usage: pydicom [-h] {help,codify,deidentify,show} ...\n\npydicom command line utilities (Python 3.11.16)\n\npositional arguments:\n  {help,codify,deidentify,show}\n                        subcommand help\n    help                display help for subcommands\n\noptions:\n  -h, --help            show this help message and exit\n"
+        },
+        {
+          "label": "missing_existing_subcommands",
+          "value": []
+        },
+        {
+          "label": "show_returncode",
           "value": 0
         },
         {
-          "label": "output",
+          "label": "show_output",
           "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
         }
       ],
@@ -380,7 +388,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 1,
+      "duration_ms": 8,
       "evidence": [
         {
           "label": "images_checked",
@@ -469,7 +477,7 @@
     {
       "constraint_id": "profile_removal",
       "deferred": false,
-      "duration_ms": 1,
+      "duration_ms": 2,
       "evidence": [
         {
           "label": "feature_probe",
@@ -614,7 +622,7 @@
     {
       "constraint_id": "repeating_group_removal",
       "deferred": false,
-      "duration_ms": 3,
+      "duration_ms": 4,
       "evidence": [
         {
           "label": "feature_probe",
@@ -770,12 +778,12 @@
         {
           "label": "released_names",
           "value": [
-            "1.2.826.0.1.3680043.8.498.10617717569139033915408271292946157814.dcm",
-            "1.2.826.0.1.3680043.8.498.15361455226624515685496712633728080862.dcm",
-            "1.2.826.0.1.3680043.8.498.58707072092642022583536493783221261696.dcm",
-            "1.2.826.0.1.3680043.8.498.75361109413092464775447403676029319869.dcm",
-            "1.2.826.0.1.3680043.8.498.76758616279108445534825043649835546742.dcm",
-            "1.2.826.0.1.3680043.8.498.91286982108617535477092977629557256005.dcm"
+            "1.2.826.0.1.3680043.8.498.28520238814174572905679093370141095242.dcm",
+            "1.2.826.0.1.3680043.8.498.49040844743352668500833728731127690247.dcm",
+            "1.2.826.0.1.3680043.8.498.62144658481554934141897465015038573859.dcm",
+            "1.2.826.0.1.3680043.8.498.65838915444839791866285679959818869106.dcm",
+            "1.2.826.0.1.3680043.8.498.73614225588568778267632673076653609038.dcm",
+            "1.2.826.0.1.3680043.8.498.74660328971865481559946698519683015152.dcm"
           ]
         },
         {
@@ -790,7 +798,7 @@
     {
       "constraint_id": "filename_secrecy",
       "deferred": false,
-      "duration_ms": 224,
+      "duration_ms": 256,
       "evidence": [
         {
           "label": "feature_probe",
@@ -820,7 +828,7 @@
     {
       "constraint_id": "crosswalk_placement",
       "deferred": false,
-      "duration_ms": 437,
+      "duration_ms": 548,
       "evidence": [
         {
           "label": "feature_probe",
@@ -850,7 +858,7 @@
     {
       "constraint_id": "crosswalk_placement",
       "deferred": false,
-      "duration_ms": 219,
+      "duration_ms": 217,
       "evidence": [
         {
           "label": "feature_probe",
@@ -866,7 +874,7 @@
         },
         {
           "label": "crosswalk_path",
-          "value": "/tmp/studyx7yi2ez0/release/keys/crosswalk.csv"
+          "value": "/tmp/studyi2o19p8b/release/keys/crosswalk.csv"
         },
         {
           "label": "mapping_tokens_in_release",
@@ -888,7 +896,7 @@
         },
         {
           "label": "crosswalk",
-          "value": "/tmp/studywrbudjk1/crosswalk.csv"
+          "value": "/tmp/study281_l0ku/crosswalk.csv"
         },
         {
           "label": "rows",
@@ -931,12 +939,12 @@
         {
           "label": "modes",
           "value": {
-            "1.2.826.0.1.3680043.8.498.10617717569139033915408271292946157814.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.15361455226624515685496712633728080862.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.58707072092642022583536493783221261696.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.75361109413092464775447403676029319869.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.76758616279108445534825043649835546742.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.91286982108617535477092977629557256005.dcm": "0o600"
+            "1.2.826.0.1.3680043.8.498.28520238814174572905679093370141095242.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.49040844743352668500833728731127690247.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.62144658481554934141897465015038573859.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.65838915444839791866285679959818869106.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.73614225588568778267632673076653609038.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.74660328971865481559946698519683015152.dcm": "0o600"
           }
         },
         {
@@ -976,7 +984,7 @@
         {
           "label": "modes",
           "value": {
-            "/tmp/studywrbudjk1/release": "0o700"
+            "/tmp/study281_l0ku/release": "0o700"
           }
         },
         {
@@ -991,7 +999,7 @@
     {
       "constraint_id": "crosswalk_no_clobber",
       "deferred": false,
-      "duration_ms": 275,
+      "duration_ms": 217,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1003,7 +1011,7 @@
         },
         {
           "label": "stderr",
-          "value": "refusing to overwrite an existing crosswalk: /tmp/studyc6bfdtd4/crosswalk.csv\n"
+          "value": "refusing to overwrite an existing crosswalk: /tmp/studyy1gczq5b/crosswalk.csv\n"
         },
         {
           "label": "crosswalk",
@@ -1017,7 +1025,7 @@
     {
       "constraint_id": "crosswalk_neutralisation",
       "deferred": false,
-      "duration_ms": 233,
+      "duration_ms": 235,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1059,7 +1067,7 @@
     {
       "constraint_id": "crosswalk_neutralisation",
       "deferred": false,
-      "duration_ms": 234,
+      "duration_ms": 238,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1143,7 +1151,7 @@
     {
       "constraint_id": "originals_untouched",
       "deferred": false,
-      "duration_ms": 225,
+      "duration_ms": 237,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1202,13 +1210,13 @@
         {
           "label": "study_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.92600944275587007050594833680872957472"
+            "1.2.826.0.1.3680043.8.498.71989363823602326514758161584333988455"
           ]
         },
         {
           "label": "frame_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.87401049282301542603879698273385413787"
+            "1.2.826.0.1.3680043.8.498.99242913448389743285668309390158877987"
           ]
         }
       ],
@@ -1243,19 +1251,19 @@
         },
         {
           "label": "referenced",
-          "value": "1.2.826.0.1.3680043.8.498.91286982108617535477092977629557256005"
+          "value": "1.2.826.0.1.3680043.8.498.74660328971865481559946698519683015152"
         },
         {
           "label": "released_image",
-          "value": "1.2.826.0.1.3680043.8.498.91286982108617535477092977629557256005"
+          "value": "1.2.826.0.1.3680043.8.498.74660328971865481559946698519683015152"
         },
         {
           "label": "referenced_frame",
-          "value": "1.2.826.0.1.3680043.8.498.87401049282301542603879698273385413787"
+          "value": "1.2.826.0.1.3680043.8.498.99242913448389743285668309390158877987"
         },
         {
           "label": "image_frame",
-          "value": "1.2.826.0.1.3680043.8.498.87401049282301542603879698273385413787"
+          "value": "1.2.826.0.1.3680043.8.498.99242913448389743285668309390158877987"
         }
       ],
       "id": "S21",
@@ -1341,7 +1349,7 @@
     {
       "constraint_id": "date_consistency",
       "deferred": false,
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1366,7 +1374,7 @@
         {
           "label": "study_dates",
           "value": [
-            "20230401"
+            "20230509"
           ]
         },
         {
@@ -1412,8 +1420,8 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20230215",
-            "20230401"
+            "20230509",
+            "20230728"
           ]
         },
         {
@@ -1544,7 +1552,7 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20230401"
+            "20230509"
           ]
         },
         {
@@ -1629,7 +1637,7 @@
     {
       "constraint_id": "deid_record_truthful",
       "deferred": false,
-      "duration_ms": 237,
+      "duration_ms": 231,
       "evidence": [
         {
           "label": "feature_probe",
