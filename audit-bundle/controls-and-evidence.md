@@ -91,6 +91,14 @@ originals, the unreadable file that sorts first, the older CT with the embedded
 overlay, and the two hospitals whose identifiers collide each have a run of their
 own.
 
+The ordinary images carry no overlay or curve groups. One dedicated image,
+`ct_annotated.dcm`, carries a separate overlay plane and a curve the way the table
+lists them; it is present in the main and resilience runs and absent from the
+clean run, so an implementation that refuses overlay-bearing images altogether
+loses one file and keeps its feature score, and its safety is still measured.
+This was learned from an agent run that refused every image of a patient because
+every one of them carried a plane.
+
 ## Controls that must not score, and one that does
 
 | control | outcome |

@@ -833,7 +833,7 @@ REQUIREMENTS: list[dict[str, Any]] = [
         "summary": "An overlay stored in the unused high bits of the pixels does not leave in the pixels.",
         "constraint_id": "embedded_overlay",
         "visibility": "explicit_prompt",
-        "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate their images with overlay planes; where such a plane lives is left to the file",
+        "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate with overlay planes that the table lists; that one plane lives in the pixels rather than in an element the table can act on is left to the file",
         "discovery_route": "Bits Stored is smaller than Bits Allocated, an overlay group is present with Overlay Bit Position at the first unused bit, and there is no Overlay Data element for the table to act on; pydicom.overlays only reads overlays at bit position zero",
         "expected_failure_mode": "the table removes (60xx,3000), which is not there, and the pixels ship unchanged",
         "severity": "high",

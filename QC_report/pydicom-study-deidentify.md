@@ -305,6 +305,15 @@ but it is no longer the discriminator.
 7. **note** The shipped witness patches went stale when the reference changed
    and 15 of them no longer applied; a full-sweep apply check now runs before
    the patches are recorded.
+8. **should fix, fixed** An agent run against revision 2 lost eight feature
+   requirements because it refused every image carrying an overlay plane, and
+   every one of the first patient's images carried one. The ticket sentence that
+   invited the refusal sat under "What must not be released"; it now says the
+   table lists those planes and the image is released once they are dealt with.
+   The overlay and curve groups moved to one dedicated image that the clean run
+   does not contain, so a conservative refusal costs one file rather than the
+   whole patient. Measured: a simulated agent that refuses every overlay-bearing
+   image scores 13/13 utility with all 23 groups measured.
 
 ## 7. Verdict
 

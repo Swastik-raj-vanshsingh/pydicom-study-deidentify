@@ -39,7 +39,7 @@ S25   passed         requirement satisfied
 S26   passed         requirement satisfied
 S27   passed         requirement satisfied
 S28   passed         requirement satisfied
-S29   failed         the summary claims 10 files were written; the release holds 6
+S29   failed         the summary claims 11 files were written; the release holds 7
 S30   passed         requirement satisfied
 S31   passed         requirement satisfied
 S32   passed         requirement satisfied

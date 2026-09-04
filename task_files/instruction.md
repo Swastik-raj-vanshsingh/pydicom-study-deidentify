@@ -63,8 +63,11 @@ scheme `DCM`), with a short `De-identification Method` text alongside.
 An image that may carry text drawn into its pixels cannot be de-identified by
 editing its header. **A file marked as carrying burned-in annotation, a
 secondary capture, or a screen save is not released.** It is reported as
-refused, and nothing about it is written into `OUTPUT_DIR`. The older CT
-scanners in the fleet annotate their images with overlay planes.
+refused, and nothing about it is written into `OUTPUT_DIR`.
+
+The older CT scanners in the fleet annotate their images with overlay planes;
+the profile table lists those, and an image is released once they are dealt
+with.
 
 ## 3. The crosswalk
 

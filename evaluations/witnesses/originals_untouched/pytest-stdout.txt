@@ -29,7 +29,7 @@ S15   passed         requirement satisfied
 S16   passed         requirement satisfied
 S17   passed         requirement satisfied
 S18   passed         requirement satisfied
-S19   failed         de-identified copies were written into the hospital's originals: ['release/1.2.826.0.1.3680043.8.498.72937366684252473965039070264797780876.dcm', 'release/1.2.826.0.1.3680043.8.498.82269253299728182812393272802536095629.dcm', 'release/1.2.826.0.1.3680043.8.498.87975017032502694467501389807058058174.dcm']
+S19   failed         de-identified copies were written into the hospital's originals: ['release/1.2.826.0.1.3680043.8.498.35434403230657987022297212424625426906.dcm', 'release/1.2.826.0.1.3680043.8.498.38719205772756893474080721399959903741.dcm', 'release/1.2.826.0.1.3680043.8.498.77047400858890701288548039448350227434.dcm']
 S20   passed         requirement satisfied
 S21   passed         requirement satisfied
 S22   passed         requirement satisfied

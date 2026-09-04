@@ -11,19 +11,19 @@
     },
     "tests": [
       {
-        "duration": 235,
+        "duration": 377,
         "message": "requirement satisfied",
         "name": "U1",
         "status": "passed"
       },
       {
-        "duration": 349,
+        "duration": 352,
         "message": "requirement satisfied",
         "name": "U2",
         "status": "passed"
       },
       {
-        "duration": 309,
+        "duration": 319,
         "message": "requirement satisfied",
         "name": "U3",
         "status": "passed"
@@ -59,13 +59,13 @@
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "U9",
         "status": "passed"
       },
       {
-        "duration": 452,
+        "duration": 634,
         "message": "requirement satisfied",
         "name": "U10",
         "status": "passed"
@@ -77,13 +77,13 @@
         "status": "passed"
       },
       {
-        "duration": 462,
+        "duration": 492,
         "message": "requirement satisfied",
         "name": "U12",
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 3,
         "message": "requirement satisfied",
         "name": "U13",
         "status": "passed"
@@ -95,7 +95,7 @@
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "S2",
         "status": "passed"
@@ -107,25 +107,25 @@
         "status": "passed"
       },
       {
-        "duration": 5,
+        "duration": 8,
         "message": "requirement satisfied",
         "name": "S4",
         "status": "passed"
       },
       {
-        "duration": 4,
+        "duration": 8,
         "message": "requirement satisfied",
         "name": "S5",
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 3,
         "message": "requirement satisfied",
         "name": "S6",
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 14,
         "message": "requirement satisfied",
         "name": "S7",
         "status": "passed"
@@ -137,19 +137,19 @@
         "status": "passed"
       },
       {
-        "duration": 244,
+        "duration": 302,
         "message": "requirement satisfied",
         "name": "S9",
         "status": "passed"
       },
       {
-        "duration": 564,
+        "duration": 539,
         "message": "requirement satisfied",
         "name": "S10",
         "status": "passed"
       },
       {
-        "duration": 257,
+        "duration": 274,
         "message": "requirement satisfied",
         "name": "S11",
         "status": "passed"
@@ -173,19 +173,19 @@
         "status": "passed"
       },
       {
-        "duration": 254,
+        "duration": 288,
         "message": "requirement satisfied",
         "name": "S15",
         "status": "passed"
       },
       {
-        "duration": 241,
+        "duration": 271,
         "message": "requirement satisfied",
         "name": "S16",
         "status": "passed"
       },
       {
-        "duration": 255,
+        "duration": 248,
         "message": "requirement satisfied",
         "name": "S17",
         "status": "passed"
@@ -197,7 +197,7 @@
         "status": "passed"
       },
       {
-        "duration": 222,
+        "duration": 231,
         "message": "requirement satisfied",
         "name": "S19",
         "status": "passed"
@@ -227,13 +227,13 @@
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "S24",
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 3,
         "message": "requirement satisfied",
         "name": "S25",
         "status": "passed"
@@ -263,19 +263,19 @@
         "status": "passed"
       },
       {
-        "duration": 275,
+        "duration": 286,
         "message": "requirement satisfied",
         "name": "S30",
         "status": "passed"
       },
       {
-        "duration": 3,
+        "duration": 4,
         "message": "requirement satisfied",
         "name": "S31",
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 4,
         "message": "requirement satisfied",
         "name": "S32",
         "status": "passed"
@@ -293,19 +293,19 @@
         "status": "passed"
       },
       {
-        "duration": 3,
+        "duration": 2,
         "message": "the secondary capture whose Image Type reads ORIGINAL\\PRIMARY was released; its SOP Class says what it is",
         "name": "S35",
         "status": "failed"
       },
       {
-        "duration": 236,
+        "duration": 293,
         "message": "the older CT was released with its overlay still in the unused high bits of 2 pixel(s); the table had no (60xx,3000) to remove",
         "name": "S36",
         "status": "failed"
       },
       {
-        "duration": 248,
+        "duration": 285,
         "message": "two different people, from two hospitals, were released under one pseudonym because their identifiers collide",
         "name": "S37",
         "status": "failed"

@@ -79,7 +79,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 235,
+      "duration_ms": 377,
       "evidence": [
         {
           "label": "returncode",
@@ -102,7 +102,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 349,
+      "duration_ms": 352,
       "evidence": [
         {
           "label": "returncode",
@@ -133,7 +133,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 309,
+      "duration_ms": 319,
       "evidence": [
         {
           "label": "patient_ids",
@@ -200,11 +200,11 @@
       "evidence": [
         {
           "label": "study_date",
-          "value": "20291224"
+          "value": "20320926"
         },
         {
           "label": "content_date",
-          "value": "20291225"
+          "value": "20320927"
         }
       ],
       "expected_failure_mode": "dates are emptied, left as they were, or written in an invalid form",
@@ -318,7 +318,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "instances",
@@ -330,7 +330,8 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
@@ -340,7 +341,7 @@
             "patients": 2,
             "refused": 2,
             "skipped": 1,
-            "written": 8
+            "written": 9
           }
         }
       ],
@@ -356,7 +357,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 452,
+      "duration_ms": 634,
       "evidence": [
         {
           "label": "instances",
@@ -368,7 +369,8 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
@@ -376,6 +378,7 @@
           "value": [
             "burned_sc.dcm",
             "ct_a.dcm",
+            "ct_annotated.dcm",
             "ct_b.dcm",
             "gsps.dcm",
             "mr_p2.dcm",
@@ -513,6 +516,20 @@
           "value": [
             "DCM"
           ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
         }
       ],
       "expected_failure_mode": "the method record is absent, incomplete, or uses the wrong codes",
@@ -527,7 +544,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 462,
+      "duration_ms": 492,
       "evidence": [
         {
           "label": "subcommand_listing",
@@ -543,7 +560,7 @@
         },
         {
           "label": "show_output",
-          "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
+          "value": "0028,0030) Pixel Spacing                       DS: [0.7, 0.7]\n(0028,0100) Bits Allocated                      US: 16\n(0028,0101) Bits Stored                         US: 16\n(0028,0102) High Bit                            US: 15\n(0028,0103) Pixel Representation                US: 0\n(0028,1050) Window Center                       DS: '40'\n(0028,1051) Window Width                        DS: '400'\n(0028,1052) Rescale Intercept                   DS: '-1024'\n(0028,1053) Rescale Slope                       DS: '1'\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
         }
       ],
       "expected_failure_mode": "the new subcommand is absent, it displaces the existing ones, or `pydicom show` stops working",
@@ -558,7 +575,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 1,
+      "duration_ms": 3,
       "evidence": [
         {
           "label": "images_checked",
@@ -621,15 +638,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -676,7 +693,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the profile file",
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "feature_probe",
@@ -688,15 +705,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -755,15 +772,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -808,7 +825,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the profile file's wildcard tags; an exact-tag lookup never matches them",
-      "duration_ms": 5,
+      "duration_ms": 8,
       "evidence": [
         {
           "label": "feature_probe",
@@ -820,15 +837,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -836,6 +853,10 @@
             "RSCH-0001",
             "RSCH-0002"
           ]
+        },
+        {
+          "label": "annotated_image_released",
+          "value": true
         },
         {
           "label": "overlay_tags",
@@ -869,7 +890,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the profile file's wildcard tags",
-      "duration_ms": 4,
+      "duration_ms": 8,
       "evidence": [
         {
           "label": "feature_probe",
@@ -881,15 +902,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -897,6 +918,10 @@
             "RSCH-0001",
             "RSCH-0002"
           ]
+        },
+        {
+          "label": "annotated_image_released",
+          "value": true
         },
         {
           "label": "curve_tags",
@@ -926,7 +951,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the profile file and the library's own helper",
-      "duration_ms": 2,
+      "duration_ms": 3,
       "evidence": [
         {
           "label": "feature_probe",
@@ -938,15 +963,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -987,7 +1012,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the library's own helper walks sequences; a hand-written loop may not",
-      "duration_ms": 2,
+      "duration_ms": 14,
       "evidence": [
         {
           "label": "feature_probe",
@@ -999,15 +1024,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_patient_ids",
@@ -1060,27 +1085,28 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_names",
           "value": [
-            "1.2.826.0.1.3680043.8.498.2136963980079982412597052009037491108.dcm",
-            "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671.dcm",
-            "1.2.826.0.1.3680043.8.498.319830377678203811517776175806021288.dcm",
-            "1.2.826.0.1.3680043.8.498.41429754555203927031694120158333033098.dcm",
-            "1.2.826.0.1.3680043.8.498.54245266636761027505718810297925338144.dcm",
-            "1.2.826.0.1.3680043.8.498.71994266674781987481314523538072261722.dcm",
-            "1.2.826.0.1.3680043.8.498.75310397879394629890075132729297543819.dcm",
-            "1.2.826.0.1.3680043.8.498.82014795692399944594038791918266453184.dcm"
+            "1.2.826.0.1.3680043.8.498.18548310743651253544688712161058312961.dcm",
+            "1.2.826.0.1.3680043.8.498.62211603573417064973627549715410505716.dcm",
+            "1.2.826.0.1.3680043.8.498.68087401575244463771113669948635092298.dcm",
+            "1.2.826.0.1.3680043.8.498.82028674071924854871511885148167385528.dcm",
+            "1.2.826.0.1.3680043.8.498.84403475622614164243265607145937203213.dcm",
+            "1.2.826.0.1.3680043.8.498.85222852909424786086504062954733450015.dcm",
+            "1.2.826.0.1.3680043.8.498.96023834105886746946557491709603685633.dcm",
+            "1.2.826.0.1.3680043.8.498.96100932825860471933122799754983109652.dcm",
+            "1.2.826.0.1.3680043.8.498.99705859803937532536610188592530452838.dcm"
           ]
         },
         {
@@ -1111,7 +1137,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "a name built from an input value is a path when joined",
-      "duration_ms": 244,
+      "duration_ms": 302,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1157,7 +1183,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 564,
+      "duration_ms": 539,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1203,7 +1229,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule; a check on the parent directory alone misses it",
-      "duration_ms": 257,
+      "duration_ms": 274,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1219,7 +1245,7 @@
         },
         {
           "label": "crosswalk_path",
-          "value": "/tmp/study5_xwsj3q/release/keys/crosswalk.csv"
+          "value": "/tmp/studyh_9_0v8y/release/keys/crosswalk.csv"
         },
         {
           "label": "mapping_tokens_in_release",
@@ -1257,7 +1283,7 @@
         },
         {
           "label": "crosswalk",
-          "value": "/tmp/studyk8f9m4w1/crosswalk.csv"
+          "value": "/tmp/studyxmo907cb/crosswalk.csv"
         },
         {
           "label": "rows",
@@ -1303,27 +1329,28 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "modes",
           "value": {
-            "1.2.826.0.1.3680043.8.498.2136963980079982412597052009037491108.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.319830377678203811517776175806021288.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.41429754555203927031694120158333033098.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.54245266636761027505718810297925338144.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.71994266674781987481314523538072261722.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.75310397879394629890075132729297543819.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.82014795692399944594038791918266453184.dcm": "0o600"
+            "1.2.826.0.1.3680043.8.498.18548310743651253544688712161058312961.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.62211603573417064973627549715410505716.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.68087401575244463771113669948635092298.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.82028674071924854871511885148167385528.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.84403475622614164243265607145937203213.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.85222852909424786086504062954733450015.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.96023834105886746946557491709603685633.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.96100932825860471933122799754983109652.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.99705859803937532536610188592530452838.dcm": "0o600"
           }
         },
         {
@@ -1366,20 +1393,20 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "modes",
           "value": {
-            "/tmp/studyk8f9m4w1/release": "0o700"
+            "/tmp/studyxmo907cb/release": "0o700"
           }
         },
         {
@@ -1410,7 +1437,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 254,
+      "duration_ms": 288,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1422,7 +1449,7 @@
         },
         {
           "label": "stderr",
-          "value": "pydicom deidentify: error: crosswalk already exists: /tmp/studyg4_onwco/crosswalk.csv\n"
+          "value": "pydicom deidentify: error: crosswalk already exists: /tmp/studyjd4_if9l/crosswalk.csv\n"
         },
         {
           "label": "crosswalk",
@@ -1452,7 +1479,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 241,
+      "duration_ms": 271,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1510,7 +1537,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 255,
+      "duration_ms": 248,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1580,15 +1607,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "changed",
@@ -1626,7 +1653,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 222,
+      "duration_ms": 231,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1684,30 +1711,30 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "files",
-          "value": 7
+          "value": 8
         },
         {
           "label": "study_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.89639497162121721319792487384849797436"
+            "1.2.826.0.1.3680043.8.498.771421142446568052072873189592729310"
           ]
         },
         {
           "label": "frame_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.20547264526193158993256405897757064225"
+            "1.2.826.0.1.3680043.8.498.60973323083621968707958094509367964928"
           ]
         }
       ],
@@ -1746,31 +1773,31 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "referenced",
-          "value": "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671"
+          "value": "1.2.826.0.1.3680043.8.498.82028674071924854871511885148167385528"
         },
         {
           "label": "released_image",
-          "value": "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671"
+          "value": "1.2.826.0.1.3680043.8.498.82028674071924854871511885148167385528"
         },
         {
           "label": "referenced_frame",
-          "value": "1.2.826.0.1.3680043.8.498.20547264526193158993256405897757064225"
+          "value": "1.2.826.0.1.3680043.8.498.60973323083621968707958094509367964928"
         },
         {
           "label": "image_frame",
-          "value": "1.2.826.0.1.3680043.8.498.20547264526193158993256405897757064225"
+          "value": "1.2.826.0.1.3680043.8.498.60973323083621968707958094509367964928"
         }
       ],
       "expected_failure_mode": "referenced UIDs are replaced independently of the instance they name, or the sequence is dropped",
@@ -1808,15 +1835,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "mismatched",
@@ -1862,15 +1889,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "unreadable",
@@ -1904,7 +1931,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1916,25 +1943,26 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "study_dates",
           "value": [
-            "20291224"
+            "20320926"
           ]
         },
         {
           "label": "study_to_content_days",
           "value": [
+            1,
             1,
             1,
             1,
@@ -1968,7 +1996,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "DT values carry a date too; the birth date is in the patient module",
-      "duration_ms": 1,
+      "duration_ms": 3,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1980,21 +2008,21 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_study_dates",
           "value": [
-            "20291224",
-            "20320321"
+            "20260825",
+            "20320926"
           ]
         },
         {
@@ -2037,15 +2065,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "first_patient_ids",
@@ -2100,15 +2128,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "younger_age",
@@ -2161,20 +2189,20 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_study_dates",
           "value": [
-            "20291224"
+            "20320926"
           ]
         },
         {
@@ -2227,15 +2255,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "summary",
@@ -2244,24 +2272,24 @@
             "patients": 2,
             "refused": 2,
             "skipped": 1,
-            "written": 8
+            "written": 9
           }
         },
         {
           "label": "stdout",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "released",
-          "value": 8
+          "value": 9
         },
         {
           "label": "input_files",
-          "value": 11
+          "value": 12
         },
         {
           "label": "counted",
-          "value": 11
+          "value": 12
         },
         {
           "label": "crosswalk_rows",
@@ -2291,7 +2319,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 275,
+      "duration_ms": 286,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2303,7 +2331,7 @@
         },
         {
           "label": "released",
-          "value": 8
+          "value": 9
         },
         {
           "label": "summary",
@@ -2312,12 +2340,12 @@
             "patients": 3,
             "refused": 2,
             "skipped": 1,
-            "written": 8
+            "written": 9
           }
         },
         {
           "label": "stderr",
-          "value": "failed /tmp/studyu8k_s_tg/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyu8k_s_tg/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyu8k_s_tg/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "failed /tmp/studyz9nu77qw/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyz9nu77qw/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyz9nu77qw/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         }
       ],
       "expected_failure_mode": "exit 0 whenever the loop finishes",
@@ -2343,7 +2371,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 3,
+      "duration_ms": 4,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2355,15 +2383,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_instances",
@@ -2375,7 +2403,8 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
@@ -2406,7 +2435,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule; Image Type is a multi-valued attribute",
-      "duration_ms": 2,
+      "duration_ms": 4,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2418,15 +2447,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_instances",
@@ -2438,7 +2467,8 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
@@ -2481,7 +2511,7 @@
         },
         {
           "label": "stderr",
-          "value": "failed /tmp/studyu8k_s_tg/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyu8k_s_tg/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyu8k_s_tg/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "failed /tmp/studyz9nu77qw/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyz9nu77qw/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyz9nu77qw/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released",
@@ -2493,7 +2523,8 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
@@ -2532,11 +2563,11 @@
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "stderr",
-          "value": "failed /tmp/studyu8k_s_tg/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyu8k_s_tg/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyu8k_s_tg/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "failed /tmp/studyz9nu77qw/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyz9nu77qw/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyz9nu77qw/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         }
       ],
       "expected_failure_mode": "the error is swallowed to keep the loop going",
@@ -2562,7 +2593,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the file's SOP Class is Secondary Capture Image Storage, a class pydicom.uid names; Image Type reads ORIGINAL\\PRIMARY",
-      "duration_ms": 3,
+      "duration_ms": 2,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2574,15 +2605,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_instances",
@@ -2594,14 +2625,15 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
           "label": "released_secondary_capture_classes",
           "value": [
             [
-              "1.2.826.0.1.3680043.8.498.2136963980079982412597052009037491108",
+              "1.2.826.0.1.3680043.8.498.62211603573417064973627549715410505716",
               "1.2.840.10008.5.1.4.1.1.7"
             ]
           ]
@@ -2626,11 +2658,11 @@
         "clear every bit above Bits Stored in each pixel and release the image"
       ],
       "constraint_id": "embedded_overlay",
-      "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate their images with overlay planes; where such a plane lives is left to the file",
+      "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate with overlay planes that the table lists; that one plane lives in the pixels rather than in an element the table can act on is left to the file",
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "Bits Stored is smaller than Bits Allocated, an overlay group is present with Overlay Bit Position at the first unused bit, and there is no Overlay Data element for the table to act on; pydicom.overlays only reads overlays at bit position zero",
-      "duration_ms": 236,
+      "duration_ms": 293,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2714,7 +2746,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the standard scopes Patient ID by Issuer of Patient ID; the two files disagree on issuer, name, sex and birth date",
-      "duration_ms": 248,
+      "duration_ms": 285,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2791,15 +2823,15 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 9, refused 2, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+          "value": "refused /tmp/studyxmo907cb/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyxmo907cb/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
         },
         {
           "label": "released_count",
-          "value": 8
+          "value": 9
         },
         {
           "label": "released_instances",
@@ -2811,25 +2843,26 @@
             7,
             8,
             9,
-            12
+            12,
+            13
           ]
         },
         {
           "label": "structure_set_references",
           "value": [
-            "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671"
+            "1.2.826.0.1.3680043.8.498.82028674071924854871511885148167385528"
           ]
         },
         {
           "label": "presentation_state_references",
           "value": [
-            "1.2.826.0.1.3680043.8.498.17814318244278584843278402263259250201"
+            "1.2.826.0.1.3680043.8.498.34398698968471810819687701449872849093"
           ]
         },
         {
           "label": "dangling",
           "value": [
-            "1.2.826.0.1.3680043.8.498.17814318244278584843278402263259250201"
+            "1.2.826.0.1.3680043.8.498.34398698968471810819687701449872849093"
           ]
         }
       ],

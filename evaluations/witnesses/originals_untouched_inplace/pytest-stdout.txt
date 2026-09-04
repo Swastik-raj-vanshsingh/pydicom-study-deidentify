@@ -28,7 +28,7 @@ S14   passed         requirement satisfied
 S15   passed         requirement satisfied
 S16   passed         requirement satisfied
 S17   passed         requirement satisfied
-S18   failed         files under the input directory were modified or removed: ['ct_a.dcm', 'ct_b.dcm', 'mr_p2.dcm', 'noext', 'rtstruct.dcm', 'series2/ct_a2.dcm']
+S18   failed         files under the input directory were modified or removed: ['ct_a.dcm', 'ct_annotated.dcm', 'ct_b.dcm', 'mr_p2.dcm', 'noext', 'rtstruct.dcm', 'series2/ct_a2.dcm']
 S19   passed         requirement satisfied
 S20   passed         requirement satisfied
 S21   passed         requirement satisfied

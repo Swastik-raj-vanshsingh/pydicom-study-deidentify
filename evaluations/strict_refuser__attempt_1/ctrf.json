@@ -11,13 +11,13 @@
     },
     "tests": [
       {
-        "duration": 274,
+        "duration": 215,
         "message": "requirement satisfied",
         "name": "U1",
         "status": "passed"
       },
       {
-        "duration": 270,
+        "duration": 230,
         "message": "the command failed on a study with nothing wrong in it",
         "name": "U2",
         "status": "failed"
@@ -65,7 +65,7 @@
         "status": "failed"
       },
       {
-        "duration": 613,
+        "duration": 426,
         "message": "the file in a subdirectory of the input directory was not released",
         "name": "U10",
         "status": "failed"
@@ -77,7 +77,7 @@
         "status": "failed"
       },
       {
-        "duration": 651,
+        "duration": 435,
         "message": "requirement satisfied",
         "name": "U12",
         "status": "passed"
@@ -143,7 +143,7 @@
         "status": "skipped"
       },
       {
-        "duration": 275,
+        "duration": 229,
         "message": "utility incomplete; safety not measured",
         "name": "S10",
         "status": "skipped"

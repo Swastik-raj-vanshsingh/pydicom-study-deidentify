@@ -3,7 +3,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 265,
+      "duration_ms": 209,
       "evidence": [
         {
           "label": "returncode",
@@ -21,7 +21,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 241,
+      "duration_ms": 227,
       "evidence": [
         {
           "label": "returncode",
@@ -146,7 +146,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 528,
+      "duration_ms": 539,
       "evidence": [
         {
           "label": "instances",
@@ -157,6 +157,7 @@
           "value": [
             "burned_sc.dcm",
             "ct_a.dcm",
+            "ct_annotated.dcm",
             "ct_b.dcm",
             "gsps.dcm",
             "mr_p2.dcm",
@@ -185,7 +186,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 250,
+      "duration_ms": 224,
       "evidence": [
         {
           "label": "subcommand_listing",
@@ -334,7 +335,7 @@
     {
       "constraint_id": "crosswalk_placement",
       "deferred": false,
-      "duration_ms": 225,
+      "duration_ms": 224,
       "evidence": [
         {
           "label": "feature_probe",

@@ -36,7 +36,7 @@ S22   passed         requirement satisfied
 S23   passed         requirement satisfied
 S24   not_evaluated  fewer than two files of one patient were released
 S25   passed         requirement satisfied
-S26   failed         one patient's files were released under 5 pseudonyms: ['RSCH-0001', 'RSCH-0002', 'RSCH-0004', 'RSCH-0005', 'RSCH-0006']
+S26   failed         one patient's files were released under 5 pseudonyms: ['RSCH-0001', 'RSCH-0003', 'RSCH-0005', 'RSCH-0006', 'RSCH-0007']
 S27   passed         requirement satisfied
 S28   passed         requirement satisfied
 S29   passed         requirement satisfied

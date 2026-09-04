@@ -110,6 +110,7 @@ class Study:
         presentation_state: bool = False,
         embedded_overlay: bool = False,
         second_site: bool = False,
+        annotated: bool = False,
         non_dicom: bool = True,
         no_extension: bool = True,
         subdirectory: bool = True,
@@ -202,8 +203,13 @@ class Study:
             nested_block = equipment.private_block(0x0011, "ACME NESTED", create=True)
             nested_block.add_new(0x10, "LO", p["NESTED_PRIVATE"])
             ds.ContributingEquipmentSequence = Sequence([equipment])
-            ds.add_new((0x6000, 0x0010), "US", 4)
-            ds.add_new((0x6000, 0x0011), "US", 4)
+
+        def annotate(ds):
+            # A separate overlay plane and a curve, the way the table lists
+            # them: (60xx,3000)/(60xx,4000) and (50xx,xxxx). One image in the
+            # study carries these; the ordinary images carry none.
+            ds.add_new((0x6000, 0x0010), "US", 2)
+            ds.add_new((0x6000, 0x0011), "US", 2)
             ds.add_new((0x6000, 0x0040), "CS", "G")
             ds.add_new((0x6000, 0x0050), "SS", [1, 1])
             ds.add_new((0x6000, 0x0100), "US", 1)
@@ -238,7 +244,8 @@ class Study:
 
         instance_numbers = {"ct_a": 1, "ct_b": 2, "rtstruct": 3, "mr_p2": 4, "burned": 5,
                             "screen_save": 6, "noext": 7, "subdir": 8, "sc_plain": 9,
-                            "ct_overlay": 10, "mr_siteb": 11, "gsps": 12}
+                            "ct_overlay": 10, "mr_siteb": 11, "gsps": 12,
+                            "ct_annotated": 13}
 
         def write(ds, path: Path, key: str):
             ds.InstanceNumber = instance_numbers[key]
@@ -337,12 +344,22 @@ class Study:
             old.BitsStored = OVERLAY_BITS_STORED
             old.HighBit = OVERLAY_BITS_STORED - 1
             old.PixelData = bytes([0x01, 0x10, 0x02, 0x00, 0x03, 0x10, 0x04, 0x00])
-            for element in (0x3000, 0x4000):
-                if (0x6000, element) in old:
-                    del old[(0x6000, element)]
-            old[(0x6000, 0x0102)].value = OVERLAY_BITS_STORED
-            old[(0x6000, 0x0100)].value = 1
+            old.add_new((0x6000, 0x0010), "US", 2)
+            old.add_new((0x6000, 0x0011), "US", 2)
+            old.add_new((0x6000, 0x0040), "CS", "G")
+            old.add_new((0x6000, 0x0050), "SS", [1, 1])
+            old.add_new((0x6000, 0x0100), "US", 1)
+            old.add_new((0x6000, 0x0102), "US", OVERLAY_BITS_STORED)
             write(old, self.input_dir / "ct_overlay.dcm", "ct_overlay")
+
+        if annotated:
+            # An ordinary CT of the first patient with a separate overlay
+            # plane and a curve: the case the table handles.
+            marked = base(uid.CTImageStorage, uid.generate_uid(), self.series_b, p)
+            plant(marked)
+            image(marked)
+            annotate(marked)
+            write(marked, self.input_dir / "ct_annotated.dcm", "ct_annotated")
 
         if secondary_capture:
             # A console screen save written as an MR object: only its Image

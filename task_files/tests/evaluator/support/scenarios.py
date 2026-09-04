@@ -35,7 +35,7 @@ def main_run() -> tuple[Study, Result]:
 
     def build() -> tuple[Study, Result]:
         study = Study(secondary_capture=True, broken_first=False,
-                      plain_secondary=True, presentation_state=True)
+                      plain_secondary=True, presentation_state=True, annotated=True)
         return study, run_release(study)
 
     return _cached("main", build)
@@ -46,7 +46,7 @@ def resilience_run() -> tuple[Study, Result]:
 
     def build() -> tuple[Study, Result]:
         study = Study(secondary_capture=True, broken_first=True,
-                      plain_secondary=True, presentation_state=True)
+                      plain_secondary=True, presentation_state=True, annotated=True)
         return study, run_release(study)
 
     return _cached("resilience", build)

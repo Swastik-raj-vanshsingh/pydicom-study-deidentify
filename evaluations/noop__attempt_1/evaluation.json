@@ -70,7 +70,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 265,
+      "duration_ms": 209,
       "evidence": [
         {
           "label": "returncode",
@@ -93,7 +93,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 241,
+      "duration_ms": 227,
       "evidence": [
         {
           "label": "returncode",
@@ -258,7 +258,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 528,
+      "duration_ms": 539,
       "evidence": [
         {
           "label": "instances",
@@ -269,6 +269,7 @@
           "value": [
             "burned_sc.dcm",
             "ct_a.dcm",
+            "ct_annotated.dcm",
             "ct_b.dcm",
             "gsps.dcm",
             "mr_p2.dcm",
@@ -307,7 +308,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 250,
+      "duration_ms": 224,
       "evidence": [
         {
           "label": "subcommand_listing",
@@ -618,7 +619,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 225,
+      "duration_ms": 224,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1395,7 +1396,7 @@
         "clear every bit above Bits Stored in each pixel and release the image"
       ],
       "constraint_id": "embedded_overlay",
-      "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate their images with overlay planes; where such a plane lives is left to the file",
+      "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate with overlay planes that the table lists; that one plane lives in the pixels rather than in an element the table can act on is left to the file",
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "Bits Stored is smaller than Bits Allocated, an overlay group is present with Overlay Bit Position at the first unused bit, and there is no Overlay Data element for the table to act on; pydicom.overlays only reads overlays at bit position zero",

@@ -74,7 +74,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 227,
+      "duration_ms": 219,
       "evidence": [
         {
           "label": "returncode",
@@ -97,7 +97,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 236,
+      "duration_ms": 237,
       "evidence": [
         {
           "label": "returncode",
@@ -128,7 +128,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 237,
+      "duration_ms": 247,
       "evidence": [
         {
           "label": "patient_ids",
@@ -195,11 +195,11 @@
       "evidence": [
         {
           "label": "study_date",
-          "value": "20230321"
+          "value": "20230521"
         },
         {
           "label": "content_date",
-          "value": "20230322"
+          "value": "20230522"
         }
       ],
       "expected_failure_mode": "dates are emptied, left as they were, or written in an invalid form",
@@ -323,7 +323,8 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
@@ -333,7 +334,7 @@
             "patients": 2,
             "refused": 4,
             "skipped": 1,
-            "written": 6
+            "written": 7
           }
         }
       ],
@@ -349,7 +350,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 586,
+      "duration_ms": 416,
       "evidence": [
         {
           "label": "instances",
@@ -359,7 +360,8 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
@@ -367,6 +369,7 @@
           "value": [
             "burned_sc.dcm",
             "ct_a.dcm",
+            "ct_annotated.dcm",
             "ct_b.dcm",
             "gsps.dcm",
             "mr_p2.dcm",
@@ -476,6 +479,20 @@
           "value": [
             "DCM"
           ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
         }
       ],
       "expected_failure_mode": "the method record is absent, incomplete, or uses the wrong codes",
@@ -490,7 +507,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 481,
+      "duration_ms": 467,
       "evidence": [
         {
           "label": "subcommand_listing",
@@ -506,7 +523,7 @@
         },
         {
           "label": "show_output",
-          "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
+          "value": "0028,0030) Pixel Spacing                       DS: [0.7, 0.7]\n(0028,0100) Bits Allocated                      US: 16\n(0028,0101) Bits Stored                         US: 16\n(0028,0102) High Bit                            US: 15\n(0028,0103) Pixel Representation                US: 0\n(0028,1050) Window Center                       DS: '40'\n(0028,1051) Window Width                        DS: '400'\n(0028,1052) Rescale Intercept                   DS: '-1024'\n(0028,1053) Rescale Slope                       DS: '1'\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
         }
       ],
       "expected_failure_mode": "the new subcommand is absent, it displaces the existing ones, or `pydicom show` stops working",
@@ -521,7 +538,7 @@
     {
       "deferred": false,
       "dimension": "utility",
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "images_checked",
@@ -584,7 +601,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -592,7 +609,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -651,7 +668,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -659,7 +676,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -718,7 +735,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -726,7 +743,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -783,7 +800,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -791,7 +808,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -799,6 +816,10 @@
             "RSCH-0001",
             "RSCH-0002"
           ]
+        },
+        {
+          "label": "annotated_image_released",
+          "value": true
         },
         {
           "label": "overlay_tags",
@@ -832,7 +853,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the profile file's wildcard tags",
-      "duration_ms": 4,
+      "duration_ms": 5,
       "evidence": [
         {
           "label": "feature_probe",
@@ -844,7 +865,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -852,7 +873,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -860,6 +881,10 @@
             "RSCH-0001",
             "RSCH-0002"
           ]
+        },
+        {
+          "label": "annotated_image_released",
+          "value": true
         },
         {
           "label": "curve_tags",
@@ -901,7 +926,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -909,7 +934,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -962,7 +987,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -970,7 +995,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_patient_ids",
@@ -1023,7 +1048,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1031,17 +1056,18 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_names",
           "value": [
-            "1.2.826.0.1.3680043.8.498.12311258678581368134268079272971318858.dcm",
-            "1.2.826.0.1.3680043.8.498.48802814555313231645047820580810322041.dcm",
-            "1.2.826.0.1.3680043.8.498.49950644137941201729019376320531430602.dcm",
-            "1.2.826.0.1.3680043.8.498.54731354004397647604206488534448634063.dcm",
-            "1.2.826.0.1.3680043.8.498.74363994755477135724970747924343564759.dcm",
-            "1.2.826.0.1.3680043.8.498.9587727893272192861986306430059925226.dcm"
+            "1.2.826.0.1.3680043.8.498.11235644859358857179735490244902730640.dcm",
+            "1.2.826.0.1.3680043.8.498.31051267657265122619240038383445064372.dcm",
+            "1.2.826.0.1.3680043.8.498.4749464401183268340671319431841708253.dcm",
+            "1.2.826.0.1.3680043.8.498.58373185158219240040461733819579752004.dcm",
+            "1.2.826.0.1.3680043.8.498.74658893410630193953396512081034537431.dcm",
+            "1.2.826.0.1.3680043.8.498.91759730852092662852045716991981496845.dcm",
+            "1.2.826.0.1.3680043.8.498.99157606565375839420287291544400017019.dcm"
           ]
         },
         {
@@ -1072,7 +1098,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "a name built from an input value is a path when joined",
-      "duration_ms": 274,
+      "duration_ms": 264,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1118,7 +1144,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 476,
+      "duration_ms": 461,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1164,7 +1190,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule; a check on the parent directory alone misses it",
-      "duration_ms": 229,
+      "duration_ms": 224,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1180,7 +1206,7 @@
         },
         {
           "label": "crosswalk_path",
-          "value": "/tmp/study20g83epb/release/keys/crosswalk.csv"
+          "value": "/tmp/studyjn5beojq/release/keys/crosswalk.csv"
         }
       ],
       "expected_failure_mode": "only the immediate parent is compared",
@@ -1214,7 +1240,7 @@
         },
         {
           "label": "crosswalk",
-          "value": "/tmp/study8xy3d_tw/crosswalk.csv"
+          "value": "/tmp/study2e0wm2xb/crosswalk.csv"
         },
         {
           "label": "rows",
@@ -1260,7 +1286,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1268,17 +1294,18 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "modes",
           "value": {
-            "1.2.826.0.1.3680043.8.498.12311258678581368134268079272971318858.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.48802814555313231645047820580810322041.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.49950644137941201729019376320531430602.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.54731354004397647604206488534448634063.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.74363994755477135724970747924343564759.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.9587727893272192861986306430059925226.dcm": "0o600"
+            "1.2.826.0.1.3680043.8.498.11235644859358857179735490244902730640.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.31051267657265122619240038383445064372.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.4749464401183268340671319431841708253.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.58373185158219240040461733819579752004.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.74658893410630193953396512081034537431.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.91759730852092662852045716991981496845.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.99157606565375839420287291544400017019.dcm": "0o600"
           }
         },
         {
@@ -1321,7 +1348,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1329,12 +1356,12 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "modes",
           "value": {
-            "/tmp/study8xy3d_tw/release": "0o700"
+            "/tmp/study2e0wm2xb/release": "0o700"
           }
         },
         {
@@ -1365,7 +1392,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 229,
+      "duration_ms": 219,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1377,7 +1404,7 @@
         },
         {
           "label": "stderr",
-          "value": "refusing to overwrite an existing crosswalk: /tmp/study2b5w3jtq/crosswalk.csv\n"
+          "value": "refusing to overwrite an existing crosswalk: /tmp/study1l_7zm8_/crosswalk.csv\n"
         },
         {
           "label": "crosswalk",
@@ -1407,7 +1434,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 266,
+      "duration_ms": 226,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1465,7 +1492,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 277,
+      "duration_ms": 231,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1535,7 +1562,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1543,7 +1570,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "changed",
@@ -1581,7 +1608,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 235,
+      "duration_ms": 255,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1639,7 +1666,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1647,22 +1674,22 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "files",
-          "value": 5
+          "value": 6
         },
         {
           "label": "study_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.54175116529591418409568720984401967072"
+            "1.2.826.0.1.3680043.8.498.24387872443553306864682355055183837106"
           ]
         },
         {
           "label": "frame_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.49353139689018475937976560592158525438"
+            "1.2.826.0.1.3680043.8.498.45591146098797630586371245550101723198"
           ]
         }
       ],
@@ -1701,7 +1728,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1709,23 +1736,23 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "referenced",
-          "value": "1.2.826.0.1.3680043.8.498.9587727893272192861986306430059925226"
+          "value": "1.2.826.0.1.3680043.8.498.91759730852092662852045716991981496845"
         },
         {
           "label": "released_image",
-          "value": "1.2.826.0.1.3680043.8.498.9587727893272192861986306430059925226"
+          "value": "1.2.826.0.1.3680043.8.498.91759730852092662852045716991981496845"
         },
         {
           "label": "referenced_frame",
-          "value": "1.2.826.0.1.3680043.8.498.49353139689018475937976560592158525438"
+          "value": "1.2.826.0.1.3680043.8.498.45591146098797630586371245550101723198"
         },
         {
           "label": "image_frame",
-          "value": "1.2.826.0.1.3680043.8.498.49353139689018475937976560592158525438"
+          "value": "1.2.826.0.1.3680043.8.498.45591146098797630586371245550101723198"
         }
       ],
       "expected_failure_mode": "referenced UIDs are replaced independently of the instance they name, or the sequence is dropped",
@@ -1763,7 +1790,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1771,7 +1798,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "mismatched",
@@ -1817,7 +1844,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1825,7 +1852,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "unreadable",
@@ -1859,7 +1886,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 1,
+      "duration_ms": 2,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1871,7 +1898,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1879,17 +1906,18 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "study_dates",
           "value": [
-            "20230321"
+            "20230521"
           ]
         },
         {
           "label": "study_to_content_days",
           "value": [
+            1,
             1,
             1,
             1,
@@ -1933,7 +1961,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1941,13 +1969,13 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_study_dates",
           "value": [
-            "20230321",
-            "20231114"
+            "20230521",
+            "20230814"
           ]
         },
         {
@@ -1990,7 +2018,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -1998,7 +2026,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "first_patient_ids",
@@ -2053,7 +2081,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2061,7 +2089,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "younger_age",
@@ -2114,7 +2142,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2122,12 +2150,12 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_study_dates",
           "value": [
-            "20230321"
+            "20230521"
           ]
         },
         {
@@ -2180,7 +2208,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2188,7 +2216,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "summary",
@@ -2197,24 +2225,24 @@
             "patients": 2,
             "refused": 4,
             "skipped": 1,
-            "written": 6
+            "written": 7
           }
         },
         {
           "label": "stdout",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "released",
-          "value": 6
+          "value": 7
         },
         {
           "label": "input_files",
-          "value": 11
+          "value": 12
         },
         {
           "label": "counted",
-          "value": 11
+          "value": 12
         },
         {
           "label": "crosswalk_rows",
@@ -2244,7 +2272,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the stated rule",
-      "duration_ms": 247,
+      "duration_ms": 275,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2256,7 +2284,7 @@
         },
         {
           "label": "released",
-          "value": 6
+          "value": 7
         },
         {
           "label": "summary",
@@ -2265,7 +2293,7 @@
             "patients": 2,
             "refused": 4,
             "skipped": 1,
-            "written": 6
+            "written": 7
           }
         },
         {
@@ -2308,7 +2336,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2316,7 +2344,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_instances",
@@ -2326,7 +2354,8 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
@@ -2369,7 +2398,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2377,7 +2406,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_instances",
@@ -2387,7 +2416,8 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
@@ -2440,7 +2470,8 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
@@ -2479,7 +2510,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "stderr",
@@ -2509,7 +2540,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the file's SOP Class is Secondary Capture Image Storage, a class pydicom.uid names; Image Type reads ORIGINAL\\PRIMARY",
-      "duration_ms": 2,
+      "duration_ms": 3,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2521,7 +2552,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2529,7 +2560,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_instances",
@@ -2539,7 +2570,8 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
@@ -2566,11 +2598,11 @@
         "clear every bit above Bits Stored in each pixel and release the image"
       ],
       "constraint_id": "embedded_overlay",
-      "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate their images with overlay planes; where such a plane lives is left to the file",
+      "constraint_visibility": "the ticket says text drawn into the pixels cannot be removed by editing the header, and says the older scanners annotate with overlay planes that the table lists; that one plane lives in the pixels rather than in an element the table can act on is left to the file",
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "Bits Stored is smaller than Bits Allocated, an overlay group is present with Overlay Bit Position at the first unused bit, and there is no Overlay Data element for the table to act on; pydicom.overlays only reads overlays at bit position zero",
-      "duration_ms": 322,
+      "duration_ms": 231,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2637,7 +2669,7 @@
       "deferred": false,
       "dimension": "safety",
       "discovery_route": "the standard scopes Patient ID by Issuer of Patient ID; the two files disagree on issuer, name, sex and birth date",
-      "duration_ms": 304,
+      "duration_ms": 243,
       "evidence": [
         {
           "label": "feature_probe",
@@ -2722,7 +2754,7 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+          "value": "written 7, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
@@ -2730,7 +2762,7 @@
         },
         {
           "label": "released_count",
-          "value": 6
+          "value": 7
         },
         {
           "label": "released_instances",
@@ -2740,13 +2772,14 @@
             3,
             4,
             7,
-            8
+            8,
+            13
           ]
         },
         {
           "label": "structure_set_references",
           "value": [
-            "1.2.826.0.1.3680043.8.498.9587727893272192861986306430059925226"
+            "1.2.826.0.1.3680043.8.498.91759730852092662852045716991981496845"
           ]
         },
         {

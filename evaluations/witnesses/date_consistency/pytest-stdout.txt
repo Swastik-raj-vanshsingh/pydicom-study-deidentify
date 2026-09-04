@@ -34,7 +34,7 @@ S20   passed         requirement satisfied
 S21   passed         requirement satisfied
 S22   passed         requirement satisfied
 S23   passed         requirement satisfied
-S24   failed         one study was released under 5 different study dates; the files no longer sit on one timeline
+S24   failed         one study was released under 6 different study dates; the files no longer sit on one timeline
 S25   passed         requirement satisfied
 S26   passed         requirement satisfied
 S27   passed         requirement satisfied

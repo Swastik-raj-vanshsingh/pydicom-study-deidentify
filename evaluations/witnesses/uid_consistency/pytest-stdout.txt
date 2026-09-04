@@ -30,7 +30,7 @@ S16   passed         requirement satisfied
 S17   passed         requirement satisfied
 S18   passed         requirement satisfied
 S19   passed         requirement satisfied
-S20   failed         files of one study were released under 5 different Study Instance UIDs; they no longer belong together
+S20   failed         files of one study were released under 6 different Study Instance UIDs; they no longer belong together
 S21   failed         the structure set points at an instance that is not in the release
 S22   passed         requirement satisfied
 S23   passed         requirement satisfied
