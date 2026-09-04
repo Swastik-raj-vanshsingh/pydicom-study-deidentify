@@ -2,28 +2,28 @@
   "reportFormat": "CTRF",
   "results": {
     "summary": {
-      "failed": 24,
+      "failed": 27,
       "other": 0,
       "passed": 21,
       "pending": 0,
-      "skipped": 2,
-      "tests": 47
+      "skipped": 3,
+      "tests": 51
     },
     "tests": [
       {
-        "duration": 242,
+        "duration": 249,
         "message": "requirement satisfied",
         "name": "U1",
         "status": "passed"
       },
       {
-        "duration": 279,
+        "duration": 297,
         "message": "requirement satisfied",
         "name": "U2",
         "status": "passed"
       },
       {
-        "duration": 255,
+        "duration": 257,
         "message": "requirement satisfied",
         "name": "U3",
         "status": "passed"
@@ -59,25 +59,25 @@
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "U9",
         "status": "passed"
       },
       {
-        "duration": 519,
+        "duration": 465,
         "message": "requirement satisfied",
         "name": "U10",
         "status": "passed"
       },
       {
-        "duration": 4,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "U11",
         "status": "passed"
       },
       {
-        "duration": 447,
+        "duration": 517,
         "message": "requirement satisfied",
         "name": "U12",
         "status": "passed"
@@ -95,31 +95,31 @@
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "S2",
         "status": "passed"
       },
       {
-        "duration": 4,
+        "duration": 2,
         "message": "identifying attributes inside a sequence item survived; the profile was applied to the top level only: ['Nested Clinic PHI7731', 'WKSTN-PHI7731', 'Tech^Bernard^PHI7731']",
         "name": "S3",
         "status": "failed"
       },
       {
-        "duration": 7,
+        "duration": 6,
         "message": "overlay text naming the patient is still in the release",
         "name": "S4",
         "status": "failed"
       },
       {
-        "duration": 5,
+        "duration": 25,
         "message": "curve groups the profile lists by wildcard tag survived: ['(5000,0010)', '(5000,3000)']",
         "name": "S5",
         "status": "failed"
       },
       {
-        "duration": 2,
+        "duration": 3,
         "message": "a private vendor note naming the patient was released",
         "name": "S6",
         "status": "failed"
@@ -132,24 +132,24 @@
       },
       {
         "duration": 1,
-        "message": "the release's file names carry original identifiers: {'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.17002017158289756081207268960805182871.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.25162656976616647173375807977282441642.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.37501342167682035206526479212234068269.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.5233743046300779730349025663467161036.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.67840377075693909428215215345207414403.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.72613664368106074192171702760719035107.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.97860048604167198839861339303101435343.dcm': ['MRN-7731-PHI'], 'MRN-8842-PHI/1.2.826.0.1.3680043.8.498.44001083732268026705912337908926115691.dcm': ['MRN-8842-PHI']}",
+        "message": "the release's file names carry original identifiers: {'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.22142736877886698663526143464782590192.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.32850970863755561915163855962884705031.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.4007010265070525969807996518827831658.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.41561873451793346361895915970849564960.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.43184184204916407709383309875681780994.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.49133358227452132499744888280670809102.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.54577871538266002016061274915616362293.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.61489701930001169747447004403659614258.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.96550174354465050189391426260997744288.dcm': ['MRN-7731-PHI'], 'MRN-8842-PHI/1.2.826.0.1.3680043.8.498.70528783773533345863365942794967701548.dcm': ['MRN-8842-PHI']}",
         "name": "S8",
         "status": "failed"
       },
       {
-        "duration": 250,
-        "message": "the run wrote 2 file(s) outside the release directory, where the identifier pointed: ['sibling/escaped-7731/1.2.826.0.1.3680043.8.498.42206139017982218767263876455777761888.dcm', 'sibling/escaped-7731/1.2.826.0.1.3680043.8.498.69313428450910901825407063391082042642.dcm']",
+        "duration": 222,
+        "message": "the run wrote 2 file(s) outside the release directory, where the identifier pointed: ['sibling/escaped-7731/1.2.826.0.1.3680043.8.498.12517228007476023454445472315703862333.dcm', 'sibling/escaped-7731/1.2.826.0.1.3680043.8.498.57047872553012705589547746001451372359.dcm']",
         "name": "S9",
         "status": "failed"
       },
       {
-        "duration": 530,
+        "duration": 455,
         "message": "the re-identification key was written inside the release directory",
         "name": "S10",
         "status": "failed"
       },
       {
-        "duration": 245,
+        "duration": 244,
         "message": "the re-identification key was written in a folder inside the release",
         "name": "S11",
         "status": "failed"
@@ -162,30 +162,30 @@
       },
       {
         "duration": 1,
-        "message": "released files are readable or writable by others: ['1.2.826.0.1.3680043.8.498.17002017158289756081207268960805182871.dcm', '1.2.826.0.1.3680043.8.498.25162656976616647173375807977282441642.dcm', '1.2.826.0.1.3680043.8.498.37501342167682035206526479212234068269.dcm', '1.2.826.0.1.3680043.8.498.5233743046300779730349025663467161036.dcm', '1.2.826.0.1.3680043.8.498.67840377075693909428215215345207414403.dcm', '1.2.826.0.1.3680043.8.498.72613664368106074192171702760719035107.dcm', '1.2.826.0.1.3680043.8.498.97860048604167198839861339303101435343.dcm', '1.2.826.0.1.3680043.8.498.44001083732268026705912337908926115691.dcm']",
+        "message": "released files are readable or writable by others: ['1.2.826.0.1.3680043.8.498.22142736877886698663526143464782590192.dcm', '1.2.826.0.1.3680043.8.498.32850970863755561915163855962884705031.dcm', '1.2.826.0.1.3680043.8.498.4007010265070525969807996518827831658.dcm', '1.2.826.0.1.3680043.8.498.41561873451793346361895915970849564960.dcm', '1.2.826.0.1.3680043.8.498.43184184204916407709383309875681780994.dcm', '1.2.826.0.1.3680043.8.498.49133358227452132499744888280670809102.dcm', '1.2.826.0.1.3680043.8.498.54577871538266002016061274915616362293.dcm', '1.2.826.0.1.3680043.8.498.61489701930001169747447004403659614258.dcm', '1.2.826.0.1.3680043.8.498.96550174354465050189391426260997744288.dcm', '1.2.826.0.1.3680043.8.498.70528783773533345863365942794967701548.dcm']",
         "name": "S13",
         "status": "failed"
       },
       {
         "duration": 1,
-        "message": "the release directory is listable or writable by others: ['/tmp/studybu38rjaq/release', '/tmp/studybu38rjaq/release/MRN-7731-PHI', '/tmp/studybu38rjaq/release/MRN-8842-PHI']",
+        "message": "the release directory is listable or writable by others: ['/tmp/studyoctbdfvb/release', '/tmp/studyoctbdfvb/release/MRN-7731-PHI', '/tmp/studyoctbdfvb/release/MRN-8842-PHI']",
         "name": "S14",
         "status": "failed"
       },
       {
-        "duration": 230,
+        "duration": 225,
         "message": "the crosswalk from a previous run was overwritten; that mapping was the only copy",
         "name": "S15",
         "status": "failed"
       },
       {
-        "duration": 254,
+        "duration": 221,
         "message": "a crosswalk cell still begins a spreadsheet formula: [\"=cmd|'/c calc'!A1\"]",
         "name": "S16",
         "status": "failed"
       },
       {
-        "duration": 251,
+        "duration": 221,
         "message": "a crosswalk cell still begins a spreadsheet formula: ['+MRN-7731', '@SUM(1+1)']",
         "name": "S17",
         "status": "failed"
@@ -197,14 +197,14 @@
         "status": "passed"
       },
       {
-        "duration": 238,
-        "message": "de-identified copies were written into the hospital's originals: ['release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.28941421492380193591162609505312337353.dcm', 'release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.65983707144923736436269472675686064070.dcm', 'release/MRN-8842-PHI/1.2.826.0.1.3680043.8.498.90813153581647342718459942837887573731.dcm', 'release/RSCH-0001/1.2.826.0.1.3680043.8.498.58499220638034812296705256927983023659.dcm', 'release/RSCH-0001/1.2.826.0.1.3680043.8.498.69835291932540596938953005945858843068.dcm', 'release/RSCH-0002/1.2.826.0.1.3680043.8.498.10850584034727825543316102195293645943.dcm']",
+        "duration": 246,
+        "message": "de-identified copies were written into the hospital's originals: ['release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.96651946438491202513342792341982079081.dcm', 'release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.9715992473427066465955267037406802071.dcm', 'release/MRN-8842-PHI/1.2.826.0.1.3680043.8.498.32397382414841550659097768920564123683.dcm', 'release/RSCH-0001/1.2.826.0.1.3680043.8.498.30644486458312151741068627484363594689.dcm', 'release/RSCH-0001/1.2.826.0.1.3680043.8.498.6690544352270797774177506148173696992.dcm', 'release/RSCH-0002/1.2.826.0.1.3680043.8.498.71178374317412000590719542457785081261.dcm']",
         "name": "S19",
         "status": "failed"
       },
       {
-        "duration": 1,
-        "message": "files of one study were released under 7 different Study Instance UIDs; they no longer belong together",
+        "duration": 2,
+        "message": "files of one study were released under 9 different Study Instance UIDs; they no longer belong together",
         "name": "S20",
         "status": "failed"
       },
@@ -215,8 +215,8 @@
         "status": "failed"
       },
       {
-        "duration": 1,
-        "message": "an original UID survived in the file header: [('1.2.826.0.1.3680043.8.498.17002017158289756081207268960805182871.dcm', '1.2.826.0.1.3680043.8.498.12123674036165082562663959068831151060'), ('1.2.826.0.1.3680043.8.498.37501342167682035206526479212234068269.dcm', '1.2.826.0.1.3680043.8.498.61447360194891771982616981692448913034'), ('1.2.826.0.1.3680043.8.498.5233743046300779730349025663467161036.dcm', '1.2.826.0.1.3680043.8.498.73610195164576004686649942544680412150'), ('1.2.826.0.1.3680043.8.498.67840377075693909428215215345207414403.dcm', '1.2.826.0.1.3680043.8.498.37115639941176922343478794779140383309'), ('1.2.826.0.1.3680043.8.498.72613664368106074192171702760719035107.dcm', '1.2.826.0.1.3680043.8.498.78966741729790540408976689077108553037')]",
+        "duration": 2,
+        "message": "an original UID survived in the file header: [('1.2.826.0.1.3680043.8.498.22142736877886698663526143464782590192.dcm', '1.2.826.0.1.3680043.8.498.8878911342343394215378643506181834475'), ('1.2.826.0.1.3680043.8.498.32850970863755561915163855962884705031.dcm', '1.2.826.0.1.3680043.8.498.53998800079363419866286426532460565016'), ('1.2.826.0.1.3680043.8.498.4007010265070525969807996518827831658.dcm', '1.2.826.0.1.3680043.8.498.2719096601617024859617659366045506458'), ('1.2.826.0.1.3680043.8.498.41561873451793346361895915970849564960.dcm', '1.2.826.0.1.3680043.8.498.46753151637463688513239546525844111103'), ('1.2.826.0.1.3680043.8.498.43184184204916407709383309875681780994.dcm', '1.2.826.0.1.3680043.8.498.11314305346907298899311778456577198902')]",
         "name": "S22",
         "status": "failed"
       },
@@ -227,8 +227,8 @@
         "status": "passed"
       },
       {
-        "duration": 1,
-        "message": "one study was released under 7 different study dates; the files no longer sit on one timeline",
+        "duration": 2,
+        "message": "one study was released under 9 different study dates; the files no longer sit on one timeline",
         "name": "S24",
         "status": "failed"
       },
@@ -245,14 +245,14 @@
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "S27",
         "status": "passed"
       },
       {
         "duration": 2,
-        "message": "two released dates still give an exact age of ninety or more: [(1, '19310509', 'StudyDate', '20240210', 92.0), (1, '19310509', 'ContentDate', '20240211', 92.0), (1, '19310509', 'AcquisitionDate', '20240210', 92.0), (1, '19310509', 'SeriesDate', '20240210', 92.0), (2, '19310429', 'StudyDate', '20240131', 92.0), (2, '19310429', 'ContentDate', '20240201', 92.0), (2, '19310429', 'AcquisitionDate', '20240131', 92.0), (2, '19310429', 'SeriesDate', '20240202', 92.0), (3, '19310301', 'StudyDate', '20231203', 92.0), (3, '19310301', 'ContentDate', '20231204', 92.0), (3, '19310301', 'AcquisitionDate', '20231203', 92.0), (3, '19310301', 'SeriesDate', '20231203', 92.0), (7, '19300519', 'StudyDate', '20230220', 92.0), (7, '19300519', 'ContentDate', '20230221', 92.0), (7, '19300519', 'AcquisitionDate', '20230220', 92.0), (7, '19300519', 'SeriesDate', '20230220', 92.0), (8, '19301220', 'StudyDate', '20230923', 92.0), (8, '19301220', 'ContentDate', '20230924', 92.0), (8, '19301220', 'AcquisitionDate', '20230923', 92.0), (8, '19301220', 'SeriesDate', '20230923', 92.0)]",
+        "message": "two released dates still give an exact age of ninety or more: [(1, '19310421', 'StudyDate', '20240123', 92.0), (1, '19310421', 'ContentDate', '20240124', 92.0), (1, '19310421', 'AcquisitionDate', '20240123', 92.0), (1, '19310421', 'SeriesDate', '20240123', 92.0), (2, '19300914', 'StudyDate', '20230618', 92.0), (2, '19300914', 'ContentDate', '20230619', 92.0), (2, '19300914', 'AcquisitionDate', '20230618', 92.0), (2, '19300914', 'SeriesDate', '20230620', 92.0), (3, '19301225', 'StudyDate', '20230928', 92.0), (3, '19301225', 'ContentDate', '20230929', 92.0), (3, '19301225', 'AcquisitionDate', '20230928', 92.0), (3, '19301225', 'SeriesDate', '20230928', 92.0), (7, '19310403', 'StudyDate', '20240105', 92.0), (7, '19310403', 'ContentDate', '20240106', 92.0), (7, '19310403', 'AcquisitionDate', '20240105', 92.0), (7, '19310403', 'SeriesDate', '20240105', 92.0), (8, '19300605', 'StudyDate', '20230309', 92.0), (8, '19300605', 'ContentDate', '20230310', 92.0), (8, '19300605', 'AcquisitionDate', '20230309', 92.0), (8, '19300605', 'SeriesDate', '20230309', 92.0)]",
         "name": "S28",
         "status": "failed"
       },
@@ -263,19 +263,19 @@
         "status": "passed"
       },
       {
-        "duration": 275,
+        "duration": 221,
         "message": "the run released nothing, so this is not a run that partly succeeded",
         "name": "S30",
         "status": "skipped"
       },
       {
-        "duration": 5,
+        "duration": 3,
         "message": "the image whose Burned In Annotation is YES was released; editing its header does nothing about text drawn into its pixels",
         "name": "S31",
         "status": "failed"
       },
       {
-        "duration": 4,
+        "duration": 3,
         "message": "the screen save was released; its pixels carry the viewer's patient banner",
         "name": "S32",
         "status": "failed"
@@ -290,6 +290,30 @@
         "duration": 1,
         "message": "the run released nothing, so the reporting of one bad file among many cannot be judged",
         "name": "S34",
+        "status": "skipped"
+      },
+      {
+        "duration": 3,
+        "message": "the secondary capture whose Image Type reads ORIGINAL\\PRIMARY was released; its SOP Class says what it is",
+        "name": "S35",
+        "status": "failed"
+      },
+      {
+        "duration": 221,
+        "message": "the older CT was released with its overlay still in the unused high bits of 2 pixel(s); the table had no (60xx,3000) to remove",
+        "name": "S36",
+        "status": "failed"
+      },
+      {
+        "duration": 233,
+        "message": "two different people, from two hospitals, were released under one pseudonym because their identifiers collide",
+        "name": "S37",
+        "status": "failed"
+      },
+      {
+        "duration": 2,
+        "message": "ordinary references do not resolve; the identifier map is broken and that is counted elsewhere",
+        "name": "S38",
         "status": "skipped"
       }
     ]

@@ -1,9 +1,9 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -186,8 +186,8 @@
+@@ -203,8 +203,8 @@
  
-     def offset_days(self, original_id: str) -> int:
-         key = str(original_id).strip() or "<no id>"
+     def offset_days(self, identity_key: str, issuer: str | None = None) -> int:
+         key = identity_key if issuer is None else self.identity(identity_key, issuer)
 -        if key not in self.offsets:
 -            digest = hashlib.sha256((self._salt + key).encode("utf-8")).digest()
 +        if True:

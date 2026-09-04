@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -542,11 +542,6 @@
+@@ -631,11 +631,6 @@
              print("refused %s: %s" % (path.relative_to(input_dir), why), file=sys.stderr)
          except (InvalidDicomError, OSError, ValueError, AttributeError, KeyError, TypeError) as why:
              failed += 1

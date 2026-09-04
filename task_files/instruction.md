@@ -50,7 +50,8 @@ Two things the table cannot decide for you:
   patient is released under one pseudonym of the form `PREFIX-NNNN`, numbered
   from `0001` in the order patients are first seen; `--patient-prefix` sets
   the prefix and defaults to `RSCH`. Patient Name and Patient ID both carry the
-  pseudonym in the release.
+  pseudonym in the release. The directory holds exports from more than one
+  hospital, and each hospital assigns its own patient identifiers.
 
 The release must say what was done to it. Set `Patient Identity Removed` to
 `YES` and record the profile and both options in `De-identification Method
@@ -59,10 +60,11 @@ scheme `DCM`), with a short `De-identification Method` text alongside.
 
 ## 2. What must not be released
 
-An image that may carry text burned into its pixels cannot be de-identified by
-editing its header. **A file whose `Burned In Annotation` is `YES`, or whose
-`Image Type` marks it as a secondary capture or screen save, is not released.**
-It is reported as refused, and nothing about it is written into `OUTPUT_DIR`.
+An image that may carry text drawn into its pixels cannot be de-identified by
+editing its header. **A file marked as carrying burned-in annotation, a
+secondary capture, or a screen save is not released.** It is reported as
+refused, and nothing about it is written into `OUTPUT_DIR`. The older CT
+scanners in the fleet annotate their images with overlay planes.
 
 ## 3. The crosswalk
 
@@ -110,6 +112,6 @@ and exit non-zero if anything was refused or failed, so a pipeline notices.
 
 `pydicom.cli.show` and `pydicom.cli.codify` show how a subcommand registers
 itself and parses its arguments. `Dataset.walk`, `Dataset.remove_private_tags`,
-`pydicom.uid.generate_uid`, `Dataset.save_as` and `FileMetaDataset` are the
-pieces of the library this work sits on. The existing commands must keep
+`pydicom.uid`, `pydicom.overlays`, `Dataset.save_as` and `FileMetaDataset` are
+the pieces of the library this work sits on. The existing commands must keep
 working as they do today.

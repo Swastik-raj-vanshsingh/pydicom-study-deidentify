@@ -1,12 +1,20 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -377,9 +377,6 @@
-     # phantom patient in the crosswalk.
-     if "SOPInstanceUID" not in dataset or not str(dataset.SOPInstanceUID).strip():
-         raise ValueError("no SOP Instance UID; not a releasable instance")
--    reason = _may_carry_burned_in_text(dataset)
--    if reason:
--        raise ReleaseRefused(reason)
- 
-     original_id = str(dataset.get("PatientID", "") or "")
-     original_name = str(dataset.get("PatientName", "") or "")
+@@ -407,7 +407,7 @@
+ def _may_carry_burned_in_text(dataset: Dataset) -> str | None:
+     """Why the image must not be released as de-identified, or None."""
+     burned = str(dataset.get("BurnedInAnnotation", "") or "").strip().upper()
+-    if burned == "YES":
++    if burned == "YES" and False:
+         return "Burned In Annotation is YES"
+     if str(dataset.get("SOPClassUID", "") or "") in SECONDARY_CAPTURE_CLASSES:
+         return "SOP Class is Secondary Capture"
+@@ -418,7 +418,7 @@
+     if image_type is not None:
+         values = [str(v).upper() for v in (image_type if dataset["ImageType"].VM > 1 else [image_type])]
+         for value in values:
+-            for marker in SECONDARY_IMAGE_TYPES:
++            for marker in ():
+                 if marker in value:
+                     return "Image Type is %s" % "\\".join(values)
+     return None

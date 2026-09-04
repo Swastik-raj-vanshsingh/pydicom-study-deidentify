@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -472,7 +472,7 @@
+@@ -544,7 +544,7 @@
  
  
  def _write_crosswalk(path: Path, study: Study) -> None:
@@ -9,7 +9,7 @@
      with os.fdopen(fd, "w", newline="", encoding="utf-8") as handle:
          writer = csv.writer(handle)
          writer.writerow(["original_patient_id", "original_patient_name", "pseudonym"])
-@@ -502,8 +502,6 @@
+@@ -574,8 +574,6 @@
          sys.exit("the output directory must not be inside the input directory")
      if crosswalk == output_dir or output_dir in crosswalk.parents:
          sys.exit("the crosswalk must not be written inside the release directory")

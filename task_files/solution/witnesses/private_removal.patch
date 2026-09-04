@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -291,7 +291,6 @@
+@@ -308,7 +308,6 @@
          if tag in METHOD_TAGS:
              continue
          if tag.is_private:

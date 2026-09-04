@@ -46,6 +46,23 @@ fairly leave the situation unstated.
   private blocks, repeating groups and the file header, and the objects
   reference each other, so cleaning them independently breaks the study.
 
+## What the supplied table gives away, and what it does not
+
+The table shipped in the image is the innolitics rendering of PS3.15 Table
+E.1-1, columns included. Two of those columns are the two options this task
+switches on. That means the table answers, for every attribute, whether the
+modified-dates option moves it and whether the characteristics option keeps
+it, so the question this task first relied on, whether the birth date moves,
+is answered by the file. Revision 1 learned this from a frontier trajectory
+that read the columns.
+
+The table is kept as it is, because a research office would use it as it is.
+The headroom that survives a model reading every column is the set of things
+the table cannot say: what an object *is* when its Image Type does not say,
+where an overlay plane physically lives, who counts as one patient when two
+hospitals share an identifier space, and what a reference points at once its
+target has been refused.
+
 ## Provenance
 
 `pydicom/pydicom` at commit `f1eb627599020bcffd1eb171be9d1a71d10652f3`

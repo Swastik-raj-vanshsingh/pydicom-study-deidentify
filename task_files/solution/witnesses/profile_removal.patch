@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -270,10 +270,6 @@
+@@ -287,10 +287,6 @@
          del dataset[tag]
          return
      if action.startswith("Z"):

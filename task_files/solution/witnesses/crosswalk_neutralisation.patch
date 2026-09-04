@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -486,8 +486,6 @@
+@@ -558,8 +558,6 @@
  
  def _spreadsheet_safe(value: str) -> str:
      text = "" if value is None else str(value)

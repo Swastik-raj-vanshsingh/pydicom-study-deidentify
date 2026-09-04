@@ -1,14 +1,14 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -516,6 +516,7 @@
+@@ -605,6 +605,7 @@
          if not _is_dicom(path):
              skipped += 1
              continue
 +        written += 1
          try:
              dataset = dcmread(str(path))
-             deidentify_dataset(dataset, profile, study)
-@@ -536,7 +537,6 @@
+             deidentify_dataset(dataset, profile, study, refused_uids)
+@@ -625,7 +626,6 @@
                      pass
                  raise
              _private(target, 0o600)

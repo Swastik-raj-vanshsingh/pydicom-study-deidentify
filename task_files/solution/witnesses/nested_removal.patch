@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -282,7 +282,7 @@
+@@ -299,7 +299,7 @@
      del dataset[tag]
  
  
@@ -9,7 +9,7 @@
      """Walk one dataset, recursing into every sequence item."""
      for tag in sorted(dataset.keys()):
          if tag not in dataset:
-@@ -303,12 +303,14 @@
+@@ -326,12 +326,14 @@
                  del dataset[tag]
                  continue
              for item in elem.value:

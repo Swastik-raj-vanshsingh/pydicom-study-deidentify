@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -409,8 +409,6 @@
+     burned = str(dataset.get("BurnedInAnnotation", "") or "").strip().upper()
+     if burned == "YES":
+         return "Burned In Annotation is YES"
+-    if str(dataset.get("SOPClassUID", "") or "") in SECONDARY_CAPTURE_CLASSES:
+-        return "SOP Class is Secondary Capture"
+     embedded = _overlay_in_pixel_bits(dataset)
+     if embedded:
+         return embedded

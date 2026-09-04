@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -522,20 +522,7 @@
+@@ -611,20 +611,7 @@
              _rebuild_file_meta(dataset)
              target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
              temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)

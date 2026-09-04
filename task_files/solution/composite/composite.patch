@@ -14,7 +14,7 @@
  """
  
  from __future__ import annotations
-@@ -15,544 +8,160 @@
+@@ -15,633 +8,163 @@
  import argparse
  import csv
  import datetime
@@ -82,6 +82,14 @@
 -
 -# Attributes that decide whether an image may carry burned-in text.
 -SECONDARY_IMAGE_TYPES = ("SECONDARY", "SCREEN SAVE", "SCREENSAVE")
+-# A secondary capture is one by its SOP Class whatever Image Type says.
+-SECONDARY_CAPTURE_CLASSES = {
+-    "1.2.840.10008.5.1.4.1.1.7",
+-    "1.2.840.10008.5.1.4.1.1.7.1",
+-    "1.2.840.10008.5.1.4.1.1.7.2",
+-    "1.2.840.10008.5.1.4.1.1.7.3",
+-    "1.2.840.10008.5.1.4.1.1.7.4",
+-}
 -
  MAX_AGE = 90
  
@@ -205,19 +213,28 @@
 -            self.uids[original] = generate_uid()
 -        return self.uids[original]
 -
--    def pseudonym(self, original_id: str, original_name: str) -> str:
--        key = str(original_id).strip() or "<no id>"
+-    @staticmethod
+-    def identity(original_id: str, issuer: str) -> str:
+-        """One patient: an identifier within the authority that issued it.
+-
+-        The directory holds exports from several hospitals, and a Patient ID
+-        is only unique within its Issuer of Patient ID.
+-        """
+-        return "%s\x1f%s" % (str(original_id).strip() or "<no id>", str(issuer).strip())
+-
+-    def pseudonym(self, original_id: str, original_name: str, issuer: str = "") -> str:
+-        key = self.identity(original_id, issuer)
 -        if key not in self.patients:
 -            number = len(self.patients) + 1
 -            self.patients[key] = {
--                "original_patient_id": key,
+-                "original_patient_id": str(original_id).strip() or "<no id>",
 -                "original_patient_name": str(original_name),
 -                "pseudonym": "%s-%04d" % (self.prefix, number),
 -            }
 -        return self.patients[key]["pseudonym"]
 -
--    def offset_days(self, original_id: str) -> int:
--        key = str(original_id).strip() or "<no id>"
+-    def offset_days(self, identity_key: str, issuer: str | None = None) -> int:
+-        key = identity_key if issuer is None else self.identity(identity_key, issuer)
 -        if key not in self.offsets:
 -            digest = hashlib.sha256((self._salt + key).encode("utf-8")).digest()
 -            # Between 31 and 400 days back: never a real date, always the same
@@ -288,7 +305,7 @@
 -    if elem.VR in DATE_VRS:
 -        # Retain Longitudinal Temporal Information with Modified Dates: the
 -        # value moves by the patient's offset instead of being removed.
--        days = study.offset_days(patient_id)
+-        days = study.offset_days(patient_id)  # patient_id is the identity key
 -        if elem.VR == "TM":
 -            return  # a time alone carries no calendar information
 -        shifted = [
@@ -334,15 +351,19 @@
              continue
 -        if tag.is_private:
 -            del dataset[tag]
-+        action = actions.get(int(tag))
-+        if action is None:
-             continue
+-            continue
 -        if tag in RETAINED_CHARACTERISTICS:
 -            if tag == Tag(0x0010, 0x1010):
 -                _cap_age(elem)
 -            continue
 -        if elem.VR == "SQ" and not isinstance(elem.value, (str, bytes)):
 -            action = profile.action_for(tag)
+-            if action and "U*" in action:
+-                # The table's U*: keep the sequence, replace the UIDs inside
+-                # it. Each of those has its own row, so recursing is enough.
+-                for item in elem.value:
+-                    _clean(item, profile, study, patient_id)
+-                continue
 -            if action and action.startswith("X"):
 -                del dataset[tag]
 -                continue
@@ -353,21 +374,25 @@
 -            _apply(dataset, elem, "C", study, patient_id)
 -            continue
 -        action = profile.action_for(tag)
--        if action is None:
++        action = actions.get(int(tag))
+         if action is None:
 -            if elem.VR == "UI" and tag.group not in (0x0002, 0x0008):
 -                # Unlisted UIDs that still identify an instance are remapped
 -                # so references stay consistent.
 -                pass
--            continue
+             continue
 -        _apply(dataset, elem, action, study, patient_id)
-+        if "U" in action and elem.VR == "UI":
++        if elem.VR == "SQ" and "U*" in action:
++            for item in elem.value:
++                clean(item, actions, days)
++        elif "U" in action and elem.VR == "UI":
 +            elem.value = generate_uid()
 +        elif action.startswith("X"):
 +            del dataset[tag]
 +        elif action.startswith("Z"):
 +            elem.value = Sequence() if elem.VR == "SQ" else None
 +        elif action.startswith("D"):
-+            elem.value = "REMOVED"
++            elem.value = Sequence() if elem.VR == "SQ" else "REMOVED"
 +        else:
 +            del dataset[tag]
  
@@ -419,11 +444,44 @@
 +    names: dict[str, str] = {}
 +    written = refused = failed = skipped = 0
  
+-def _overlay_in_pixel_bits(dataset: Dataset) -> str | None:
+-    """An overlay plane kept in the unused high bits of Pixel Data.
+-
+-    Older scanners did this (the usage is retired): Bits Stored is smaller than
+-    Bits Allocated and the overlay group's Overlay Bit Position points at a bit
+-    above the stored range. There is no (60xx,3000) for the profile to remove;
+-    the text is in the pixels.
+-    """
+-    if "PixelData" not in dataset:
+-        return None
+-    try:
+-        stored = int(dataset.get("BitsStored", 0) or 0)
+-        allocated = int(dataset.get("BitsAllocated", 0) or 0)
+-    except (TypeError, ValueError):
+-        return None
+-    if not stored or stored >= allocated:
+-        return None
+-    for elem in dataset:
+-        if 0x6000 <= elem.tag.group <= 0x60FF and elem.tag.element == 0x0102:
+-            try:
+-                position = int(elem.value)
+-            except (TypeError, ValueError):
+-                continue
+-            if position >= stored and Tag(elem.tag.group, 0x3000) not in dataset:
+-                return "overlay plane stored in the unused bits of Pixel Data"
+-    return None
+-
+-
 -def _may_carry_burned_in_text(dataset: Dataset) -> str | None:
 -    """Why the image must not be released as de-identified, or None."""
 -    burned = str(dataset.get("BurnedInAnnotation", "") or "").strip().upper()
 -    if burned == "YES":
 -        return "Burned In Annotation is YES"
+-    if str(dataset.get("SOPClassUID", "") or "") in SECONDARY_CAPTURE_CLASSES:
+-        return "SOP Class is Secondary Capture"
+-    embedded = _overlay_in_pixel_bits(dataset)
+-    if embedded:
+-        return embedded
 -    image_type = dataset.get("ImageType")
 -    if image_type is not None:
 -        values = [str(v).upper() for v in (image_type if dataset["ImageType"].VM > 1 else [image_type])]
@@ -434,8 +492,17 @@
 -    return None
 -
 -
+-def _referenced_instances(dataset: Dataset) -> set[str]:
+-    found: set[str] = set()
+-    for elem in dataset.iterall():
+-        if elem.tag == Tag(0x0008, 0x1155) and elem.value:
+-            values = elem.value if elem.VM > 1 else [elem.value]
+-            found.update(str(v) for v in values)
+-    return found
+-
+-
 -def deidentify_dataset(
--    dataset: Dataset, profile: Profile, study: Study
+-    dataset: Dataset, profile: Profile, study: Study, refused_uids: set[str] | None = None
 -) -> tuple[str, str]:
 -    """De-identify one dataset in place. Returns (pseudonym, original id)."""
 -    # Nothing about this file touches the study-wide state until the file
@@ -446,10 +513,17 @@
 -    reason = _may_carry_burned_in_text(dataset)
 -    if reason:
 -        raise ReleaseRefused(reason)
+-    # A file that points at an instance the run holds back would leave the
+-    # partner with a reference to nothing; it goes the same way as its target.
+-    if refused_uids:
+-        pointing_at = _referenced_instances(dataset) & refused_uids
+-        if pointing_at:
+-            raise ReleaseRefused("refers to an instance that was not released")
 -
 -    original_id = str(dataset.get("PatientID", "") or "")
 -    original_name = str(dataset.get("PatientName", "") or "")
--    pseudonym = study.pseudonym(original_id, original_name)
+-    issuer = str(dataset.get("IssuerOfPatientID", "") or "")
+-    pseudonym = study.pseudonym(original_id, original_name, issuer)
 -
 -    # Age is derived before the dates move, then kept under the option.
 -    years = _stated_years(dataset)
@@ -460,7 +534,7 @@
 -        if derived:
 -            dataset.PatientAge = derived
 -
--    _clean(dataset, profile, study, original_id)
+-    _clean(dataset, profile, study, study.identity(original_id, issuer))
 -
 -    # Capping Patient's Age is not enough on its own. Shifting every date by
 -    # one offset keeps the interval between them, and the interval from the
@@ -612,13 +686,30 @@
 -    _private(output_dir, 0o700)
 -
 -    written = refused = failed = skipped = 0
--    for path in _iter_candidates(input_dir):
+-    candidates = list(_iter_candidates(input_dir))
+-
+-    # First pass: which instances will be held back. Anything that refers to
+-    # one of them must not go out either, whatever order the files sort in.
+-    refused_uids: set[str] = set()
+-    for path in candidates:
+-        if not _is_dicom(path):
+-            continue
+-        try:
+-            header = dcmread(str(path), stop_before_pixels=False)
+-        except Exception:
+-            continue
+-        if _may_carry_burned_in_text(header):
+-            instance = str(header.get("SOPInstanceUID", "") or "").strip()
+-            if instance:
+-                refused_uids.add(instance)
+-
+-    for path in candidates:
 -        if not _is_dicom(path):
 -            skipped += 1
 -            continue
 -        try:
 -            dataset = dcmread(str(path))
--            deidentify_dataset(dataset, profile, study)
+-            deidentify_dataset(dataset, profile, study, refused_uids)
 -            _rebuild_file_meta(dataset)
 -            target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
 -            temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)

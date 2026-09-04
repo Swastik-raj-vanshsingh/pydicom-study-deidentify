@@ -34,7 +34,8 @@ def main_run() -> tuple[Study, Result]:
     """
 
     def build() -> tuple[Study, Result]:
-        study = Study(secondary_capture=True, broken_first=False)
+        study = Study(secondary_capture=True, broken_first=False,
+                      plain_secondary=True, presentation_state=True)
         return study, run_release(study)
 
     return _cached("main", build)
@@ -44,10 +45,35 @@ def resilience_run() -> tuple[Study, Result]:
     """The same study with an unreadable file sorted ahead of every good one."""
 
     def build() -> tuple[Study, Result]:
-        study = Study(secondary_capture=True, broken_first=True)
+        study = Study(secondary_capture=True, broken_first=True,
+                      plain_secondary=True, presentation_state=True)
         return study, run_release(study)
 
     return _cached("resilience", build)
+
+
+def embedded_overlay_run() -> tuple[Study, Result]:
+    """An older CT whose overlay lives in the pixel high bits, beside an ordinary CT."""
+
+    def build() -> tuple[Study, Result]:
+        study = Study(rtstruct=False, broken_first=False, burned_in=False,
+                      non_dicom=False, no_extension=False, subdirectory=False,
+                      embedded_overlay=True)
+        return study, run_release(study)
+
+    return _cached("embedded_overlay", build)
+
+
+def two_sites_run() -> tuple[Study, Result]:
+    """Exports from two hospitals whose patient identifiers collide."""
+
+    def build() -> tuple[Study, Result]:
+        study = Study(rtstruct=False, broken_first=False, burned_in=False,
+                      non_dicom=False, no_extension=False, subdirectory=False,
+                      second_site=True)
+        return study, run_release(study)
+
+    return _cached("two_sites", build)
 
 
 def clean_run() -> tuple[Study, Result]:

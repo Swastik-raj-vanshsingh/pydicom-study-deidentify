@@ -4,26 +4,26 @@
     "summary": {
       "failed": 0,
       "other": 0,
-      "passed": 47,
+      "passed": 51,
       "pending": 0,
       "skipped": 0,
-      "tests": 47
+      "tests": 51
     },
     "tests": [
       {
-        "duration": 247,
+        "duration": 234,
         "message": "requirement satisfied",
         "name": "U1",
         "status": "passed"
       },
       {
-        "duration": 326,
+        "duration": 231,
         "message": "requirement satisfied",
         "name": "U2",
         "status": "passed"
       },
       {
-        "duration": 280,
+        "duration": 230,
         "message": "requirement satisfied",
         "name": "U3",
         "status": "passed"
@@ -59,13 +59,13 @@
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "U9",
         "status": "passed"
       },
       {
-        "duration": 671,
+        "duration": 468,
         "message": "requirement satisfied",
         "name": "U10",
         "status": "passed"
@@ -77,43 +77,43 @@
         "status": "passed"
       },
       {
-        "duration": 956,
+        "duration": 446,
         "message": "requirement satisfied",
         "name": "U12",
         "status": "passed"
       },
       {
-        "duration": 8,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "U13",
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "S1",
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "requirement satisfied",
         "name": "S2",
         "status": "passed"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "requirement satisfied",
         "name": "S3",
         "status": "passed"
       },
       {
-        "duration": 4,
+        "duration": 6,
         "message": "requirement satisfied",
         "name": "S4",
         "status": "passed"
       },
       {
-        "duration": 4,
+        "duration": 3,
         "message": "requirement satisfied",
         "name": "S5",
         "status": "passed"
@@ -137,19 +137,19 @@
         "status": "passed"
       },
       {
-        "duration": 256,
+        "duration": 251,
         "message": "requirement satisfied",
         "name": "S9",
         "status": "passed"
       },
       {
-        "duration": 548,
+        "duration": 456,
         "message": "requirement satisfied",
         "name": "S10",
         "status": "passed"
       },
       {
-        "duration": 217,
+        "duration": 216,
         "message": "requirement satisfied",
         "name": "S11",
         "status": "passed"
@@ -173,19 +173,19 @@
         "status": "passed"
       },
       {
-        "duration": 217,
+        "duration": 216,
         "message": "requirement satisfied",
         "name": "S15",
         "status": "passed"
       },
       {
-        "duration": 235,
+        "duration": 238,
         "message": "requirement satisfied",
         "name": "S16",
         "status": "passed"
       },
       {
-        "duration": 238,
+        "duration": 222,
         "message": "requirement satisfied",
         "name": "S17",
         "status": "passed"
@@ -197,7 +197,7 @@
         "status": "passed"
       },
       {
-        "duration": 237,
+        "duration": 255,
         "message": "requirement satisfied",
         "name": "S19",
         "status": "passed"
@@ -263,13 +263,13 @@
         "status": "passed"
       },
       {
-        "duration": 231,
+        "duration": 257,
         "message": "requirement satisfied",
         "name": "S30",
         "status": "passed"
       },
       {
-        "duration": 2,
+        "duration": 3,
         "message": "requirement satisfied",
         "name": "S31",
         "status": "passed"
@@ -290,6 +290,30 @@
         "duration": 1,
         "message": "requirement satisfied",
         "name": "S34",
+        "status": "passed"
+      },
+      {
+        "duration": 2,
+        "message": "requirement satisfied",
+        "name": "S35",
+        "status": "passed"
+      },
+      {
+        "duration": 237,
+        "message": "requirement satisfied",
+        "name": "S36",
+        "status": "passed"
+      },
+      {
+        "duration": 373,
+        "message": "requirement satisfied",
+        "name": "S37",
+        "status": "passed"
+      },
+      {
+        "duration": 2,
+        "message": "requirement satisfied",
+        "name": "S38",
         "status": "passed"
       }
     ]

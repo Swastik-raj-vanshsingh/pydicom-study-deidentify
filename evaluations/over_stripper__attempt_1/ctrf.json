@@ -6,24 +6,24 @@
       "other": 0,
       "passed": 7,
       "pending": 0,
-      "skipped": 34,
-      "tests": 47
+      "skipped": 38,
+      "tests": 51
     },
     "tests": [
       {
-        "duration": 238,
+        "duration": 243,
         "message": "requirement satisfied",
         "name": "U1",
         "status": "passed"
       },
       {
-        "duration": 262,
+        "duration": 240,
         "message": "requirement satisfied",
         "name": "U2",
         "status": "passed"
       },
       {
-        "duration": 239,
+        "duration": 228,
         "message": "requirement satisfied",
         "name": "U3",
         "status": "passed"
@@ -65,7 +65,7 @@
         "status": "failed"
       },
       {
-        "duration": 579,
+        "duration": 491,
         "message": "the file in a subdirectory of the input directory was not released",
         "name": "U10",
         "status": "failed"
@@ -77,13 +77,13 @@
         "status": "passed"
       },
       {
-        "duration": 514,
+        "duration": 455,
         "message": "requirement satisfied",
         "name": "U12",
         "status": "passed"
       },
       {
-        "duration": 3,
+        "duration": 1,
         "message": "fewer than two images were released",
         "name": "U13",
         "status": "failed"
@@ -113,13 +113,13 @@
         "status": "skipped"
       },
       {
-        "duration": 3,
+        "duration": 5,
         "message": "utility incomplete; safety not measured",
         "name": "S5",
         "status": "skipped"
       },
       {
-        "duration": 1,
+        "duration": 2,
         "message": "utility incomplete; safety not measured",
         "name": "S6",
         "status": "skipped"
@@ -137,19 +137,19 @@
         "status": "skipped"
       },
       {
-        "duration": 269,
+        "duration": 240,
         "message": "utility incomplete; safety not measured",
         "name": "S9",
         "status": "skipped"
       },
       {
-        "duration": 460,
+        "duration": 445,
         "message": "utility incomplete; safety not measured",
         "name": "S10",
         "status": "skipped"
       },
       {
-        "duration": 256,
+        "duration": 242,
         "message": "utility incomplete; safety not measured",
         "name": "S11",
         "status": "skipped"
@@ -173,19 +173,19 @@
         "status": "skipped"
       },
       {
-        "duration": 237,
+        "duration": 233,
         "message": "utility incomplete; safety not measured",
         "name": "S15",
         "status": "skipped"
       },
       {
-        "duration": 307,
+        "duration": 240,
         "message": "utility incomplete; safety not measured",
         "name": "S16",
         "status": "skipped"
       },
       {
-        "duration": 243,
+        "duration": 223,
         "message": "utility incomplete; safety not measured",
         "name": "S17",
         "status": "skipped"
@@ -197,7 +197,7 @@
         "status": "skipped"
       },
       {
-        "duration": 280,
+        "duration": 233,
         "message": "utility incomplete; safety not measured",
         "name": "S19",
         "status": "skipped"
@@ -227,7 +227,7 @@
         "status": "skipped"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "utility incomplete; safety not measured",
         "name": "S24",
         "status": "skipped"
@@ -245,7 +245,7 @@
         "status": "skipped"
       },
       {
-        "duration": 2,
+        "duration": 1,
         "message": "utility incomplete; safety not measured",
         "name": "S27",
         "status": "skipped"
@@ -263,7 +263,7 @@
         "status": "skipped"
       },
       {
-        "duration": 253,
+        "duration": 249,
         "message": "utility incomplete; safety not measured",
         "name": "S30",
         "status": "skipped"
@@ -290,6 +290,30 @@
         "duration": 1,
         "message": "utility incomplete; safety not measured",
         "name": "S34",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S35",
+        "status": "skipped"
+      },
+      {
+        "duration": 229,
+        "message": "utility incomplete; safety not measured",
+        "name": "S36",
+        "status": "skipped"
+      },
+      {
+        "duration": 249,
+        "message": "utility incomplete; safety not measured",
+        "name": "S37",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S38",
         "status": "skipped"
       }
     ]

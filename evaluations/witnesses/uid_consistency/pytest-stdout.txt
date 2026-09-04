@@ -45,8 +45,12 @@ S31   passed         requirement satisfied
 S32   passed         requirement satisfied
 S33   passed         requirement satisfied
 S34   passed         requirement satisfied
+S35   passed         requirement satisfied
+S36   passed         requirement satisfied
+S37   passed         requirement satisfied
+S38   not_evaluated  ordinary references do not resolve; the identifier map is broken and that is counted elsewhere
 
 utility 13/13 passed
-safety groups 18/19 passed of 19
+safety groups 21/22 passed of 23
 independent constraint groups violated: 1 ['uid_consistency']
 reward 0.0

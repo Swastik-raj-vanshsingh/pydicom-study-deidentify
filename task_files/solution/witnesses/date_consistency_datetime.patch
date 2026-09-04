@@ -1,9 +1,9 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -252,7 +252,7 @@
+@@ -269,7 +269,7 @@
          # Retain Longitudinal Temporal Information with Modified Dates: the
          # value moves by the patient's offset instead of being removed.
-         days = study.offset_days(patient_id)
+         days = study.offset_days(patient_id)  # patient_id is the identity key
 -        if elem.VR == "TM":
 +        if elem.VR in ("TM", "DT"):
              return  # a time alone carries no calendar information

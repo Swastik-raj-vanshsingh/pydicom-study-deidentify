@@ -1,11 +1,11 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -518,10 +518,13 @@
+@@ -607,10 +607,13 @@
              continue
          try:
              dataset = dcmread(str(path))
--            deidentify_dataset(dataset, profile, study)
-+            _pseudonym, _original_id = deidentify_dataset(dataset, profile, study)
+-            deidentify_dataset(dataset, profile, study, refused_uids)
++            _pseudonym, _original_id = deidentify_dataset(dataset, profile, study, refused_uids)
              _rebuild_file_meta(dataset)
 -            target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
 -            temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)

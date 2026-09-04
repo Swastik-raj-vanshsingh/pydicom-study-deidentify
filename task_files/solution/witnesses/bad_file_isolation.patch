@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -540,7 +540,7 @@
+@@ -629,7 +629,7 @@
          except ReleaseRefused as why:
              refused += 1
              print("refused %s: %s" % (path.relative_to(input_dir), why), file=sys.stderr)

@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -188,7 +188,7 @@
+         The directory holds exports from several hospitals, and a Patient ID
+         is only unique within its Issuer of Patient ID.
+         """
+-        return "%s\x1f%s" % (str(original_id).strip() or "<no id>", str(issuer).strip())
++        return str(original_id).strip() or "<no id>"
+ 
+     def pseudonym(self, original_id: str, original_name: str, issuer: str = "") -> str:
+         key = self.identity(original_id, issuer)

@@ -1,0 +1,13 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -447,10 +447,6 @@
+         raise ReleaseRefused(reason)
+     # A file that points at an instance the run holds back would leave the
+     # partner with a reference to nothing; it goes the same way as its target.
+-    if refused_uids:
+-        pointing_at = _referenced_instances(dataset) & refused_uids
+-        if pointing_at:
+-            raise ReleaseRefused("refers to an instance that was not released")
+ 
+     original_id = str(dataset.get("PatientID", "") or "")
+     original_name = str(dataset.get("PatientName", "") or "")

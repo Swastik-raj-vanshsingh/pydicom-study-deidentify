@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -498,8 +498,6 @@
+@@ -570,8 +570,6 @@
  
      if not input_dir.is_dir():
          sys.exit("input directory does not exist: %s" % input_dir)

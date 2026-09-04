@@ -1,0 +1,2100 @@
+{
+  "requirements": [
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 235,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "help",
+          "value": "         [--patient-prefix PATIENT_PREFIX]\n                          [--profile PROFILE]\n                          input_dir output_dir\n\nApply the DICOM Basic Application Level Confidentiality Profile and create a\nresearch release\n\npositional arguments:\n  input_dir             Directory containing source DICOM files\n  output_dir            Directory for de-identified files\n\noptions:\n  -h, --help            show this help message and exit\n  --crosswalk CROSSWALK\n                        New CSV file containing the patient-to-pseudonym\n                        mapping\n  --patient-prefix PATIENT_PREFIX\n                        Pseudonym prefix (default: RSCH)\n  --profile PROFILE     Confidentiality profile JSON (default:\n                        /opt/reference/dicom_confidentiality_profile.json)\n"
+        }
+      ],
+      "id": "U1",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 349,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "released",
+          "value": 6
+        },
+        {
+          "label": "expected",
+          "value": 6
+        }
+      ],
+      "id": "U2",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 309,
+      "evidence": [
+        {
+          "label": "patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "patient_names",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "chosen_prefix_ids",
+          "value": [
+            "TRIAL-0001",
+            "TRIAL-0002"
+          ]
+        }
+      ],
+      "id": "U3",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "modality",
+          "value": "CT"
+        },
+        {
+          "label": "rows",
+          "value": "2"
+        },
+        {
+          "label": "pixel_bytes",
+          "value": 8
+        }
+      ],
+      "id": "U4",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "study_date",
+          "value": "20291224"
+        },
+        {
+          "label": "content_date",
+          "value": "20291225"
+        }
+      ],
+      "id": "U5",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "characteristics",
+          "value": {
+            "PatientAge": "044Y",
+            "PatientSex": "M",
+            "PatientSize": "1.72",
+            "PatientWeight": "68"
+          }
+        }
+      ],
+      "id": "U6",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "rows",
+          "value": [
+            [
+              "original_patient_id",
+              "original_patient_name",
+              "pseudonym"
+            ],
+            [
+              "MRN-7731-PHI",
+              "Doe^Jonathan^PHI7731",
+              "RSCH-0001"
+            ],
+            [
+              "MRN-8842-PHI",
+              "Roe^Richard^PHI8842",
+              "RSCH-0002"
+            ]
+          ]
+        },
+        {
+          "label": "mapping",
+          "value": {
+            "MRN-7731-PHI": "RSCH-0001",
+            "MRN-8842-PHI": "RSCH-0002"
+          }
+        }
+      ],
+      "id": "U7",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "stdout",
+          "value": "written 6, refused 0, failed 0, skipped 0, patients 2\n"
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 0,
+            "patients": 2,
+            "refused": 0,
+            "skipped": 0,
+            "written": 6
+          }
+        }
+      ],
+      "id": "U8",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 0,
+            "patients": 2,
+            "refused": 2,
+            "skipped": 1,
+            "written": 8
+          }
+        }
+      ],
+      "id": "U9",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 452,
+      "evidence": [
+        {
+          "label": "instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "input_tree",
+          "value": [
+            "burned_sc.dcm",
+            "ct_a.dcm",
+            "ct_b.dcm",
+            "gsps.dcm",
+            "mr_p2.dcm",
+            "noext",
+            "notes.dcm",
+            "rtstruct.dcm",
+            "sc_plain.dcm",
+            "screen_save.dcm",
+            "series2/ct_a2.dcm"
+          ]
+        }
+      ],
+      "id": "U10",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        }
+      ],
+      "id": "U11",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 462,
+      "evidence": [
+        {
+          "label": "subcommand_listing",
+          "value": "usage: pydicom [-h] {help,codify,deidentify,show} ...\n\npydicom command line utilities (Python 3.11.16)\n\npositional arguments:\n  {help,codify,deidentify,show}\n                        subcommand help\n    help                display help for subcommands\n\noptions:\n  -h, --help            show this help message and exit\n"
+        },
+        {
+          "label": "missing_existing_subcommands",
+          "value": []
+        },
+        {
+          "label": "show_returncode",
+          "value": 0
+        },
+        {
+          "label": "show_output",
+          "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
+        }
+      ],
+      "id": "U12",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "images_checked",
+          "value": [
+            1,
+            2,
+            4,
+            7,
+            8
+          ]
+        },
+        {
+          "label": "kept",
+          "value": {
+            "ImageOrientationPatient": "[1, 0, 0, 0, 1, 0]",
+            "ImagePositionPatient": "[0, 0, 0]",
+            "PixelSpacing": "[0.7, 0.7]",
+            "RescaleIntercept": "-1024",
+            "RescaleSlope": "1",
+            "SliceThickness": "1.25",
+            "SpacingBetweenSlices": "1.25",
+            "WindowCenter": "40",
+            "WindowWidth": "400"
+          }
+        },
+        {
+          "label": "missing",
+          "value": {}
+        }
+      ],
+      "id": "U13",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "profile_removal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "checked",
+          "value": [
+            "OTHERID-7731",
+            "+1-555-7731-PHI",
+            "12 Privet Drive PHI7731",
+            "Refphys^Alice^PHI7731",
+            "ACC-7731-PHI"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S1",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "profile_removal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "checked",
+          "value": [
+            "Head CT for PHI7731",
+            "Axial PHI7731",
+            "patient comment PHI7731",
+            "St Mary Hospital PHI7731",
+            "structure label PHI7731"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S2",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "nested_removal",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "checked",
+          "value": [
+            "Nested Clinic PHI7731",
+            "WKSTN-PHI7731",
+            "Tech^Bernard^PHI7731"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S3",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "repeating_group_removal",
+      "deferred": false,
+      "duration_ms": 5,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "overlay_tags",
+          "value": []
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S4",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "repeating_group_removal",
+      "deferred": false,
+      "duration_ms": 4,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "curve_tags",
+          "value": []
+        }
+      ],
+      "id": "S5",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "private_removal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "private_tags",
+          "value": []
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S6",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "private_removal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "nested_private_tags",
+          "value": []
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S7",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "filename_secrecy",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_names",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.2136963980079982412597052009037491108.dcm",
+            "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671.dcm",
+            "1.2.826.0.1.3680043.8.498.319830377678203811517776175806021288.dcm",
+            "1.2.826.0.1.3680043.8.498.41429754555203927031694120158333033098.dcm",
+            "1.2.826.0.1.3680043.8.498.54245266636761027505718810297925338144.dcm",
+            "1.2.826.0.1.3680043.8.498.71994266674781987481314523538072261722.dcm",
+            "1.2.826.0.1.3680043.8.498.75310397879394629890075132729297543819.dcm",
+            "1.2.826.0.1.3680043.8.498.82014795692399944594038791918266453184.dcm"
+          ]
+        },
+        {
+          "label": "offending",
+          "value": {}
+        }
+      ],
+      "id": "S8",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "filename_secrecy",
+      "deferred": false,
+      "duration_ms": 244,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "released",
+          "value": 3
+        },
+        {
+          "label": "written_outside_the_release",
+          "value": []
+        }
+      ],
+      "id": "S9",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "crosswalk_placement",
+      "deferred": false,
+      "duration_ms": 564,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 2
+        },
+        {
+          "label": "stderr",
+          "value": "pydicom deidentify: error: crosswalk may not be inside the output directory\n"
+        },
+        {
+          "label": "crosswalk_exists",
+          "value": false
+        },
+        {
+          "label": "mapping_tokens_in_release",
+          "value": []
+        }
+      ],
+      "id": "S10",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "crosswalk_placement",
+      "deferred": false,
+      "duration_ms": 257,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 2
+        },
+        {
+          "label": "stderr",
+          "value": "pydicom deidentify: error: crosswalk may not be inside the output directory\n"
+        },
+        {
+          "label": "crosswalk_path",
+          "value": "/tmp/study5_xwsj3q/release/keys/crosswalk.csv"
+        },
+        {
+          "label": "mapping_tokens_in_release",
+          "value": []
+        }
+      ],
+      "id": "S11",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "crosswalk_permissions",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "crosswalk",
+          "value": "/tmp/studyk8f9m4w1/crosswalk.csv"
+        },
+        {
+          "label": "rows",
+          "value": 3
+        },
+        {
+          "label": "mode",
+          "value": "0o600"
+        }
+      ],
+      "id": "S12",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "output_permissions",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "modes",
+          "value": {
+            "1.2.826.0.1.3680043.8.498.2136963980079982412597052009037491108.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.319830377678203811517776175806021288.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.41429754555203927031694120158333033098.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.54245266636761027505718810297925338144.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.71994266674781987481314523538072261722.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.75310397879394629890075132729297543819.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.82014795692399944594038791918266453184.dcm": "0o600"
+          }
+        },
+        {
+          "label": "exposed",
+          "value": []
+        }
+      ],
+      "id": "S13",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "output_permissions",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "modes",
+          "value": {
+            "/tmp/studyk8f9m4w1/release": "0o700"
+          }
+        },
+        {
+          "label": "exposed",
+          "value": []
+        }
+      ],
+      "id": "S14",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "crosswalk_no_clobber",
+      "deferred": false,
+      "duration_ms": 254,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 2
+        },
+        {
+          "label": "stderr",
+          "value": "pydicom deidentify: error: crosswalk already exists: /tmp/studyg4_onwco/crosswalk.csv\n"
+        },
+        {
+          "label": "crosswalk",
+          "value": "original_patient_id,original_patient_name,pseudonym\nKEEP-ME,Previous^Run,RSCH-0001\n"
+        }
+      ],
+      "id": "S15",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "crosswalk_neutralisation",
+      "deferred": false,
+      "duration_ms": 241,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "rows",
+          "value": [
+            [
+              "original_patient_id",
+              "original_patient_name",
+              "pseudonym"
+            ],
+            [
+              "MRN-7731-PHI",
+              "'=cmd|'/c calc'!A1",
+              "RSCH-0001"
+            ],
+            [
+              "MRN-8842-PHI",
+              "Roe^Richard^PHI8842",
+              "RSCH-0002"
+            ]
+          ]
+        },
+        {
+          "label": "hostile_cell",
+          "value": "'=cmd|'/c calc'!A1"
+        },
+        {
+          "label": "ordinary_cell",
+          "value": "Roe^Richard^PHI8842"
+        }
+      ],
+      "id": "S16",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "crosswalk_neutralisation",
+      "deferred": false,
+      "duration_ms": 255,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "rows",
+          "value": [
+            [
+              "original_patient_id",
+              "original_patient_name",
+              "pseudonym"
+            ],
+            [
+              "'+MRN-7731",
+              "'@SUM(1+1)",
+              "RSCH-0001"
+            ],
+            [
+              "MRN-8842-PHI",
+              "Roe^Richard^PHI8842",
+              "RSCH-0002"
+            ]
+          ]
+        },
+        {
+          "label": "name_cell",
+          "value": "'@SUM(1+1)"
+        },
+        {
+          "label": "id_cell",
+          "value": "'+MRN-7731"
+        }
+      ],
+      "id": "S17",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "originals_untouched",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "changed",
+          "value": []
+        },
+        {
+          "label": "removed",
+          "value": []
+        },
+        {
+          "label": "added",
+          "value": []
+        }
+      ],
+      "id": "S18",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "originals_untouched",
+      "deferred": false,
+      "duration_ms": 222,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 2
+        },
+        {
+          "label": "stderr",
+          "value": "pydicom deidentify: error: output directory may not be inside the input directory\n"
+        },
+        {
+          "label": "added_under_input",
+          "value": []
+        },
+        {
+          "label": "changed",
+          "value": []
+        }
+      ],
+      "id": "S19",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "uid_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "files",
+          "value": 7
+        },
+        {
+          "label": "study_uids",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.89639497162121721319792487384849797436"
+          ]
+        },
+        {
+          "label": "frame_uids",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.20547264526193158993256405897757064225"
+          ]
+        }
+      ],
+      "id": "S20",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "uid_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "referenced",
+          "value": "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671"
+        },
+        {
+          "label": "released_image",
+          "value": "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671"
+        },
+        {
+          "label": "referenced_frame",
+          "value": "1.2.826.0.1.3680043.8.498.20547264526193158993256405897757064225"
+        },
+        {
+          "label": "image_frame",
+          "value": "1.2.826.0.1.3680043.8.498.20547264526193158993256405897757064225"
+        }
+      ],
+      "id": "S21",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "file_meta_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "mismatched",
+          "value": []
+        },
+        {
+          "label": "stale",
+          "value": []
+        }
+      ],
+      "id": "S22",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "file_meta_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "unreadable",
+          "value": []
+        },
+        {
+          "label": "without_transfer_syntax",
+          "value": []
+        }
+      ],
+      "id": "S23",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "date_consistency",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "study_dates",
+          "value": [
+            "20291224"
+          ]
+        },
+        {
+          "label": "study_to_content_days",
+          "value": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "id": "S24",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "date_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_study_dates",
+          "value": [
+            "20291224",
+            "20320321"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S25",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "pseudonym_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "first_patient_ids",
+          "value": [
+            "RSCH-0001"
+          ]
+        },
+        {
+          "label": "second_patient_id",
+          "value": "RSCH-0002"
+        },
+        {
+          "label": "crosswalk_pseudonyms",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        }
+      ],
+      "id": "S26",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "age_cap",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "younger_age",
+          "value": "044Y"
+        },
+        {
+          "label": "ages",
+          "value": {
+            "1": "090Y",
+            "2": "090Y",
+            "3": "090Y",
+            "7": "090Y",
+            "8": "090Y"
+          }
+        }
+      ],
+      "id": "S27",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "age_cap",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_study_dates",
+          "value": [
+            "20291224"
+          ]
+        },
+        {
+          "label": "birth_dates",
+          "value": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "7": "",
+            "8": ""
+          }
+        },
+        {
+          "label": "derivable_ages",
+          "value": []
+        }
+      ],
+      "id": "S28",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "deid_record_truthful",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 0,
+            "patients": 2,
+            "refused": 2,
+            "skipped": 1,
+            "written": 8
+          }
+        },
+        {
+          "label": "stdout",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "released",
+          "value": 8
+        },
+        {
+          "label": "input_files",
+          "value": 11
+        },
+        {
+          "label": "counted",
+          "value": 11
+        },
+        {
+          "label": "crosswalk_rows",
+          "value": 2
+        }
+      ],
+      "id": "S29",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "deid_record_truthful",
+      "deferred": false,
+      "duration_ms": 275,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "released",
+          "value": 8
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 1,
+            "patients": 3,
+            "refused": 2,
+            "skipped": 1,
+            "written": 8
+          }
+        },
+        {
+          "label": "stderr",
+          "value": "failed /tmp/studyu8k_s_tg/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyu8k_s_tg/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyu8k_s_tg/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        }
+      ],
+      "id": "S30",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "burned_in_refusal",
+      "deferred": false,
+      "duration_ms": 3,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "released_with_burned_in_yes",
+          "value": []
+        }
+      ],
+      "id": "S31",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "burned_in_refusal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "released_secondary_captures",
+          "value": []
+        }
+      ],
+      "id": "S32",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "bad_file_isolation",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stderr",
+          "value": "failed /tmp/studyu8k_s_tg/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyu8k_s_tg/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyu8k_s_tg/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "missing",
+          "value": []
+        }
+      ],
+      "id": "S33",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "bad_file_isolation",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "stderr",
+          "value": "failed /tmp/studyu8k_s_tg/input/00_broken.dcm: cannot release DICOM: Required File Meta Information elements are either missing or have an empty value: (0002,0002) Media Storage SOP Class UID\nrefused /tmp/studyu8k_s_tg/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyu8k_s_tg/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        }
+      ],
+      "id": "S34",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "secondary_capture_class",
+      "deferred": false,
+      "duration_ms": 3,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "released_secondary_capture_classes",
+          "value": [
+            [
+              "1.2.826.0.1.3680043.8.498.2136963980079982412597052009037491108",
+              "1.2.840.10008.5.1.4.1.1.7"
+            ]
+          ]
+        }
+      ],
+      "id": "S35",
+      "message": "the secondary capture whose Image Type reads ORIGINAL\\PRIMARY was released; its SOP Class says what it is",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "embedded_overlay",
+      "deferred": false,
+      "duration_ms": 236,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 4, refused 0, failed 0, skipped 0, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 4
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            4,
+            10
+          ]
+        },
+        {
+          "label": "ordinary_pixels",
+          "value": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "label": "outcome",
+          "value": "released"
+        },
+        {
+          "label": "overlay_image_pixels",
+          "value": [
+            4097,
+            2,
+            4099,
+            4
+          ]
+        },
+        {
+          "label": "pixels_with_high_bits_set",
+          "value": [
+            4097,
+            4099
+          ]
+        }
+      ],
+      "id": "S36",
+      "message": "the older CT was released with its overlay still in the unused high bits of 2 pixel(s); the table had no (60xx,3000) to remove",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "patient_identity_scope",
+      "deferred": false,
+      "duration_ms": 248,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 4, refused 0, failed 0, skipped 0, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 4
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            4,
+            11
+          ]
+        },
+        {
+          "label": "first_patient_pseudonyms",
+          "value": [
+            "RSCH-0001"
+          ]
+        },
+        {
+          "label": "other_site_pseudonym",
+          "value": "RSCH-0001"
+        }
+      ],
+      "id": "S37",
+      "message": "two different people, from two hospitals, were released under one pseudonym because their identifiers collide",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "reference_integrity",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 2, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused /tmp/studyk8f9m4w1/input/burned_sc.dcm: Burned In Annotation is YES\nrefused /tmp/studyk8f9m4w1/input/screen_save.dcm: Image Type marks the image as SECONDARY\n"
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "label": "structure_set_references",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.26857990476787868049780826367502494671"
+          ]
+        },
+        {
+          "label": "presentation_state_references",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.17814318244278584843278402263259250201"
+          ]
+        },
+        {
+          "label": "dangling",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.17814318244278584843278402263259250201"
+          ]
+        }
+      ],
+      "id": "S38",
+      "message": "the presentation state was released pointing at 1 instance(s) that are not in the release; the image it was drawn over was refused",
+      "status": "failed"
+    }
+  ],
+  "schema_version": "1.0"
+}

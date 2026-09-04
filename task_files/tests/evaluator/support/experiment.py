@@ -57,6 +57,20 @@ PHI = {
     "LABEL": "structure label PHI7731",
 }
 PHI2 = {"NAME": "Roe^Richard^PHI8842", "ID": "MRN-8842-PHI"}
+# A third patient from another hospital whose identifier collides with the first.
+PHI3 = {"NAME": "Poe^Edgar^PHI9953", "ID": "MRN-7731-PHI", "ISSUER": "SITE-B-PHI"}
+SITE_A = "SITE-A"
+BIRTH_DATE_P3 = "19850505"
+
+SECONDARY_CAPTURE_CLASSES = (
+    "1.2.840.10008.5.1.4.1.1.7",
+    "1.2.840.10008.5.1.4.1.1.7.1",
+    "1.2.840.10008.5.1.4.1.1.7.2",
+    "1.2.840.10008.5.1.4.1.1.7.3",
+    "1.2.840.10008.5.1.4.1.1.7.4",
+)
+PRESENTATION_STATE_CLASS = "1.2.840.10008.5.1.4.1.1.11.1"
+OVERLAY_BITS_STORED = 12
 
 STUDY_DATE = "20240315"
 CONTENT_DATE = "20240316"
@@ -92,6 +106,10 @@ class Study:
         broken_first: bool = True,
         burned_in: bool = True,
         secondary_capture: bool = False,
+        plain_secondary: bool = False,
+        presentation_state: bool = False,
+        embedded_overlay: bool = False,
+        second_site: bool = False,
         non_dicom: bool = True,
         no_extension: bool = True,
         subdirectory: bool = True,
@@ -120,6 +138,9 @@ class Study:
         self.sop_noext = uid.generate_uid()
         self.sop_p2 = uid.generate_uid()
         self.study_uid_p2 = uid.generate_uid()
+        self.sop_burned = uid.generate_uid()
+        self.sop_p3 = uid.generate_uid()
+        self.study_uid_p3 = uid.generate_uid()
         self.original_uids = {
             self.study_uid, self.for_uid, self.series_a, self.series_b,
             self.sop_a, self.sop_b, self.sop_rt, self.sop_sub, self.sop_noext,
@@ -139,6 +160,7 @@ class Study:
             ds.FrameOfReferenceUID = self.for_uid
             ds.PatientName = who["NAME"]
             ds.PatientID = who["ID"]
+            ds.IssuerOfPatientID = who.get("ISSUER", SITE_A)
             ds.PatientBirthDate = birth
             ds.PatientSex = "M"
             ds.StudyDate = STUDY_DATE
@@ -215,7 +237,8 @@ class Study:
             ds.ImageType = ["ORIGINAL", "PRIMARY", "AXIAL"]
 
         instance_numbers = {"ct_a": 1, "ct_b": 2, "rtstruct": 3, "mr_p2": 4, "burned": 5,
-                            "screen_save": 6, "noext": 7, "subdir": 8}
+                            "screen_save": 6, "noext": 7, "subdir": 8, "sc_plain": 9,
+                            "ct_overlay": 10, "mr_siteb": 11, "gsps": 12}
 
         def write(ds, path: Path, key: str):
             ds.InstanceNumber = instance_numbers[key]
@@ -259,20 +282,88 @@ class Study:
             write(mr, self.input_dir / "mr_p2.dcm", "mr_p2")
 
         if burned_in:
-            sc = base(uid.SecondaryCaptureImageStorage, uid.generate_uid(), uid.generate_uid(), p)
+            # An ultrasound frame with the patient banner drawn into it: the
+            # classic burned-in case, and not a secondary capture by class.
+            sc = base(uid.UltrasoundImageStorage, self.sop_burned, uid.generate_uid(), p)
             image(sc)
-            sc.Modality = "OT"
+            sc.Modality = "US"
             sc.BurnedInAnnotation = "YES"
             sc.ImageComments = "BURNED-IN-PHI7731"
             write(sc, self.input_dir / "burned_sc.dcm", "burned")
 
+        if burned_in and presentation_state:
+            # A viewer saved a presentation state over the burned-in screenshot.
+            pr = base(PRESENTATION_STATE_CLASS, uid.generate_uid(), uid.generate_uid(), p)
+            pr.Modality = "PR"
+            pr.ContentLabel = "MEASUREMENTS"
+            pr.PresentationCreationDate = STUDY_DATE
+            pr.PresentationCreationTime = "120000"
+            referenced = Dataset()
+            referenced.ReferencedSOPClassUID = uid.UltrasoundImageStorage
+            referenced.ReferencedSOPInstanceUID = self.sop_burned
+            series = Dataset()
+            series.SeriesInstanceUID = sc.SeriesInstanceUID
+            series.ReferencedImageSequence = Sequence([referenced])
+            pr.ReferencedSeriesSequence = Sequence([series])
+            text = Dataset()
+            text.BoundingBoxAnnotationUnits = "PIXEL"
+            text.AnchorPointAnnotationUnits = "PIXEL"
+            text.UnformattedTextValue = "measurement 12.3 mm"
+            text.AnchorPoint = [1, 1]
+            text.AnchorPointVisibility = "Y"
+            layer = Dataset()
+            layer.GraphicLayer = "LAYER1"
+            layer.TextObjectSequence = Sequence([text])
+            pr.GraphicAnnotationSequence = Sequence([layer])
+            write(pr, self.input_dir / "gsps.dcm", "gsps")
+
+        if plain_secondary:
+            # A secondary capture that nothing in its Image Type gives away.
+            plain = base(uid.SecondaryCaptureImageStorage, uid.generate_uid(), uid.generate_uid(), p)
+            image(plain)
+            plain.Modality = "OT"
+            plain.ImageType = ["ORIGINAL", "PRIMARY"]
+            plain.ConversionType = "WSD"
+            write(plain, self.input_dir / "sc_plain.dcm", "sc_plain")
+
+        if embedded_overlay:
+            # An older CT that stored its annotation overlay in the unused high
+            # bits of each pixel: 12 bits stored in 16, overlay at bit 12, and
+            # no (60xx,3000) element for a table-driven pass to find.
+            old = base(uid.CTImageStorage, uid.generate_uid(), self.series_a, p)
+            plant(old)
+            image(old)
+            old.BitsAllocated = 16
+            old.BitsStored = OVERLAY_BITS_STORED
+            old.HighBit = OVERLAY_BITS_STORED - 1
+            old.PixelData = bytes([0x01, 0x10, 0x02, 0x00, 0x03, 0x10, 0x04, 0x00])
+            for element in (0x3000, 0x4000):
+                if (0x6000, element) in old:
+                    del old[(0x6000, element)]
+            old[(0x6000, 0x0102)].value = OVERLAY_BITS_STORED
+            old[(0x6000, 0x0100)].value = 1
+            write(old, self.input_dir / "ct_overlay.dcm", "ct_overlay")
+
         if secondary_capture:
-            sc2 = base(uid.SecondaryCaptureImageStorage, uid.generate_uid(), uid.generate_uid(), p)
+            # A console screen save written as an MR object: only its Image
+            # Type says what it is.
+            sc2 = base(uid.MRImageStorage, uid.generate_uid(), uid.generate_uid(), p)
             image(sc2)
-            sc2.Modality = "OT"
+            sc2.Modality = "MR"
             sc2.ImageType = ["DERIVED", "SECONDARY", "SCREEN SAVE"]
             sc2.ImageComments = "SCREENSAVE-PHI7731"
             write(sc2, self.input_dir / "screen_save.dcm", "screen_save")
+
+        if second_site:
+            # Another hospital's export whose Patient ID happens to be the same
+            # string as the first patient's. The issuer tells them apart.
+            other = base(uid.MRImageStorage, self.sop_p3, uid.generate_uid(), PHI3,
+                         study=self.study_uid_p3, birth=BIRTH_DATE_P3)
+            other.Modality = "MR"
+            other.PatientSex = "F"
+            image(other)
+            other.PatientAge = "038Y"
+            write(other, self.input_dir / "site_b" / "mr_siteb.dcm", "mr_siteb")
 
         if broken_first:
             broken = self.input_dir / "00_broken.dcm"
@@ -313,7 +404,9 @@ class Study:
 
     def releasable_count(self) -> int:
         """How many inputs a correct run releases."""
-        return sum(1 for key in self.files if key not in ("broken", "non_dicom", "burned", "screen_save"))
+        held_back = ("broken", "non_dicom", "burned", "screen_save", "sc_plain",
+                     "ct_overlay", "gsps")
+        return sum(1 for key in self.files if key not in held_back)
 
     def close(self) -> None:
         shutil.rmtree(self.root, ignore_errors=True)
@@ -575,6 +668,31 @@ def nested_private(ds: Any) -> list[str]:
                 found.extend(str(t) for t in item.keys() if t.is_private)
                 found.extend(nested_private(item))
     return found
+
+
+def referenced_instances(ds: Any) -> list[str]:
+    """Every Referenced SOP Instance UID anywhere in the dataset."""
+    found = []
+    for elem in ds.iterall():
+        if elem.tag == 0x00081155 and elem.value:
+            values = elem.value if elem.VM > 1 else [elem.value]
+            found.extend(str(v) for v in values)
+    return found
+
+
+def pixel_values(ds: Any) -> list[int] | None:
+    """Raw pixel sample values of an uncompressed little-endian image, or None."""
+    if "PixelData" not in ds:
+        return None
+    try:
+        allocated = int(ds.BitsAllocated)
+        raw = bytes(ds.PixelData)
+    except Exception:
+        return None
+    width = allocated // 8
+    if width not in (1, 2) or len(raw) % width:
+        return None
+    return [int.from_bytes(raw[i:i + width], "little") for i in range(0, len(raw), width)]
 
 
 def by_instance(datasets: list[Any]) -> dict[int, Any]:

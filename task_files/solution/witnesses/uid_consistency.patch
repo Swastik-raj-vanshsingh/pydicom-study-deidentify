@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -169,9 +169,7 @@
+@@ -177,9 +177,7 @@
          original = str(original).strip()
          if not original:
              return generate_uid()
@@ -9,5 +9,5 @@
 -        return self.uids[original]
 +        return generate_uid()
  
-     def pseudonym(self, original_id: str, original_name: str) -> str:
-         key = str(original_id).strip() or "<no id>"
+     @staticmethod
+     def identity(original_id: str, issuer: str) -> str:

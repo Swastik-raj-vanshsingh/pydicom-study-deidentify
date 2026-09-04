@@ -268,6 +268,30 @@
       "dimension": "safety",
       "summary": "The unreadable file is named on standard error.",
       "constraint_id": "bad_file_isolation"
+    },
+    {
+      "id": "S35",
+      "dimension": "safety",
+      "summary": "A secondary capture whose Image Type says nothing is still not released.",
+      "constraint_id": "secondary_capture_class"
+    },
+    {
+      "id": "S36",
+      "dimension": "safety",
+      "summary": "An overlay stored in the unused high bits of the pixels does not leave in the pixels.",
+      "constraint_id": "embedded_overlay"
+    },
+    {
+      "id": "S37",
+      "dimension": "safety",
+      "summary": "Two patients from two hospitals who share an identifier are not merged.",
+      "constraint_id": "patient_identity_scope"
+    },
+    {
+      "id": "S38",
+      "dimension": "safety",
+      "summary": "Nothing in the release points at an instance the run refused.",
+      "constraint_id": "reference_integrity"
     }
   ]
 }

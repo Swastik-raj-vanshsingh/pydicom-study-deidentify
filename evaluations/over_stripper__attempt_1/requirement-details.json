@@ -3,7 +3,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 238,
+      "duration_ms": 243,
       "evidence": [
         {
           "label": "returncode",
@@ -21,7 +21,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 262,
+      "duration_ms": 240,
       "evidence": [
         {
           "label": "returncode",
@@ -47,7 +47,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 239,
+      "duration_ms": 228,
       "evidence": [
         {
           "label": "patient_ids",
@@ -181,7 +181,7 @@
           "value": {
             "failed": 0,
             "patients": 2,
-            "refused": 2,
+            "refused": 4,
             "skipped": 1,
             "written": 6
           }
@@ -194,7 +194,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 579,
+      "duration_ms": 491,
       "evidence": [
         {
           "label": "instances",
@@ -206,10 +206,12 @@
             "burned_sc.dcm",
             "ct_a.dcm",
             "ct_b.dcm",
+            "gsps.dcm",
             "mr_p2.dcm",
             "noext",
             "notes.dcm",
             "rtstruct.dcm",
+            "sc_plain.dcm",
             "screen_save.dcm",
             "series2/ct_a2.dcm"
           ]
@@ -316,7 +318,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 514,
+      "duration_ms": 455,
       "evidence": [
         {
           "label": "subcommand_listing",
@@ -342,7 +344,7 @@
     {
       "constraint_id": null,
       "deferred": false,
-      "duration_ms": 3,
+      "duration_ms": 1,
       "evidence": [],
       "id": "U13",
       "message": "fewer than two images were released",
@@ -363,11 +365,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -414,11 +416,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -465,11 +467,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -514,11 +516,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -547,7 +549,7 @@
     {
       "constraint_id": "repeating_group_removal",
       "deferred": false,
-      "duration_ms": 3,
+      "duration_ms": 5,
       "evidence": [
         {
           "label": "feature_probe",
@@ -559,11 +561,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -588,7 +590,7 @@
     {
       "constraint_id": "private_removal",
       "deferred": false,
-      "duration_ms": 1,
+      "duration_ms": 2,
       "evidence": [
         {
           "label": "feature_probe",
@@ -600,11 +602,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -645,11 +647,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -690,11 +692,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -703,12 +705,12 @@
         {
           "label": "released_names",
           "value": [
-            "1.2.826.0.1.3680043.8.498.41203192467661368782731618275847264004.dcm",
-            "1.2.826.0.1.3680043.8.498.42406540208725640022495928225191014013.dcm",
-            "1.2.826.0.1.3680043.8.498.44668841078632584486275484439651809157.dcm",
-            "1.2.826.0.1.3680043.8.498.70534595468529270445099746554994305319.dcm",
-            "1.2.826.0.1.3680043.8.498.79379605470798717970215788136382100421.dcm",
-            "1.2.826.0.1.3680043.8.498.97072444986313758544089939789455916983.dcm"
+            "1.2.826.0.1.3680043.8.498.20214092226730576256290502028120799422.dcm",
+            "1.2.826.0.1.3680043.8.498.2234631375626527898365447106481863912.dcm",
+            "1.2.826.0.1.3680043.8.498.27631535840468975344189304885926755931.dcm",
+            "1.2.826.0.1.3680043.8.498.32361903246725944209694662414983379593.dcm",
+            "1.2.826.0.1.3680043.8.498.72037344993391861236845246118895650112.dcm",
+            "1.2.826.0.1.3680043.8.498.92682782356780675112722752233728322866.dcm"
           ]
         },
         {
@@ -723,7 +725,7 @@
     {
       "constraint_id": "filename_secrecy",
       "deferred": false,
-      "duration_ms": 269,
+      "duration_ms": 240,
       "evidence": [
         {
           "label": "feature_probe",
@@ -753,7 +755,7 @@
     {
       "constraint_id": "crosswalk_placement",
       "deferred": false,
-      "duration_ms": 460,
+      "duration_ms": 445,
       "evidence": [
         {
           "label": "feature_probe",
@@ -783,7 +785,7 @@
     {
       "constraint_id": "crosswalk_placement",
       "deferred": false,
-      "duration_ms": 256,
+      "duration_ms": 242,
       "evidence": [
         {
           "label": "feature_probe",
@@ -799,7 +801,7 @@
         },
         {
           "label": "crosswalk_path",
-          "value": "/tmp/studyy6i38z5i/release/keys/crosswalk.csv"
+          "value": "/tmp/studyt1qko9eg/release/keys/crosswalk.csv"
         },
         {
           "label": "mapping_tokens_in_release",
@@ -821,7 +823,7 @@
         },
         {
           "label": "crosswalk",
-          "value": "/tmp/study6uzfohz1/crosswalk.csv"
+          "value": "/tmp/study1sll92fd/crosswalk.csv"
         },
         {
           "label": "rows",
@@ -851,11 +853,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -864,12 +866,12 @@
         {
           "label": "modes",
           "value": {
-            "1.2.826.0.1.3680043.8.498.41203192467661368782731618275847264004.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.42406540208725640022495928225191014013.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.44668841078632584486275484439651809157.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.70534595468529270445099746554994305319.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.79379605470798717970215788136382100421.dcm": "0o600",
-            "1.2.826.0.1.3680043.8.498.97072444986313758544089939789455916983.dcm": "0o600"
+            "1.2.826.0.1.3680043.8.498.20214092226730576256290502028120799422.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.2234631375626527898365447106481863912.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.27631535840468975344189304885926755931.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.32361903246725944209694662414983379593.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.72037344993391861236845246118895650112.dcm": "0o600",
+            "1.2.826.0.1.3680043.8.498.92682782356780675112722752233728322866.dcm": "0o600"
           }
         },
         {
@@ -896,11 +898,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -909,7 +911,7 @@
         {
           "label": "modes",
           "value": {
-            "/tmp/study6uzfohz1/release": "0o700"
+            "/tmp/study1sll92fd/release": "0o700"
           }
         },
         {
@@ -924,7 +926,7 @@
     {
       "constraint_id": "crosswalk_no_clobber",
       "deferred": false,
-      "duration_ms": 237,
+      "duration_ms": 233,
       "evidence": [
         {
           "label": "feature_probe",
@@ -936,7 +938,7 @@
         },
         {
           "label": "stderr",
-          "value": "refusing to overwrite an existing crosswalk: /tmp/studybrx4ns4o/crosswalk.csv\n"
+          "value": "refusing to overwrite an existing crosswalk: /tmp/studyqg7zw1at/crosswalk.csv\n"
         },
         {
           "label": "crosswalk",
@@ -950,7 +952,7 @@
     {
       "constraint_id": "crosswalk_neutralisation",
       "deferred": false,
-      "duration_ms": 307,
+      "duration_ms": 240,
       "evidence": [
         {
           "label": "feature_probe",
@@ -992,7 +994,7 @@
     {
       "constraint_id": "crosswalk_neutralisation",
       "deferred": false,
-      "duration_ms": 243,
+      "duration_ms": 223,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1046,11 +1048,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1076,7 +1078,7 @@
     {
       "constraint_id": "originals_untouched",
       "deferred": false,
-      "duration_ms": 280,
+      "duration_ms": 233,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1118,11 +1120,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1135,13 +1137,13 @@
         {
           "label": "study_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.46352062904140745864258744300226012424"
+            "1.2.826.0.1.3680043.8.498.34361104659762350517553490418636832945"
           ]
         },
         {
           "label": "frame_uids",
           "value": [
-            "1.2.826.0.1.3680043.8.498.79255606523236504648708701709954515822"
+            "1.2.826.0.1.3680043.8.498.24089113325904226853339625944929004964"
           ]
         }
       ],
@@ -1164,11 +1166,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1194,11 +1196,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1232,11 +1234,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1258,7 +1260,7 @@
     {
       "constraint_id": "date_consistency",
       "deferred": false,
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1270,11 +1272,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1283,7 +1285,7 @@
         {
           "label": "study_dates",
           "value": [
-            "20231130"
+            "20240107"
           ]
         },
         {
@@ -1316,11 +1318,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1329,8 +1331,8 @@
         {
           "label": "released_study_dates",
           "value": [
-            "20230315",
-            "20231130"
+            "20230506",
+            "20240107"
           ]
         },
         {
@@ -1357,11 +1359,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1375,7 +1377,7 @@
     {
       "constraint_id": "age_cap",
       "deferred": false,
-      "duration_ms": 2,
+      "duration_ms": 1,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1387,11 +1389,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1417,11 +1419,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1447,11 +1449,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1462,14 +1464,14 @@
           "value": {
             "failed": 0,
             "patients": 2,
-            "refused": 2,
+            "refused": 4,
             "skipped": 1,
             "written": 6
           }
         },
         {
           "label": "stdout",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "released",
@@ -1477,11 +1479,11 @@
         },
         {
           "label": "input_files",
-          "value": 9
+          "value": 11
         },
         {
           "label": "counted",
-          "value": 9
+          "value": 11
         },
         {
           "label": "crosswalk_rows",
@@ -1495,7 +1497,7 @@
     {
       "constraint_id": "deid_record_truthful",
       "deferred": false,
-      "duration_ms": 253,
+      "duration_ms": 249,
       "evidence": [
         {
           "label": "feature_probe",
@@ -1514,14 +1516,14 @@
           "value": {
             "failed": 1,
             "patients": 2,
-            "refused": 2,
+            "refused": 4,
             "skipped": 1,
             "written": 6
           }
         },
         {
           "label": "stderr",
-          "value": "failed 00_broken.dcm: ValueError: no SOP Instance UID; not a releasable instance\nrefused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "failed 00_broken.dcm: ValueError: no SOP Instance UID; not a releasable instance\nrefused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         }
       ],
       "id": "S30",
@@ -1543,11 +1545,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1581,11 +1583,11 @@
         },
         {
           "label": "stdout_tail",
-          "value": "written 6, refused 2, failed 0, skipped 1, patients 2\n"
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
         },
         {
           "label": "stderr_tail",
-          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released_count",
@@ -1619,7 +1621,7 @@
         },
         {
           "label": "stderr",
-          "value": "failed 00_broken.dcm: ValueError: no SOP Instance UID; not a releasable instance\nrefused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "failed 00_broken.dcm: ValueError: no SOP Instance UID; not a releasable instance\nrefused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         },
         {
           "label": "released",
@@ -1656,10 +1658,150 @@
         },
         {
           "label": "stderr",
-          "value": "failed 00_broken.dcm: ValueError: no SOP Instance UID; not a releasable instance\nrefused burned_sc.dcm: Burned In Annotation is YES\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+          "value": "failed 00_broken.dcm: ValueError: no SOP Instance UID; not a releasable instance\nrefused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
         }
       ],
       "id": "S34",
+      "message": "utility incomplete; safety not measured",
+      "status": "not_evaluated"
+    },
+    {
+      "constraint_id": "secondary_capture_class",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+        },
+        {
+          "label": "released_count",
+          "value": 6
+        },
+        {
+          "label": "released_instances",
+          "value": []
+        },
+        {
+          "label": "released_secondary_capture_classes",
+          "value": []
+        }
+      ],
+      "id": "S35",
+      "message": "utility incomplete; safety not measured",
+      "status": "not_evaluated"
+    },
+    {
+      "constraint_id": "embedded_overlay",
+      "deferred": false,
+      "duration_ms": 229,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 3, refused 1, failed 0, skipped 0, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused ct_overlay.dcm: overlay plane stored in the unused bits of Pixel Data\n"
+        },
+        {
+          "label": "released_count",
+          "value": 3
+        },
+        {
+          "label": "released_instances",
+          "value": []
+        }
+      ],
+      "id": "S36",
+      "message": "utility incomplete; safety not measured",
+      "status": "not_evaluated"
+    },
+    {
+      "constraint_id": "patient_identity_scope",
+      "deferred": false,
+      "duration_ms": 249,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 4, refused 0, failed 0, skipped 0, patients 3\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 4
+        },
+        {
+          "label": "released_instances",
+          "value": []
+        }
+      ],
+      "id": "S37",
+      "message": "utility incomplete; safety not measured",
+      "status": "not_evaluated"
+    },
+    {
+      "constraint_id": "reference_integrity",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 6, refused 4, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": "refused burned_sc.dcm: Burned In Annotation is YES\nrefused gsps.dcm: refers to an instance that was not released\nrefused sc_plain.dcm: SOP Class is Secondary Capture\nrefused screen_save.dcm: Image Type is DERIVED\\SECONDARY\\SCREEN SAVE\n"
+        },
+        {
+          "label": "released_count",
+          "value": 6
+        },
+        {
+          "label": "released_instances",
+          "value": []
+        }
+      ],
+      "id": "S38",
       "message": "utility incomplete; safety not measured",
       "status": "not_evaluated"
     }

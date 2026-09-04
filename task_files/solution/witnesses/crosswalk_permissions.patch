@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -468,7 +468,7 @@
+@@ -540,7 +540,7 @@
  
  def _open_new(path: Path) -> int:
      """Create a file that must not already exist, readable by us alone."""

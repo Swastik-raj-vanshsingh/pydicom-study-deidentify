@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -554,5 +554,3 @@
+@@ -643,5 +643,3 @@
          "written %d, refused %d, failed %d, skipped %d, patients %d"
          % (written, refused, failed, skipped, len(study.patients))
      )

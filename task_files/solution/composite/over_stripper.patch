@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -310,10 +310,9 @@
+@@ -333,10 +333,9 @@
              continue
          action = profile.action_for(tag)
          if action is None:

@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -294,8 +294,6 @@
+@@ -311,8 +311,6 @@
              del dataset[tag]
              continue
          if tag in RETAINED_CHARACTERISTICS:

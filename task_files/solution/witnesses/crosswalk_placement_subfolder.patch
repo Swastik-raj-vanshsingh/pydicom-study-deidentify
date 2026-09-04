@@ -1,6 +1,6 @@
 --- a/src/pydicom/cli/deidentify.py
 +++ b/src/pydicom/cli/deidentify.py
-@@ -500,7 +500,7 @@
+@@ -572,7 +572,7 @@
          sys.exit("input directory does not exist: %s" % input_dir)
      if output_dir == input_dir or input_dir in output_dir.parents:
          sys.exit("the output directory must not be inside the input directory")
