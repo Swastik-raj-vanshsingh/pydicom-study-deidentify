@@ -1,0 +1,19 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -518,10 +518,13 @@
+             continue
+         try:
+             dataset = dcmread(str(path))
+-            deidentify_dataset(dataset, profile, study)
++            _pseudonym, _original_id = deidentify_dataset(dataset, profile, study)
+             _rebuild_file_meta(dataset)
+-            target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
+-            temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)
++            folder = output_dir / _original_id
++            folder.mkdir(parents=True, exist_ok=True)
++            _private(folder, 0o700)
++            target = folder / ("%s.dcm" % dataset.SOPInstanceUID)
++            temporary = folder / (".%s.part" % dataset.SOPInstanceUID)
+             fd = _open_new(temporary)
+             try:
+                 with os.fdopen(fd, "wb") as handle:

@@ -1,0 +1,22 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -237,6 +237,10 @@
+     if vr in ("US", "SS", "UL", "SL", "FL", "FD", "IS", "DS", "UV", "SV"):
+         return 0
+     return "REMOVED"
++
++
++KEEP_DESCRIPTIONS = {Tag(0x0008, 0x1030), Tag(0x0008, 0x103E), Tag(0x0010, 0x4000),
++                     Tag(0x3006, 0x0002)}
+ 
+ 
+ def _apply(
+@@ -248,6 +252,8 @@
+ ) -> None:
+     """Carry out one profile action on one element in place."""
+     tag = elem.tag
++    if tag in KEEP_DESCRIPTIONS:
++        return
+     if elem.VR in DATE_VRS:
+         # Retain Longitudinal Temporal Information with Modified Dates: the
+         # value moves by the patient's offset instead of being removed.

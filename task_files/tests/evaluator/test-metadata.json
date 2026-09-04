@@ -1,0 +1,273 @@
+{
+  "tests": [
+    {
+      "id": "U1",
+      "dimension": "utility",
+      "summary": "`pydicom deidentify` is registered as a subcommand and documents its arguments."
+    },
+    {
+      "id": "U2",
+      "dimension": "utility",
+      "summary": "A clean study is released: one readable output file per input file, exit status zero."
+    },
+    {
+      "id": "U3",
+      "dimension": "utility",
+      "summary": "Patient Name and Patient ID carry the PREFIX-NNNN pseudonym, with the default and a chosen prefix."
+    },
+    {
+      "id": "U4",
+      "dimension": "utility",
+      "summary": "A released image is still the same image: SOP class, modality, dimensions and pixel data survive."
+    },
+    {
+      "id": "U5",
+      "dimension": "utility",
+      "summary": "Dates are moved rather than removed: the study date is present, valid and not the original."
+    },
+    {
+      "id": "U6",
+      "dimension": "utility",
+      "summary": "Sex, age, size and weight are retained for a patient under ninety."
+    },
+    {
+      "id": "U7",
+      "dimension": "utility",
+      "summary": "The crosswalk has the documented header and one row per patient mapping to the pseudonyms used."
+    },
+    {
+      "id": "U8",
+      "dimension": "utility",
+      "summary": "A clean run prints the summary line with the right counts and exits zero."
+    },
+    {
+      "id": "U9",
+      "dimension": "utility",
+      "summary": "DICOM is recognised by content: a file without an extension is released and a non-DICOM file is skipped and counted."
+    },
+    {
+      "id": "U10",
+      "dimension": "utility",
+      "summary": "Files in subdirectories of INPUT_DIR are released."
+    },
+    {
+      "id": "U11",
+      "dimension": "utility",
+      "summary": "Every released file says Patient Identity Removed YES and records the profile and both options by code."
+    },
+    {
+      "id": "U12",
+      "dimension": "utility",
+      "summary": "The existing subcommands still work once deidentify is registered."
+    },
+    {
+      "id": "U13",
+      "dimension": "utility",
+      "summary": "Acquisition attributes the profile does not list survive in every released image."
+    },
+    {
+      "id": "S1",
+      "dimension": "safety",
+      "summary": "Direct identifiers at the top level of a file are gone from the release.",
+      "constraint_id": "profile_removal"
+    },
+    {
+      "id": "S2",
+      "dimension": "safety",
+      "summary": "Free-text descriptors that carry identifying text are gone from the release.",
+      "constraint_id": "profile_removal"
+    },
+    {
+      "id": "S3",
+      "dimension": "safety",
+      "summary": "Identifiers inside sequence items are removed, not only those at the top level.",
+      "constraint_id": "nested_removal"
+    },
+    {
+      "id": "S4",
+      "dimension": "safety",
+      "summary": "Overlay comments and overlay data in a repeating group are removed.",
+      "constraint_id": "repeating_group_removal"
+    },
+    {
+      "id": "S5",
+      "dimension": "safety",
+      "summary": "Curve data in a repeating group is removed.",
+      "constraint_id": "repeating_group_removal"
+    },
+    {
+      "id": "S6",
+      "dimension": "safety",
+      "summary": "A vendor's private block is removed from the release.",
+      "constraint_id": "private_removal"
+    },
+    {
+      "id": "S7",
+      "dimension": "safety",
+      "summary": "A private block inside a sequence item is removed too.",
+      "constraint_id": "private_removal"
+    },
+    {
+      "id": "S8",
+      "dimension": "safety",
+      "summary": "No released file's name contains an original identifier or an original UID.",
+      "constraint_id": "filename_secrecy"
+    },
+    {
+      "id": "S9",
+      "dimension": "safety",
+      "summary": "A patient identifier shaped like a path cannot place a released file outside OUTPUT_DIR.",
+      "constraint_id": "filename_secrecy"
+    },
+    {
+      "id": "S10",
+      "dimension": "safety",
+      "summary": "A crosswalk path directly inside OUTPUT_DIR is refused: the mapping never lands in the release.",
+      "constraint_id": "crosswalk_placement"
+    },
+    {
+      "id": "S11",
+      "dimension": "safety",
+      "summary": "A crosswalk path in a subdirectory of OUTPUT_DIR is refused as well.",
+      "constraint_id": "crosswalk_placement"
+    },
+    {
+      "id": "S12",
+      "dimension": "safety",
+      "summary": "The crosswalk is readable by its owner only.",
+      "constraint_id": "crosswalk_permissions"
+    },
+    {
+      "id": "S13",
+      "dimension": "safety",
+      "summary": "Every released file is readable by its owner only.",
+      "constraint_id": "output_permissions"
+    },
+    {
+      "id": "S14",
+      "dimension": "safety",
+      "summary": "OUTPUT_DIR and any directory created under it are owner-only.",
+      "constraint_id": "output_permissions"
+    },
+    {
+      "id": "S15",
+      "dimension": "safety",
+      "summary": "An existing crosswalk is not replaced.",
+      "constraint_id": "crosswalk_no_clobber"
+    },
+    {
+      "id": "S16",
+      "dimension": "safety",
+      "summary": "A patient name that starts a spreadsheet formula is neutralised in the crosswalk.",
+      "constraint_id": "crosswalk_neutralisation"
+    },
+    {
+      "id": "S17",
+      "dimension": "safety",
+      "summary": "Other formula-leading characters, in the name and the ID column, are neutralised too.",
+      "constraint_id": "crosswalk_neutralisation"
+    },
+    {
+      "id": "S18",
+      "dimension": "safety",
+      "summary": "Every file under INPUT_DIR is byte-identical after the run.",
+      "constraint_id": "originals_untouched"
+    },
+    {
+      "id": "S19",
+      "dimension": "safety",
+      "summary": "An OUTPUT_DIR inside INPUT_DIR is refused: nothing new appears under the originals.",
+      "constraint_id": "originals_untouched"
+    },
+    {
+      "id": "S20",
+      "dimension": "safety",
+      "summary": "One study keeps one Study Instance UID and one Frame of Reference UID across files, and no original UID survives.",
+      "constraint_id": "uid_consistency"
+    },
+    {
+      "id": "S21",
+      "dimension": "safety",
+      "summary": "A structure set's references resolve to the released image it was drawn on.",
+      "constraint_id": "uid_consistency"
+    },
+    {
+      "id": "S22",
+      "dimension": "safety",
+      "summary": "The file meta information describes the dataset it fronts.",
+      "constraint_id": "file_meta_consistency"
+    },
+    {
+      "id": "S23",
+      "dimension": "safety",
+      "summary": "Every released file is a conformant DICOM file that reads back without forcing.",
+      "constraint_id": "file_meta_consistency"
+    },
+    {
+      "id": "S24",
+      "dimension": "safety",
+      "summary": "A patient's dates all move by the same amount, so intervals survive.",
+      "constraint_id": "date_consistency"
+    },
+    {
+      "id": "S25",
+      "dimension": "safety",
+      "summary": "No original date survives anywhere in the release, including birth dates and date-times.",
+      "constraint_id": "date_consistency"
+    },
+    {
+      "id": "S26",
+      "dimension": "safety",
+      "summary": "Every file of one patient carries the same pseudonym, and different patients carry different ones.",
+      "constraint_id": "pseudonym_consistency"
+    },
+    {
+      "id": "S27",
+      "dimension": "safety",
+      "summary": "A stated age of ninety or more is released as 090Y.",
+      "constraint_id": "age_cap"
+    },
+    {
+      "id": "S28",
+      "dimension": "safety",
+      "summary": "The released dates do not reveal an age above the cap.",
+      "constraint_id": "age_cap"
+    },
+    {
+      "id": "S29",
+      "dimension": "safety",
+      "summary": "The summary line agrees with what is on disk.",
+      "constraint_id": "deid_record_truthful"
+    },
+    {
+      "id": "S30",
+      "dimension": "safety",
+      "summary": "A run that refused or failed a file exits non-zero.",
+      "constraint_id": "deid_record_truthful"
+    },
+    {
+      "id": "S31",
+      "dimension": "safety",
+      "summary": "A file whose Burned In Annotation is YES is not released.",
+      "constraint_id": "burned_in_refusal"
+    },
+    {
+      "id": "S32",
+      "dimension": "safety",
+      "summary": "A secondary capture or screen save identified by Image Type is not released.",
+      "constraint_id": "burned_in_refusal"
+    },
+    {
+      "id": "S33",
+      "dimension": "safety",
+      "summary": "A file that cannot be read, sorted first, does not stop the files after it.",
+      "constraint_id": "bad_file_isolation"
+    },
+    {
+      "id": "S34",
+      "dimension": "safety",
+      "summary": "The unreadable file is named on standard error.",
+      "constraint_id": "bad_file_isolation"
+    }
+  ]
+}

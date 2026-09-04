@@ -1,0 +1,13 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -270,10 +270,6 @@
+         del dataset[tag]
+         return
+     if action.startswith("Z"):
+-        if elem.VR == "SQ":
+-            elem.value = Sequence()
+-        else:
+-            elem.value = None
+         return
+     if action.startswith("D"):
+         elem.value = _dummy_for(elem)

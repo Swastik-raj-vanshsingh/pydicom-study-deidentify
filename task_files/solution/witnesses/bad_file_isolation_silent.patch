@@ -1,0 +1,14 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -542,11 +542,6 @@
+             print("refused %s: %s" % (path.relative_to(input_dir), why), file=sys.stderr)
+         except (InvalidDicomError, OSError, ValueError, AttributeError, KeyError, TypeError) as why:
+             failed += 1
+-            print(
+-                "failed %s: %s: %s"
+-                % (path.relative_to(input_dir), type(why).__name__, str(why)[:120]),
+-                file=sys.stderr,
+-            )
+ 
+     _write_crosswalk(crosswalk, study)
+ 

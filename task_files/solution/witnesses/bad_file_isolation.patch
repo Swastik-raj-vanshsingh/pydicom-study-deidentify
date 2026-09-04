@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -540,7 +540,7 @@
+         except ReleaseRefused as why:
+             refused += 1
+             print("refused %s: %s" % (path.relative_to(input_dir), why), file=sys.stderr)
+-        except (InvalidDicomError, OSError, ValueError, AttributeError, KeyError, TypeError) as why:
++        except (InvalidDicomError,) as why:
+             failed += 1
+             print(
+                 "failed %s: %s: %s"

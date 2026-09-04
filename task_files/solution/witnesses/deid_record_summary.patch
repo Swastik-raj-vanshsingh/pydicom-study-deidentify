@@ -1,0 +1,18 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -516,6 +516,7 @@
+         if not _is_dicom(path):
+             skipped += 1
+             continue
++        written += 1
+         try:
+             dataset = dcmread(str(path))
+             deidentify_dataset(dataset, profile, study)
+@@ -536,7 +537,6 @@
+                     pass
+                 raise
+             _private(target, 0o600)
+-            written += 1
+         except ReleaseRefused as why:
+             refused += 1
+             print("refused %s: %s" % (path.relative_to(input_dir), why), file=sys.stderr)

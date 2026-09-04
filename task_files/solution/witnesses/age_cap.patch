@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -294,8 +294,6 @@
+             del dataset[tag]
+             continue
+         if tag in RETAINED_CHARACTERISTICS:
+-            if tag == Tag(0x0010, 0x1010):
+-                _cap_age(elem)
+             continue
+         if elem.VR == "SQ" and not isinstance(elem.value, (str, bytes)):
+             action = profile.action_for(tag)

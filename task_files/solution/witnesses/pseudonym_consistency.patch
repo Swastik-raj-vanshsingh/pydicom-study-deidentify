@@ -1,0 +1,12 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -182,7 +182,8 @@
+                 "original_patient_name": str(original_name),
+                 "pseudonym": "%s-%04d" % (self.prefix, number),
+             }
+-        return self.patients[key]["pseudonym"]
++        self.issued = getattr(self, "issued", 0) + 1
++        return "%s-%04d" % (self.prefix, self.issued)
+ 
+     def offset_days(self, original_id: str) -> int:
+         key = str(original_id).strip() or "<no id>"

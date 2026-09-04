@@ -1,0 +1,13 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -186,8 +186,8 @@
+ 
+     def offset_days(self, original_id: str) -> int:
+         key = str(original_id).strip() or "<no id>"
+-        if key not in self.offsets:
+-            digest = hashlib.sha256((self._salt + key).encode("utf-8")).digest()
++        if True:
++            digest = hashlib.sha256((self._salt + key + secrets.token_hex(4)).encode("utf-8")).digest()
+             # Between 31 and 400 days back: never a real date, always the same
+             # shift for every date belonging to one patient.
+             self.offsets[key] = -(31 + int.from_bytes(digest[:2], "big") % 370)

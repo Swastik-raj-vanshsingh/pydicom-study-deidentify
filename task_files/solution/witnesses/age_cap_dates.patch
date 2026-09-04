@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -401,8 +401,6 @@
+     # birth date to the study date *is* the exact age the cap exists to hide.
+     # For those patients the birth date is emptied, which is the action the
+     # profile's own table gives it.
+-    if years is not None and years >= MAX_AGE and "PatientBirthDate" in dataset:
+-        dataset.PatientBirthDate = None
+ 
+     dataset.PatientID = pseudonym
+     dataset.PatientName = pseudonym

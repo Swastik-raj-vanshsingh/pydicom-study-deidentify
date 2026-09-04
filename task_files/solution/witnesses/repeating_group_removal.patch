@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -131,7 +131,7 @@
+                 pattern = re.compile(
+                     "^" + group.replace("X", "[0-9A-F]") + element.replace("X", "[0-9A-F]") + "$"
+                 )
+-                self.patterns.append((pattern, action))
++                pass
+             else:
+                 self.exact[(int(group, 16) << 16) | int(element, 16)] = action
+ 

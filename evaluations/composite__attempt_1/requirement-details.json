@@ -1,0 +1,2131 @@
+{
+  "requirements": [
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 233,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "help",
+          "value": "usage: pydicom deidentify [-h] --crosswalk CROSSWALK\n                          [--patient-prefix PATIENT_PREFIX]\n                          [--profile PROFILE]\n                          input_dir output_dir\n\nDe-identify every DICOM file under INPUT_DIR into OUTPUT_DIR.\n\npositional arguments:\n  input_dir\n  output_dir\n\noptions:\n  -h, --help            show this help message and exit\n  --crosswalk CROSSWALK\n                        CSV mapping original patients to pseudonyms\n  --patient-prefix PATIENT_PREFIX\n  --profile PROFILE\n"
+        }
+      ],
+      "id": "U1",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 238,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "released",
+          "value": 6
+        },
+        {
+          "label": "expected",
+          "value": 6
+        }
+      ],
+      "id": "U2",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 254,
+      "evidence": [
+        {
+          "label": "patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "patient_names",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "chosen_prefix_ids",
+          "value": [
+            "TRIAL-0001",
+            "TRIAL-0002"
+          ]
+        }
+      ],
+      "id": "U3",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "modality",
+          "value": "CT"
+        },
+        {
+          "label": "rows",
+          "value": "2"
+        },
+        {
+          "label": "pixel_bytes",
+          "value": 8
+        }
+      ],
+      "id": "U4",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "study_date",
+          "value": "20231102"
+        },
+        {
+          "label": "content_date",
+          "value": "20231103"
+        }
+      ],
+      "id": "U5",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "characteristics",
+          "value": {
+            "PatientAge": "044Y",
+            "PatientSex": "M",
+            "PatientSize": "1.72",
+            "PatientWeight": "68"
+          }
+        }
+      ],
+      "id": "U6",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "rows",
+          "value": [
+            [
+              "original_patient_id",
+              "original_patient_name",
+              "pseudonym"
+            ],
+            [
+              "MRN-7731-PHI",
+              "Doe^Jonathan^PHI7731",
+              "RSCH-0001"
+            ],
+            [
+              "MRN-8842-PHI",
+              "Roe^Richard^PHI8842",
+              "RSCH-0002"
+            ]
+          ]
+        },
+        {
+          "label": "mapping",
+          "value": {
+            "MRN-7731-PHI": "RSCH-0001",
+            "MRN-8842-PHI": "RSCH-0002"
+          }
+        }
+      ],
+      "id": "U7",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "stdout",
+          "value": "written 6, refused 0, failed 0, skipped 0, patients 2\n"
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 0,
+            "patients": 2,
+            "refused": 0,
+            "skipped": 0,
+            "written": 6
+          }
+        }
+      ],
+      "id": "U8",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 0,
+            "patients": 2,
+            "refused": 0,
+            "skipped": 1,
+            "written": 8
+          }
+        }
+      ],
+      "id": "U9",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 689,
+      "evidence": [
+        {
+          "label": "instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "label": "input_tree",
+          "value": [
+            "burned_sc.dcm",
+            "ct_a.dcm",
+            "ct_b.dcm",
+            "mr_p2.dcm",
+            "noext",
+            "notes.dcm",
+            "rtstruct.dcm",
+            "screen_save.dcm",
+            "series2/ct_a2.dcm"
+          ]
+        }
+      ],
+      "id": "U10",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 3,
+      "evidence": [
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        },
+        {
+          "label": "codes",
+          "value": [
+            "113100",
+            "113107",
+            "113108"
+          ]
+        },
+        {
+          "label": "schemes",
+          "value": [
+            "DCM"
+          ]
+        }
+      ],
+      "id": "U11",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 296,
+      "evidence": [
+        {
+          "label": "returncode",
+          "value": 0
+        },
+        {
+          "label": "output",
+          "value": "ta                          OW: b'\\x01\\x02'\n(6000,0010) Overlay Rows                        US: 4\n(6000,0011) Overlay Columns                     US: 4\n(6000,0040) Overlay Type                        CS: 'G'\n(6000,0050) Overlay Origin                      SS: [1, 1]\n(6000,0100) Overlay Bits Allocated              US: 1\n(6000,0102) Overlay Bit Position                US: 0\n(6000,3000) Overlay Data                        OW: b'\\xff\\xff'\n(6000,4000) Overlay Comments                    LT: Array of 20 elements\n(7FE0,0010) Pixel Data                          OW: b'\\x01\\x00\\x02\\x00\\x03\\x00\\x04\\x00'\n"
+        }
+      ],
+      "id": "U12",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": null,
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "images_checked",
+          "value": [
+            1,
+            2,
+            4,
+            7,
+            8
+          ]
+        },
+        {
+          "label": "kept",
+          "value": {
+            "ImageOrientationPatient": "[1, 0, 0, 0, 1, 0]",
+            "ImagePositionPatient": "[0, 0, 0]",
+            "PixelSpacing": "[0.7, 0.7]",
+            "RescaleIntercept": "-1024",
+            "RescaleSlope": "1",
+            "SliceThickness": "1.25",
+            "SpacingBetweenSlices": "1.25",
+            "WindowCenter": "40",
+            "WindowWidth": "400"
+          }
+        },
+        {
+          "label": "missing",
+          "value": {}
+        }
+      ],
+      "id": "U13",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "profile_removal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "checked",
+          "value": [
+            "OTHERID-7731",
+            "+1-555-7731-PHI",
+            "12 Privet Drive PHI7731",
+            "Refphys^Alice^PHI7731",
+            "ACC-7731-PHI"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S1",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "profile_removal",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "checked",
+          "value": [
+            "Head CT for PHI7731",
+            "Axial PHI7731",
+            "patient comment PHI7731",
+            "St Mary Hospital PHI7731",
+            "structure label PHI7731"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S2",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "nested_removal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "checked",
+          "value": [
+            "Nested Clinic PHI7731",
+            "WKSTN-PHI7731",
+            "Tech^Bernard^PHI7731"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": [
+            "Nested Clinic PHI7731",
+            "WKSTN-PHI7731",
+            "Tech^Bernard^PHI7731"
+          ]
+        }
+      ],
+      "id": "S3",
+      "message": "identifying attributes inside a sequence item survived; the profile was applied to the top level only: ['Nested Clinic PHI7731', 'WKSTN-PHI7731', 'Tech^Bernard^PHI7731']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "repeating_group_removal",
+      "deferred": false,
+      "duration_ms": 6,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "overlay_tags",
+          "value": [
+            "(6000,3000)",
+            "(6000,4000)"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": [
+            "overlay text PHI7731"
+          ]
+        }
+      ],
+      "id": "S4",
+      "message": "overlay text naming the patient is still in the release",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "repeating_group_removal",
+      "deferred": false,
+      "duration_ms": 7,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "curve_tags",
+          "value": [
+            "(5000,0010)",
+            "(5000,3000)"
+          ]
+        }
+      ],
+      "id": "S5",
+      "message": "curve groups the profile lists by wildcard tag survived: ['(5000,0010)', '(5000,3000)']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "private_removal",
+      "deferred": false,
+      "duration_ms": 3,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "private_tags",
+          "value": [
+            "(0009,0010)",
+            "(0009,1010)"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": [
+            "private vendor note PHI7731"
+          ]
+        }
+      ],
+      "id": "S6",
+      "message": "a private vendor note naming the patient was released",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "private_removal",
+      "deferred": false,
+      "duration_ms": 3,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_patient_ids",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        },
+        {
+          "label": "nested_private_tags",
+          "value": []
+        },
+        {
+          "label": "leaked",
+          "value": [
+            "nested private PHI7731"
+          ]
+        }
+      ],
+      "id": "S7",
+      "message": "a private note inside a sequence item was released",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "filename_secrecy",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_names",
+          "value": [
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm",
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm",
+            "MRN-8842-PHI/1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm"
+          ]
+        },
+        {
+          "label": "offending",
+          "value": {
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-7731-PHI/1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm": [
+              "MRN-7731-PHI"
+            ],
+            "MRN-8842-PHI/1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm": [
+              "MRN-8842-PHI"
+            ]
+          }
+        }
+      ],
+      "id": "S8",
+      "message": "the release's file names carry original identifiers: {'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm': ['MRN-7731-PHI'], 'MRN-7731-PHI/1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm': ['MRN-7731-PHI'], 'MRN-8842-PHI/1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm': ['MRN-8842-PHI']}",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "filename_secrecy",
+      "deferred": false,
+      "duration_ms": 288,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "released",
+          "value": 1
+        },
+        {
+          "label": "written_outside_the_release",
+          "value": [
+            "sibling/escaped-7731/1.2.826.0.1.3680043.8.498.32678011667323653298259556934839818000.dcm",
+            "sibling/escaped-7731/1.2.826.0.1.3680043.8.498.65969539441583237586916908741069879429.dcm"
+          ]
+        }
+      ],
+      "id": "S9",
+      "message": "the run wrote 2 file(s) outside the release directory, where the identifier pointed: ['sibling/escaped-7731/1.2.826.0.1.3680043.8.498.32678011667323653298259556934839818000.dcm', 'sibling/escaped-7731/1.2.826.0.1.3680043.8.498.65969539441583237586916908741069879429.dcm']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "crosswalk_placement",
+      "deferred": false,
+      "duration_ms": 533,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "crosswalk_exists",
+          "value": true
+        }
+      ],
+      "id": "S10",
+      "message": "the re-identification key was written inside the release directory",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "crosswalk_placement",
+      "deferred": false,
+      "duration_ms": 238,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "crosswalk_path",
+          "value": "/tmp/studyjoyk58r1/release/keys/crosswalk.csv"
+        }
+      ],
+      "id": "S11",
+      "message": "the re-identification key was written in a folder inside the release",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "crosswalk_permissions",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "crosswalk",
+          "value": "/tmp/study0fmp047n/crosswalk.csv"
+        },
+        {
+          "label": "rows",
+          "value": 3
+        },
+        {
+          "label": "mode",
+          "value": "0o644"
+        }
+      ],
+      "id": "S12",
+      "message": "the crosswalk is readable or writable by others: mode 0o644",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "output_permissions",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "modes",
+          "value": {
+            "1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm": "0o644",
+            "1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm": "0o644"
+          }
+        },
+        {
+          "label": "exposed",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm",
+            "1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm",
+            "1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm",
+            "1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm",
+            "1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm",
+            "1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm",
+            "1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm",
+            "1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm"
+          ]
+        }
+      ],
+      "id": "S13",
+      "message": "released files are readable or writable by others: ['1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm', '1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm', '1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm', '1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm', '1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm', '1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm', '1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm', '1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "output_permissions",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "modes",
+          "value": {
+            "/tmp/study0fmp047n/release": "0o755",
+            "/tmp/study0fmp047n/release/MRN-7731-PHI": "0o755",
+            "/tmp/study0fmp047n/release/MRN-8842-PHI": "0o755"
+          }
+        },
+        {
+          "label": "exposed",
+          "value": [
+            "/tmp/study0fmp047n/release",
+            "/tmp/study0fmp047n/release/MRN-7731-PHI",
+            "/tmp/study0fmp047n/release/MRN-8842-PHI"
+          ]
+        }
+      ],
+      "id": "S14",
+      "message": "the release directory is listable or writable by others: ['/tmp/study0fmp047n/release', '/tmp/study0fmp047n/release/MRN-7731-PHI', '/tmp/study0fmp047n/release/MRN-8842-PHI']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "crosswalk_no_clobber",
+      "deferred": false,
+      "duration_ms": 258,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "crosswalk",
+          "value": "original_patient_id,original_patient_name,pseudonym\nMRN-7731-PHI,Doe^Jonathan^PHI7731,RSCH-0001\nMRN-8842-PHI,Roe^Richard^PHI8842,RSCH-0002\n"
+        }
+      ],
+      "id": "S15",
+      "message": "the crosswalk from a previous run was overwritten; that mapping was the only copy",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "crosswalk_neutralisation",
+      "deferred": false,
+      "duration_ms": 226,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "rows",
+          "value": [
+            [
+              "original_patient_id",
+              "original_patient_name",
+              "pseudonym"
+            ],
+            [
+              "MRN-7731-PHI",
+              "=cmd|'/c calc'!A1",
+              "RSCH-0001"
+            ],
+            [
+              "MRN-8842-PHI",
+              "Roe^Richard^PHI8842",
+              "RSCH-0002"
+            ]
+          ]
+        },
+        {
+          "label": "hostile_cell",
+          "value": "=cmd|'/c calc'!A1"
+        },
+        {
+          "label": "ordinary_cell",
+          "value": "Roe^Richard^PHI8842"
+        }
+      ],
+      "id": "S16",
+      "message": "a crosswalk cell still begins a spreadsheet formula: [\"=cmd|'/c calc'!A1\"]",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "crosswalk_neutralisation",
+      "deferred": false,
+      "duration_ms": 221,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "rows",
+          "value": [
+            [
+              "original_patient_id",
+              "original_patient_name",
+              "pseudonym"
+            ],
+            [
+              "+MRN-7731",
+              "@SUM(1+1)",
+              "RSCH-0001"
+            ],
+            [
+              "MRN-8842-PHI",
+              "Roe^Richard^PHI8842",
+              "RSCH-0002"
+            ]
+          ]
+        },
+        {
+          "label": "name_cell",
+          "value": "@SUM(1+1)"
+        },
+        {
+          "label": "id_cell",
+          "value": "+MRN-7731"
+        }
+      ],
+      "id": "S17",
+      "message": "a crosswalk cell still begins a spreadsheet formula: ['+MRN-7731', '@SUM(1+1)']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "originals_untouched",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "changed",
+          "value": []
+        },
+        {
+          "label": "removed",
+          "value": []
+        },
+        {
+          "label": "added",
+          "value": []
+        }
+      ],
+      "id": "S18",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "originals_untouched",
+      "deferred": false,
+      "duration_ms": 230,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stderr",
+          "value": ""
+        },
+        {
+          "label": "added_under_input",
+          "value": [
+            "release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.57398148186530390963816466582143720663.dcm",
+            "release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.91546827905389498095353091651511650213.dcm",
+            "release/MRN-8842-PHI/1.2.826.0.1.3680043.8.498.68673334727129746289785784165941755786.dcm",
+            "release/RSCH-0001/1.2.826.0.1.3680043.8.498.68860116592716675444922105282137333424.dcm",
+            "release/RSCH-0001/1.2.826.0.1.3680043.8.498.79447214972498039262470819350457289800.dcm",
+            "release/RSCH-0002/1.2.826.0.1.3680043.8.498.85708822825729216902867703809473995740.dcm"
+          ]
+        },
+        {
+          "label": "changed",
+          "value": []
+        }
+      ],
+      "id": "S19",
+      "message": "de-identified copies were written into the hospital's originals: ['release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.57398148186530390963816466582143720663.dcm', 'release/MRN-7731-PHI/1.2.826.0.1.3680043.8.498.91546827905389498095353091651511650213.dcm', 'release/MRN-8842-PHI/1.2.826.0.1.3680043.8.498.68673334727129746289785784165941755786.dcm', 'release/RSCH-0001/1.2.826.0.1.3680043.8.498.68860116592716675444922105282137333424.dcm', 'release/RSCH-0001/1.2.826.0.1.3680043.8.498.79447214972498039262470819350457289800.dcm', 'release/RSCH-0002/1.2.826.0.1.3680043.8.498.85708822825729216902867703809473995740.dcm']",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "uid_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "files",
+          "value": 7
+        },
+        {
+          "label": "study_uids",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.19919896019219218647708966720128393218",
+            "1.2.826.0.1.3680043.8.498.30100235206182319081905307593764656715",
+            "1.2.826.0.1.3680043.8.498.3372539610797736355758550523693054796",
+            "1.2.826.0.1.3680043.8.498.41964511794433468954347863290101567449",
+            "1.2.826.0.1.3680043.8.498.64499092832904128574686604922743481808",
+            "1.2.826.0.1.3680043.8.498.72858184313291365217495969549464268048",
+            "1.2.826.0.1.3680043.8.498.87187368339196183612609198616158885185"
+          ]
+        },
+        {
+          "label": "frame_uids",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.1545769295220192647214469000112017766",
+            "1.2.826.0.1.3680043.8.498.35368179332345329566742133418867976196",
+            "1.2.826.0.1.3680043.8.498.59926869468845689843863908377877588127",
+            "1.2.826.0.1.3680043.8.498.675672369011649218906820274171183971",
+            "1.2.826.0.1.3680043.8.498.81424049746477416448725177437433512823",
+            "1.2.826.0.1.3680043.8.498.90468770244723021969881323293194318962",
+            "1.2.826.0.1.3680043.8.498.98094708489432126695625747069390454348"
+          ]
+        }
+      ],
+      "id": "S20",
+      "message": "files of one study were released under 7 different Study Instance UIDs; they no longer belong together",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "uid_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "referenced",
+          "value": "1.2.826.0.1.3680043.8.498.95819153160826995230065530401760808871"
+        },
+        {
+          "label": "released_image",
+          "value": "1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078"
+        }
+      ],
+      "id": "S21",
+      "message": "the structure set points at an instance that is not in the release",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "file_meta_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "mismatched",
+          "value": [
+            [
+              "1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm",
+              "1.2.826.0.1.3680043.8.498.95819153160826995230065530401760808871",
+              "1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075.dcm",
+              "1.2.826.0.1.3680043.8.498.22591983467035630779609611288190195815",
+              "1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm",
+              "1.2.826.0.1.3680043.8.498.67010705315677720616690807741900172873",
+              "1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163.dcm",
+              "1.2.826.0.1.3680043.8.498.90823288887896859066077551477401996070",
+              "1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm",
+              "1.2.826.0.1.3680043.8.498.69184756620703332454419525571815579815",
+              "1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm",
+              "1.2.826.0.1.3680043.8.498.56784894198470539951911371914155234318",
+              "1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm",
+              "1.2.826.0.1.3680043.8.498.8841060091448814020585187897614853667",
+              "1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480.dcm",
+              "1.2.826.0.1.3680043.8.498.28110982884766650807494356220816465303",
+              "1.2.826.0.1.3680043.8.498.66500515885923074318193547975107614480"
+            ]
+          ]
+        },
+        {
+          "label": "stale",
+          "value": [
+            [
+              "1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm",
+              "1.2.826.0.1.3680043.8.498.95819153160826995230065530401760808871"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm",
+              "1.2.826.0.1.3680043.8.498.67010705315677720616690807741900172873"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm",
+              "1.2.826.0.1.3680043.8.498.69184756620703332454419525571815579815"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm",
+              "1.2.826.0.1.3680043.8.498.56784894198470539951911371914155234318"
+            ],
+            [
+              "1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm",
+              "1.2.826.0.1.3680043.8.498.8841060091448814020585187897614853667"
+            ]
+          ]
+        }
+      ],
+      "id": "S22",
+      "message": "an original UID survived in the file header: [('1.2.826.0.1.3680043.8.498.27062397610792794101572815895084289078.dcm', '1.2.826.0.1.3680043.8.498.95819153160826995230065530401760808871'), ('1.2.826.0.1.3680043.8.498.45524663241998034221767432063827288573.dcm', '1.2.826.0.1.3680043.8.498.67010705315677720616690807741900172873'), ('1.2.826.0.1.3680043.8.498.80212871057386193664546719449199272910.dcm', '1.2.826.0.1.3680043.8.498.69184756620703332454419525571815579815'), ('1.2.826.0.1.3680043.8.498.81863746441137181802843079168477163386.dcm', '1.2.826.0.1.3680043.8.498.56784894198470539951911371914155234318'), ('1.2.826.0.1.3680043.8.498.94446501650572007925049472065651214145.dcm', '1.2.826.0.1.3680043.8.498.8841060091448814020585187897614853667')]",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "file_meta_consistency",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "unreadable",
+          "value": []
+        },
+        {
+          "label": "without_transfer_syntax",
+          "value": []
+        }
+      ],
+      "id": "S23",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "date_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "study_dates",
+          "value": [
+            "20230806",
+            "20230810",
+            "20230811",
+            "20231102",
+            "20231115",
+            "20231219",
+            "20240203"
+          ]
+        }
+      ],
+      "id": "S24",
+      "message": "one study was released under 7 different study dates; the files no longer sit on one timeline",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "date_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_study_dates",
+          "value": [
+            "20230806",
+            "20230810",
+            "20230811",
+            "20230919",
+            "20231102",
+            "20231115",
+            "20231219",
+            "20240203"
+          ]
+        },
+        {
+          "label": "leaked",
+          "value": []
+        }
+      ],
+      "id": "S25",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "pseudonym_consistency",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "first_patient_ids",
+          "value": [
+            "RSCH-0001"
+          ]
+        },
+        {
+          "label": "second_patient_id",
+          "value": "RSCH-0002"
+        },
+        {
+          "label": "crosswalk_pseudonyms",
+          "value": [
+            "RSCH-0001",
+            "RSCH-0002"
+          ]
+        }
+      ],
+      "id": "S26",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "age_cap",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "younger_age",
+          "value": "044Y"
+        },
+        {
+          "label": "ages",
+          "value": {
+            "1": "090Y",
+            "2": "090Y",
+            "3": null,
+            "7": "090Y",
+            "8": "090Y"
+          }
+        }
+      ],
+      "id": "S27",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "age_cap",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_study_dates",
+          "value": [
+            "20230810",
+            "20230811",
+            "20231102",
+            "20231219",
+            "20240203"
+          ]
+        },
+        {
+          "label": "birth_dates",
+          "value": {
+            "1": "19310129",
+            "2": "19310502",
+            "3": "19310317",
+            "7": "19301106",
+            "8": "19301107"
+          }
+        },
+        {
+          "label": "derivable_ages",
+          "value": [
+            [
+              1,
+              "19310129",
+              "StudyDate",
+              "20231102",
+              92.0
+            ],
+            [
+              1,
+              "19310129",
+              "ContentDate",
+              "20231103",
+              92.0
+            ],
+            [
+              1,
+              "19310129",
+              "AcquisitionDate",
+              "20231102",
+              92.0
+            ],
+            [
+              1,
+              "19310129",
+              "SeriesDate",
+              "20231102",
+              92.0
+            ],
+            [
+              2,
+              "19310502",
+              "StudyDate",
+              "20240203",
+              92.0
+            ],
+            [
+              2,
+              "19310502",
+              "ContentDate",
+              "20240204",
+              92.0
+            ],
+            [
+              2,
+              "19310502",
+              "AcquisitionDate",
+              "20240203",
+              92.0
+            ],
+            [
+              2,
+              "19310502",
+              "SeriesDate",
+              "20240205",
+              92.0
+            ],
+            [
+              3,
+              "19310317",
+              "StudyDate",
+              "20231219",
+              92.0
+            ],
+            [
+              3,
+              "19310317",
+              "ContentDate",
+              "20231220",
+              92.0
+            ],
+            [
+              3,
+              "19310317",
+              "AcquisitionDate",
+              "20231219",
+              92.0
+            ],
+            [
+              3,
+              "19310317",
+              "SeriesDate",
+              "20231219",
+              92.0
+            ],
+            [
+              7,
+              "19301106",
+              "StudyDate",
+              "20230810",
+              92.0
+            ],
+            [
+              7,
+              "19301106",
+              "ContentDate",
+              "20230811",
+              92.0
+            ],
+            [
+              7,
+              "19301106",
+              "AcquisitionDate",
+              "20230810",
+              92.0
+            ],
+            [
+              7,
+              "19301106",
+              "SeriesDate",
+              "20230810",
+              92.0
+            ],
+            [
+              8,
+              "19301107",
+              "StudyDate",
+              "20230811",
+              92.0
+            ],
+            [
+              8,
+              "19301107",
+              "ContentDate",
+              "20230812",
+              92.0
+            ],
+            [
+              8,
+              "19301107",
+              "AcquisitionDate",
+              "20230811",
+              92.0
+            ],
+            [
+              8,
+              "19301107",
+              "SeriesDate",
+              "20230811",
+              92.0
+            ]
+          ]
+        }
+      ],
+      "id": "S28",
+      "message": "two released dates still give an exact age of ninety or more: [(1, '19310129', 'StudyDate', '20231102', 92.0), (1, '19310129', 'ContentDate', '20231103', 92.0), (1, '19310129', 'AcquisitionDate', '20231102', 92.0), (1, '19310129', 'SeriesDate', '20231102', 92.0), (2, '19310502', 'StudyDate', '20240203', 92.0), (2, '19310502', 'ContentDate', '20240204', 92.0), (2, '19310502', 'AcquisitionDate', '20240203', 92.0), (2, '19310502', 'SeriesDate', '20240205', 92.0), (3, '19310317', 'StudyDate', '20231219', 92.0), (3, '19310317', 'ContentDate', '20231220', 92.0), (3, '19310317', 'AcquisitionDate', '20231219', 92.0), (3, '19310317', 'SeriesDate', '20231219', 92.0), (7, '19301106', 'StudyDate', '20230810', 92.0), (7, '19301106', 'ContentDate', '20230811', 92.0), (7, '19301106', 'AcquisitionDate', '20230810', 92.0), (7, '19301106', 'SeriesDate', '20230810', 92.0), (8, '19301107', 'StudyDate', '20230811', 92.0), (8, '19301107', 'ContentDate', '20230812', 92.0), (8, '19301107', 'AcquisitionDate', '20230811', 92.0), (8, '19301107', 'SeriesDate', '20230811', 92.0)]",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "deid_record_truthful",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "summary",
+          "value": {
+            "failed": 0,
+            "patients": 2,
+            "refused": 0,
+            "skipped": 1,
+            "written": 8
+          }
+        },
+        {
+          "label": "stdout",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "released",
+          "value": 8
+        },
+        {
+          "label": "input_files",
+          "value": 9
+        },
+        {
+          "label": "counted",
+          "value": 9
+        },
+        {
+          "label": "crosswalk_rows",
+          "value": 2
+        }
+      ],
+      "id": "S29",
+      "message": "requirement satisfied",
+      "status": "passed"
+    },
+    {
+      "constraint_id": "deid_record_truthful",
+      "deferred": false,
+      "duration_ms": 234,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "released",
+          "value": 0
+        },
+        {
+          "label": "summary",
+          "value": null
+        },
+        {
+          "label": "stderr",
+          "value": "entify.py\", line 157, in do_command\n    dataset.save_as(folder / (\"%s.dcm\" % dataset.SOPInstanceUID))\n                                         ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/src/pydicom/dataset.py\", line 937, in __getattr__\n    return object.__getattribute__(self, name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'FileDataset' object has no attribute 'SOPInstanceUID'\n"
+        }
+      ],
+      "id": "S30",
+      "message": "the run released nothing, so this is not a run that partly succeeded",
+      "status": "not_evaluated"
+    },
+    {
+      "constraint_id": "burned_in_refusal",
+      "deferred": false,
+      "duration_ms": 3,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "label": "released_with_burned_in_yes",
+          "value": [
+            "1.2.826.0.1.3680043.8.498.66612814626903133936092343371209200163"
+          ]
+        }
+      ],
+      "id": "S31",
+      "message": "the image whose Burned In Annotation is YES was released; editing its header does nothing about text drawn into its pixels",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "burned_in_refusal",
+      "deferred": false,
+      "duration_ms": 2,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 0
+        },
+        {
+          "label": "stdout_tail",
+          "value": "written 8, refused 0, failed 0, skipped 1, patients 2\n"
+        },
+        {
+          "label": "stderr_tail",
+          "value": ""
+        },
+        {
+          "label": "released_count",
+          "value": 8
+        },
+        {
+          "label": "released_instances",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "label": "released_secondary_captures",
+          "value": [
+            [
+              "1.2.826.0.1.3680043.8.498.43492668535209226220323377930541557075",
+              [
+                "DERIVED",
+                "SECONDARY",
+                "SCREEN SAVE"
+              ]
+            ]
+          ]
+        }
+      ],
+      "id": "S32",
+      "message": "the screen save was released; its pixels carry the viewer's patient banner",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "bad_file_isolation",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "exit",
+          "value": 1
+        },
+        {
+          "label": "stderr",
+          "value": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/src/pydicom/cli/main.py\", line 324, in main\n    ns.func(ns)\n  File \"/workspace/src/pydicom/cli/deidentify.py\", line 157, in do_command\n    dataset.save_as(folder / (\"%s.dcm\" % dataset.SOPInstanceUID))\n                                         ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/src/pydicom/dataset.py\", line 937, in __getattr__\n    return object.__getattribute__(self, name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'FileDataset' object has no attribute 'SOPInstanceUID'\n"
+        },
+        {
+          "label": "released",
+          "value": []
+        },
+        {
+          "label": "missing",
+          "value": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8
+          ]
+        }
+      ],
+      "id": "S33",
+      "message": "the unreadable file that sorts first stopped 6 later file(s) from being released: instances [1, 2, 3, 4, 7, 8]",
+      "status": "failed"
+    },
+    {
+      "constraint_id": "bad_file_isolation",
+      "deferred": false,
+      "duration_ms": 1,
+      "evidence": [
+        {
+          "label": "feature_probe",
+          "value": "present"
+        },
+        {
+          "label": "released_count",
+          "value": 0
+        }
+      ],
+      "id": "S34",
+      "message": "the run released nothing, so the reporting of one bad file among many cannot be judged",
+      "status": "not_evaluated"
+    }
+  ],
+  "schema_version": "1.0"
+}

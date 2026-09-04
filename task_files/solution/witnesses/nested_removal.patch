@@ -1,0 +1,27 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -282,7 +282,7 @@
+     del dataset[tag]
+ 
+ 
+-def _clean(dataset: Dataset, profile: Profile, study: Study, patient_id: str) -> None:
++def _clean(dataset: Dataset, profile: Profile, study: Study, patient_id: str, depth: int = 0) -> None:
+     """Walk one dataset, recursing into every sequence item."""
+     for tag in sorted(dataset.keys()):
+         if tag not in dataset:
+@@ -303,12 +303,14 @@
+                 del dataset[tag]
+                 continue
+             for item in elem.value:
+-                _clean(item, profile, study, patient_id)
++                _clean(item, profile, study, patient_id, depth + 1)
+             continue
+         if elem.VR in DATE_VRS:
+             _apply(dataset, elem, "C", study, patient_id)
+             continue
+         action = profile.action_for(tag)
++        if depth and elem.VR != "UI":
++            continue
+         if action is None:
+             if elem.VR == "UI" and tag.group not in (0x0002, 0x0008):
+                 # Unlisted UIDs that still identify an instance are remapped

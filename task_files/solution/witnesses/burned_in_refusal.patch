@@ -1,0 +1,12 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -377,9 +377,6 @@
+     # phantom patient in the crosswalk.
+     if "SOPInstanceUID" not in dataset or not str(dataset.SOPInstanceUID).strip():
+         raise ValueError("no SOP Instance UID; not a releasable instance")
+-    reason = _may_carry_burned_in_text(dataset)
+-    if reason:
+-        raise ReleaseRefused(reason)
+ 
+     original_id = str(dataset.get("PatientID", "") or "")
+     original_name = str(dataset.get("PatientName", "") or "")

@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -468,7 +468,7 @@
+ 
+ def _open_new(path: Path) -> int:
+     """Create a file that must not already exist, readable by us alone."""
+-    return os.open(str(path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
++    return os.open(str(path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o666)
+ 
+ 
+ def _write_crosswalk(path: Path, study: Study) -> None:

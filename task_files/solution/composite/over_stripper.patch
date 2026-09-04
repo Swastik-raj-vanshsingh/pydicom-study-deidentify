@@ -1,0 +1,16 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -310,10 +310,9 @@
+             continue
+         action = profile.action_for(tag)
+         if action is None:
+-            if elem.VR == "UI" and tag.group not in (0x0002, 0x0008):
+-                # Unlisted UIDs that still identify an instance are remapped
+-                # so references stay consistent.
+-                pass
++            # Anything the table does not name is removed, to be certain
++            # nothing identifying is left behind.
++            del dataset[tag]
+             continue
+         _apply(dataset, elem, action, study, patient_id)
+ 

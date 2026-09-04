@@ -1,0 +1,660 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -1,13 +1,6 @@
+ """De-identify a study directory for release to a research partner.
+ 
+ ``pydicom deidentify INPUT_DIR OUTPUT_DIR --crosswalk FILE``
+-
+-Every DICOM file found under ``INPUT_DIR`` is de-identified according to the
+-DICOM Basic Application Level Confidentiality Profile (PS3.15 Annex E) with the
+-"Retain Longitudinal Temporal Information with Modified Dates" and "Retain
+-Patient Characteristics" options, and written under ``OUTPUT_DIR``. The mapping
+-from the original patient identifiers to the pseudonyms is written to the
+-crosswalk file for the honest broker and never travels with the release.
+ """
+ 
+ from __future__ import annotations
+@@ -15,544 +8,160 @@
+ import argparse
+ import csv
+ import datetime
+-import hashlib
+ import json
+ import os
+-import re
+-import secrets
+-import stat
++import random
+ import sys
+ from pathlib import Path
+ from typing import Any
+ 
+ from pydicom import dcmread
+-from pydicom.dataelem import DataElement
+-from pydicom.dataset import Dataset, FileMetaDataset
+-from pydicom.errors import InvalidDicomError
++from pydicom.dataset import Dataset
+ from pydicom.sequence import Sequence
+ from pydicom.tag import Tag
+-from pydicom.uid import UID, generate_uid, ExplicitVRLittleEndian
+-from pydicom.valuerep import DA, DT, TM
++from pydicom.uid import generate_uid
+ 
+ DEFAULT_PROFILE = "/opt/reference/dicom_confidentiality_profile.json"
+ 
+-# Coded entries for the Basic Profile and the two options, from PS3.16 CID 7050.
+ DEID_CODES = (
+     ("113100", "Basic Application Confidentiality Profile"),
+     ("113107", "Retain Longitudinal Temporal Information Modified Dates Option"),
+     ("113108", "Retain Patient Characteristics Option"),
+ )
+ 
+-# Under the Retain Patient Characteristics option these attributes stay.
+-RETAINED_CHARACTERISTICS = {
+-    Tag(0x0010, 0x0040),  # Patient's Sex
+-    Tag(0x0010, 0x1010),  # Patient's Age
+-    Tag(0x0010, 0x1020),  # Patient's Size
+-    Tag(0x0010, 0x1030),  # Patient's Weight
+-    Tag(0x0010, 0x2160),  # Ethnic Group
+-    Tag(0x0010, 0x21A0),  # Smoking Status
+-    Tag(0x0010, 0x21C0),  # Pregnancy Status
+-    Tag(0x0010, 0x2110),  # Allergies
++KEEP = {
++    Tag(0x0010, 0x0040),
++    Tag(0x0010, 0x1010),
++    Tag(0x0010, 0x1020),
++    Tag(0x0010, 0x1030),
++    Tag(0x0012, 0x0062),
++    Tag(0x0012, 0x0063),
++    Tag(0x0012, 0x0064),
+ }
+ 
+-# Under the Retain Longitudinal Temporal Information with Modified Dates
+-# option, dates and times are moved rather than removed.
+-DATE_VRS = {"DA", "DT", "TM"}
+-
+-# The record of what was done to the file.
+-METHOD_TAGS = {
+-    Tag(0x0012, 0x0062),  # Patient Identity Removed
+-    Tag(0x0012, 0x0063),  # De-identification Method
+-    Tag(0x0012, 0x0064),  # De-identification Method Code Sequence
+-}
+-
+-# Attributes that decide whether an image may carry burned-in text.
+-SECONDARY_IMAGE_TYPES = ("SECONDARY", "SCREEN SAVE", "SCREENSAVE")
+-
+ MAX_AGE = 90
+ 
+-_TAG_RE = re.compile(r"\(([0-9A-Fa-fXx]{4}),([0-9A-Fa-fXx]{4})\)")
+ 
+-
+-class ReleaseRefused(Exception):
+-    """The file cannot be released as de-identified."""
+-
+-
+ def add_subparser(subparsers: argparse._SubParsersAction) -> None:
+     subparser = subparsers.add_parser(
+         "deidentify",
+-        description=(
+-            "De-identify every DICOM file under INPUT_DIR into OUTPUT_DIR "
+-            "following the Basic Application Level Confidentiality Profile "
+-            "with the Retain Longitudinal Temporal Information with Modified "
+-            "Dates and Retain Patient Characteristics options."
+-        ),
++        description="De-identify every DICOM file under INPUT_DIR into OUTPUT_DIR.",
+     )
+-    subparser.add_argument("input_dir", help="directory holding the study")
+-    subparser.add_argument("output_dir", help="directory to write the release into")
+-    subparser.add_argument(
+-        "--crosswalk",
+-        required=True,
+-        help="CSV mapping original patient identifiers to pseudonyms, for the "
+-        "honest broker only",
+-    )
+-    subparser.add_argument(
+-        "--patient-prefix",
+-        default="RSCH",
+-        help="prefix for the pseudonymous patient identifiers (default RSCH)",
+-    )
+-    subparser.add_argument(
+-        "--profile",
+-        default=DEFAULT_PROFILE,
+-        help="machine readable copy of the confidentiality profile table",
+-    )
++    subparser.add_argument("input_dir")
++    subparser.add_argument("output_dir")
++    subparser.add_argument("--crosswalk", required=True,
++                           help="CSV mapping original patients to pseudonyms")
++    subparser.add_argument("--patient-prefix", default="RSCH")
++    subparser.add_argument("--profile", default=DEFAULT_PROFILE)
+     subparser.set_defaults(func=do_command)
+ 
+ 
+-# --------------------------------------------------------------------------
+-# The profile table
+-# --------------------------------------------------------------------------
+-
+-
+-class Profile:
+-    """The per-attribute actions of the Basic Profile, with wildcard groups."""
+-
+-    def __init__(self, entries: list[dict[str, Any]]) -> None:
+-        self.exact: dict[int, str] = {}
+-        self.patterns: list[tuple[re.Pattern[str], str]] = []
+-        for entry in entries:
+-            action = entry.get("basicProfile") or ""
+-            tag = entry.get("tag") or ""
+-            match = _TAG_RE.match(tag)
+-            if not match:
++def load_profile(path: str) -> dict[int, str]:
++    """The table, keyed by tag so a lookup is quick."""
++    actions: dict[int, str] = {}
++    with open(path, "r", encoding="utf-8") as handle:
++        for entry in json.load(handle):
++            tag = (entry.get("tag") or "").strip("()")
++            group, _, element = tag.partition(",")
++            try:
++                actions[(int(group, 16) << 16) | int(element, 16)] = entry.get("basicProfile") or ""
++            except ValueError:
+                 continue
+-            group, element = match.group(1).upper(), match.group(2).upper()
+-            if "X" in group or "X" in element:
+-                pattern = re.compile(
+-                    "^" + group.replace("X", "[0-9A-F]") + element.replace("X", "[0-9A-F]") + "$"
+-                )
+-                self.patterns.append((pattern, action))
+-            else:
+-                self.exact[(int(group, 16) << 16) | int(element, 16)] = action
++    return actions
+ 
+-    @classmethod
+-    def load(cls, path: str) -> "Profile":
+-        with open(path, "r", encoding="utf-8") as handle:
+-            return cls(json.load(handle))
+ 
+-    def action_for(self, tag: Tag) -> str | None:
+-        if int(tag) in self.exact:
+-            return self.exact[int(tag)]
+-        key = "%04X%04X" % (tag.group, tag.element)
+-        for pattern, action in self.patterns:
+-            if pattern.match(key):
+-                return action
+-        return None
+-
+-
+-# --------------------------------------------------------------------------
+-# Consistent replacements within one run
+-# --------------------------------------------------------------------------
+-
+-
+-class Study:
+-    """Everything that has to agree across the files of one run."""
+-
+-    def __init__(self, prefix: str) -> None:
+-        self.prefix = prefix
+-        self.uids: dict[str, str] = {}
+-        self.patients: dict[str, dict[str, str]] = {}
+-        self.offsets: dict[str, int] = {}
+-        self._salt = secrets.token_hex(16)
+-
+-    def uid(self, original: str) -> str:
+-        original = str(original).strip()
+-        if not original:
+-            return generate_uid()
+-        if original not in self.uids:
+-            self.uids[original] = generate_uid()
+-        return self.uids[original]
+-
+-    def pseudonym(self, original_id: str, original_name: str) -> str:
+-        key = str(original_id).strip() or "<no id>"
+-        if key not in self.patients:
+-            number = len(self.patients) + 1
+-            self.patients[key] = {
+-                "original_patient_id": key,
+-                "original_patient_name": str(original_name),
+-                "pseudonym": "%s-%04d" % (self.prefix, number),
+-            }
+-        return self.patients[key]["pseudonym"]
+-
+-    def offset_days(self, original_id: str) -> int:
+-        key = str(original_id).strip() or "<no id>"
+-        if key not in self.offsets:
+-            digest = hashlib.sha256((self._salt + key).encode("utf-8")).digest()
+-            # Between 31 and 400 days back: never a real date, always the same
+-            # shift for every date belonging to one patient.
+-            self.offsets[key] = -(31 + int.from_bytes(digest[:2], "big") % 370)
+-        return self.offsets[key]
+-
+-
+-# --------------------------------------------------------------------------
+-# Per-element actions
+-# --------------------------------------------------------------------------
+-
+-
+-def _shift_date(value: str, days: int) -> str:
++def shift(value: str, days: int) -> str:
+     text = str(value).strip()
+     if len(text) < 8:
+-        return ""
++        return text
+     try:
+-        date = datetime.date(int(text[:4]), int(text[4:6]), int(text[6:8]))
++        when = datetime.date(int(text[:4]), int(text[4:6]), int(text[6:8]))
+     except ValueError:
+-        return ""
+-    return (date + datetime.timedelta(days=days)).strftime("%Y%m%d")
++        return text
++    return (when + datetime.timedelta(days=days)).strftime("%Y%m%d") + text[8:]
+ 
+ 
+-def _shift_datetime(value: str, days: int) -> str:
+-    text = str(value).strip()
+-    if len(text) < 8:
+-        return ""
+-    head = _shift_date(text[:8], days)
+-    if not head:
+-        return ""
+-    return head + text[8:]
+-
+-
+-def _dummy_for(elem: DataElement) -> Any:
+-    vr = elem.VR
+-    if vr == "SQ":
+-        return Sequence()
+-    if vr in ("DA",):
+-        return "19000101"
+-    if vr in ("DT",):
+-        return "19000101000000"
+-    if vr in ("TM",):
+-        return "000000"
+-    if vr in ("UI",):
+-        return generate_uid()
+-    if vr in ("PN",):
+-        return "REMOVED^REMOVED"
+-    if vr in ("US", "SS", "UL", "SL", "FL", "FD", "IS", "DS", "UV", "SV"):
+-        return 0
+-    return "REMOVED"
+-
+-
+-def _apply(
+-    dataset: Dataset,
+-    elem: DataElement,
+-    action: str,
+-    study: Study,
+-    patient_id: str,
+-) -> None:
+-    """Carry out one profile action on one element in place."""
+-    tag = elem.tag
+-    if elem.VR in DATE_VRS:
+-        # Retain Longitudinal Temporal Information with Modified Dates: the
+-        # value moves by the patient's offset instead of being removed.
+-        days = study.offset_days(patient_id)
+-        if elem.VR == "TM":
+-            return  # a time alone carries no calendar information
+-        shifted = [
+-            _shift_datetime(v, days) if elem.VR == "DT" else _shift_date(v, days)
+-            for v in (elem.value if elem.VM > 1 else [elem.value])
+-        ]
+-        elem.value = shifted if elem.VM > 1 else shifted[0]
+-        return
+-    if "U" in action and elem.VR == "UI":
+-        if elem.VM > 1:
+-            elem.value = [study.uid(v) for v in elem.value]
+-        else:
+-            elem.value = study.uid(str(elem.value))
+-        return
+-    if action.startswith("X"):
+-        del dataset[tag]
+-        return
+-    if action.startswith("Z"):
+-        if elem.VR == "SQ":
+-            elem.value = Sequence()
+-        else:
+-            elem.value = None
+-        return
+-    if action.startswith("D"):
+-        elem.value = _dummy_for(elem)
+-        return
+-    # Anything else the table lists but does not decide for us: remove it.
+-    del dataset[tag]
+-
+-
+-def _clean(dataset: Dataset, profile: Profile, study: Study, patient_id: str) -> None:
+-    """Walk one dataset, recursing into every sequence item."""
+-    for tag in sorted(dataset.keys()):
+-        if tag not in dataset:
++def clean(dataset: Dataset, actions: dict[int, str], days: int) -> None:
++    for tag in list(dataset.keys()):
++        if tag in KEEP or tag not in dataset:
+             continue
+         elem = dataset[tag]
+-        if tag in METHOD_TAGS:
++        if elem.VR in ("DA", "DT"):
++            elem.value = shift(elem.value, days)
+             continue
+-        if tag.is_private:
+-            del dataset[tag]
++        action = actions.get(int(tag))
++        if action is None:
+             continue
+-        if tag in RETAINED_CHARACTERISTICS:
+-            if tag == Tag(0x0010, 0x1010):
+-                _cap_age(elem)
+-            continue
+-        if elem.VR == "SQ" and not isinstance(elem.value, (str, bytes)):
+-            action = profile.action_for(tag)
+-            if action and action.startswith("X"):
+-                del dataset[tag]
+-                continue
+-            for item in elem.value:
+-                _clean(item, profile, study, patient_id)
+-            continue
+-        if elem.VR in DATE_VRS:
+-            _apply(dataset, elem, "C", study, patient_id)
+-            continue
+-        action = profile.action_for(tag)
+-        if action is None:
+-            if elem.VR == "UI" and tag.group not in (0x0002, 0x0008):
+-                # Unlisted UIDs that still identify an instance are remapped
+-                # so references stay consistent.
+-                pass
+-            continue
+-        _apply(dataset, elem, action, study, patient_id)
++        if "U" in action and elem.VR == "UI":
++            elem.value = generate_uid()
++        elif action.startswith("X"):
++            del dataset[tag]
++        elif action.startswith("Z"):
++            elem.value = Sequence() if elem.VR == "SQ" else None
++        elif action.startswith("D"):
++            elem.value = "REMOVED"
++        else:
++            del dataset[tag]
+ 
+ 
+-def _cap_age(elem: DataElement) -> None:
+-    text = str(elem.value).strip()
+-    if len(text) == 4 and text[-1] == "Y" and text[:3].isdigit():
+-        if int(text[:3]) >= MAX_AGE:
+-            elem.value = "%03dY" % MAX_AGE
+-
+-
+-def _years_from_dates(dataset: Dataset) -> int | None:
+-    """The patient's age on the study date, uncapped, or None."""
+-    birth = str(dataset.get("PatientBirthDate", "") or "").strip()
+-    when = str(dataset.get("StudyDate", "") or "").strip()
+-    if len(birth) < 8 or len(when) < 8:
+-        return None
+-    try:
+-        b = datetime.date(int(birth[:4]), int(birth[4:6]), int(birth[6:8]))
+-        w = datetime.date(int(when[:4]), int(when[4:6]), int(when[6:8]))
+-    except ValueError:
+-        return None
+-    return max(w.year - b.year - ((w.month, w.day) < (b.month, b.day)), 0)
+-
+-
+-def _stated_years(dataset: Dataset) -> int | None:
++def cap_age(dataset: Dataset) -> None:
+     text = str(dataset.get("PatientAge", "") or "").strip()
+-    if len(text) == 4 and text[-1] == "Y" and text[:3].isdigit():
+-        return int(text[:3])
+-    return None
++    if len(text) == 4 and text[:3].isdigit() and int(text[:3]) >= MAX_AGE:
++        dataset.PatientAge = "%03dY" % MAX_AGE
+ 
+ 
+-def _age_from_dates(dataset: Dataset) -> str | None:
+-    years = _years_from_dates(dataset)
+-    if years is None:
+-        return None
+-    return "%03dY" % min(years, MAX_AGE)
++def do_command(args: argparse.Namespace) -> None:
++    input_dir = Path(args.input_dir)
++    output_dir = Path(args.output_dir)
++    crosswalk = Path(args.crosswalk)
++    actions = load_profile(args.profile)
++    output_dir.mkdir(parents=True, exist_ok=True)
+ 
++    patients: dict[str, str] = {}
++    names: dict[str, str] = {}
++    written = refused = failed = skipped = 0
+ 
+-def _may_carry_burned_in_text(dataset: Dataset) -> str | None:
+-    """Why the image must not be released as de-identified, or None."""
+-    burned = str(dataset.get("BurnedInAnnotation", "") or "").strip().upper()
+-    if burned == "YES":
+-        return "Burned In Annotation is YES"
+-    image_type = dataset.get("ImageType")
+-    if image_type is not None:
+-        values = [str(v).upper() for v in (image_type if dataset["ImageType"].VM > 1 else [image_type])]
+-        for value in values:
+-            for marker in SECONDARY_IMAGE_TYPES:
+-                if marker in value:
+-                    return "Image Type is %s" % "\\".join(values)
+-    return None
+-
+-
+-def deidentify_dataset(
+-    dataset: Dataset, profile: Profile, study: Study
+-) -> tuple[str, str]:
+-    """De-identify one dataset in place. Returns (pseudonym, original id)."""
+-    # Nothing about this file touches the study-wide state until the file
+-    # has shown it can be released at all: a broken file must not leave a
+-    # phantom patient in the crosswalk.
+-    if "SOPInstanceUID" not in dataset or not str(dataset.SOPInstanceUID).strip():
+-        raise ValueError("no SOP Instance UID; not a releasable instance")
+-    reason = _may_carry_burned_in_text(dataset)
+-    if reason:
+-        raise ReleaseRefused(reason)
+-
+-    original_id = str(dataset.get("PatientID", "") or "")
+-    original_name = str(dataset.get("PatientName", "") or "")
+-    pseudonym = study.pseudonym(original_id, original_name)
+-
+-    # Age is derived before the dates move, then kept under the option.
+-    years = _stated_years(dataset)
+-    if years is None:
+-        years = _years_from_dates(dataset)
+-    if "PatientAge" not in dataset:
+-        derived = _age_from_dates(dataset)
+-        if derived:
+-            dataset.PatientAge = derived
+-
+-    _clean(dataset, profile, study, original_id)
+-
+-    # Capping Patient's Age is not enough on its own. Shifting every date by
+-    # one offset keeps the interval between them, and the interval from the
+-    # birth date to the study date *is* the exact age the cap exists to hide.
+-    # For those patients the birth date is emptied, which is the action the
+-    # profile's own table gives it.
+-    if years is not None and years >= MAX_AGE and "PatientBirthDate" in dataset:
+-        dataset.PatientBirthDate = None
+-
+-    dataset.PatientID = pseudonym
+-    dataset.PatientName = pseudonym
+-
+-    # The record of what was done, stated truthfully.
+-    dataset.PatientIdentityRemoved = "YES"
+-    # LO is limited to 64 characters; the code sequence carries the detail.
+-    dataset.DeidentificationMethod = "Basic Profile; Modified Dates; Patient Characteristics"
+-    codes = Sequence()
+-    for value, meaning in DEID_CODES:
+-        item = Dataset()
+-        item.CodeValue = value
+-        item.CodingSchemeDesignator = "DCM"
+-        item.CodeMeaning = meaning
+-        codes.append(item)
+-    dataset.DeidentificationMethodCodeSequence = codes
+-    return pseudonym, original_id
+-
+-
+-def _rebuild_file_meta(dataset: Dataset) -> None:
+-    """The file header must describe the file it now fronts."""
+-    meta = getattr(dataset, "file_meta", None)
+-    if meta is None:
+-        meta = FileMetaDataset()
+-    old = FileMetaDataset()
+-    old.update(meta)
+-    meta = FileMetaDataset()
+-    meta.MediaStorageSOPClassUID = dataset.get(
+-        "SOPClassUID", old.get("MediaStorageSOPClassUID", "")
+-    )
+-    meta.MediaStorageSOPInstanceUID = dataset.SOPInstanceUID
+-    meta.TransferSyntaxUID = old.get("TransferSyntaxUID", ExplicitVRLittleEndian)
+-    dataset.file_meta = meta
+-
+-
+-# --------------------------------------------------------------------------
+-# Files
+-# --------------------------------------------------------------------------
+-
+-
+-def _is_dicom(path: Path) -> bool:
+-    try:
+-        with open(path, "rb") as handle:
+-            handle.seek(128)
+-            return handle.read(4) == b"DICM"
+-    except OSError:
+-        return False
+-
+-
+-def _iter_candidates(root: Path):
+-    for dirpath, dirnames, filenames in os.walk(root):
++    for dirpath, dirnames, filenames in os.walk(input_dir):
+         dirnames.sort()
+         for name in sorted(filenames):
+-            yield Path(dirpath) / name
++            path = Path(dirpath) / name
++            with open(path, "rb") as handle:
++                handle.seek(128)
++                if handle.read(4) != b"DICM":
++                    skipped += 1
++                    continue
++            dataset = dcmread(str(path))
++            original_id = str(dataset.get("PatientID", "") or "")
++            if original_id not in patients:
++                patients[original_id] = "%s-%04d" % (args.patient_prefix, len(patients) + 1)
++                names[original_id] = str(dataset.get("PatientName", "") or "")
++            pseudonym = patients[original_id]
+ 
++            cap_age(dataset)
++            clean(dataset, actions, random.randint(-400, -31))
++            dataset.PatientID = pseudonym
++            dataset.PatientName = pseudonym
++            dataset.PatientIdentityRemoved = "YES"
++            dataset.DeidentificationMethod = "Basic Profile; Modified Dates; Characteristics"
++            codes = Sequence()
++            for value, meaning in DEID_CODES:
++                item = Dataset()
++                item.CodeValue = value
++                item.CodingSchemeDesignator = "DCM"
++                item.CodeMeaning = meaning
++                codes.append(item)
++            dataset.DeidentificationMethodCodeSequence = codes
+ 
+-def _private(path: Path, mode: int) -> None:
+-    try:
+-        os.chmod(path, mode)
+-    except OSError:
+-        pass
++            folder = output_dir / original_id
++            folder.mkdir(parents=True, exist_ok=True)
++            dataset.save_as(folder / ("%s.dcm" % dataset.SOPInstanceUID))
++            written += 1
+ 
+-
+-def _open_new(path: Path) -> int:
+-    """Create a file that must not already exist, readable by us alone."""
+-    return os.open(str(path), os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+-
+-
+-def _write_crosswalk(path: Path, study: Study) -> None:
+-    fd = _open_new(path)
+-    with os.fdopen(fd, "w", newline="", encoding="utf-8") as handle:
++    with open(crosswalk, "w", newline="", encoding="utf-8") as handle:
+         writer = csv.writer(handle)
+         writer.writerow(["original_patient_id", "original_patient_name", "pseudonym"])
+-        for row in study.patients.values():
+-            writer.writerow([
+-                _spreadsheet_safe(row["original_patient_id"]),
+-                _spreadsheet_safe(row["original_patient_name"]),
+-                row["pseudonym"],
+-            ])
++        for original_id, pseudonym in patients.items():
++            writer.writerow([original_id, names[original_id], pseudonym])
+ 
+-
+-def _spreadsheet_safe(value: str) -> str:
+-    text = "" if value is None else str(value)
+-    if text[:1] in ("=", "+", "-", "@", "\t", "\r"):
+-        return "'" + text
+-    return text
+-
+-
+-def do_command(args: argparse.Namespace) -> None:
+-    input_dir = Path(args.input_dir).resolve()
+-    output_dir = Path(args.output_dir).resolve()
+-    crosswalk = Path(args.crosswalk).resolve()
+-
+-    if not input_dir.is_dir():
+-        sys.exit("input directory does not exist: %s" % input_dir)
+-    if output_dir == input_dir or input_dir in output_dir.parents:
+-        sys.exit("the output directory must not be inside the input directory")
+-    if crosswalk == output_dir or output_dir in crosswalk.parents:
+-        sys.exit("the crosswalk must not be written inside the release directory")
+-    if crosswalk.exists():
+-        sys.exit("refusing to overwrite an existing crosswalk: %s" % crosswalk)
+-
+-    profile = Profile.load(args.profile)
+-    study = Study(args.patient_prefix)
+-
+-    output_dir.mkdir(parents=True, exist_ok=True)
+-    _private(output_dir, 0o700)
+-
+-    written = refused = failed = skipped = 0
+-    for path in _iter_candidates(input_dir):
+-        if not _is_dicom(path):
+-            skipped += 1
+-            continue
+-        try:
+-            dataset = dcmread(str(path))
+-            deidentify_dataset(dataset, profile, study)
+-            _rebuild_file_meta(dataset)
+-            target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
+-            temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)
+-            fd = _open_new(temporary)
+-            try:
+-                with os.fdopen(fd, "wb") as handle:
+-                    dataset.save_as(handle, enforce_file_format=True)
+-                if target.exists():
+-                    raise FileExistsError(str(target))
+-                os.replace(temporary, target)
+-            except BaseException:
+-                try:
+-                    temporary.unlink()
+-                except OSError:
+-                    pass
+-                raise
+-            _private(target, 0o600)
+-            written += 1
+-        except ReleaseRefused as why:
+-            refused += 1
+-            print("refused %s: %s" % (path.relative_to(input_dir), why), file=sys.stderr)
+-        except (InvalidDicomError, OSError, ValueError, AttributeError, KeyError, TypeError) as why:
+-            failed += 1
+-            print(
+-                "failed %s: %s: %s"
+-                % (path.relative_to(input_dir), type(why).__name__, str(why)[:120]),
+-                file=sys.stderr,
+-            )
+-
+-    _write_crosswalk(crosswalk, study)
+-
+-    print(
+-        "written %d, refused %d, failed %d, skipped %d, patients %d"
+-        % (written, refused, failed, skipped, len(study.patients))
+-    )
+-    if refused or failed:
+-        sys.exit(1)
++    print("written %d, refused %d, failed %d, skipped %d, patients %d"
++          % (written, refused, failed, skipped, len(patients)))

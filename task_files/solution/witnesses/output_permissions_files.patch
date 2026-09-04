@@ -1,0 +1,24 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -522,20 +522,7 @@
+             _rebuild_file_meta(dataset)
+             target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
+             temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)
+-            fd = _open_new(temporary)
+-            try:
+-                with os.fdopen(fd, "wb") as handle:
+-                    dataset.save_as(handle, enforce_file_format=True)
+-                if target.exists():
+-                    raise FileExistsError(str(target))
+-                os.replace(temporary, target)
+-            except BaseException:
+-                try:
+-                    temporary.unlink()
+-                except OSError:
+-                    pass
+-                raise
+-            _private(target, 0o600)
++            dataset.save_as(target, enforce_file_format=True)
+             written += 1
+         except ReleaseRefused as why:
+             refused += 1

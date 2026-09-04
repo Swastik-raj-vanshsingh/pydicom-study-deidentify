@@ -1,0 +1,297 @@
+{
+  "reportFormat": "CTRF",
+  "results": {
+    "summary": {
+      "failed": 12,
+      "other": 0,
+      "passed": 1,
+      "pending": 0,
+      "skipped": 34,
+      "tests": 47
+    },
+    "tests": [
+      {
+        "duration": 235,
+        "message": "pydicom deidentify --help did not succeed; the subcommand is not registered",
+        "name": "U1",
+        "status": "failed"
+      },
+      {
+        "duration": 227,
+        "message": "the command failed on a study with nothing wrong in it",
+        "name": "U2",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "released Patient IDs are not all of the form PREFIX-NNNN",
+        "name": "U3",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "the first CT image was not released",
+        "name": "U4",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "the first CT image was not released",
+        "name": "U5",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "the second patient's image was not released",
+        "name": "U6",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "no crosswalk was written",
+        "name": "U7",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "the documented summary line was not printed",
+        "name": "U8",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "the DICOM file with no extension was not released",
+        "name": "U9",
+        "status": "failed"
+      },
+      {
+        "duration": 474,
+        "message": "the file in a subdirectory of the input directory was not released",
+        "name": "U10",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "nothing was released",
+        "name": "U11",
+        "status": "failed"
+      },
+      {
+        "duration": 258,
+        "message": "requirement satisfied",
+        "name": "U12",
+        "status": "passed"
+      },
+      {
+        "duration": 1,
+        "message": "fewer than two images were released",
+        "name": "U13",
+        "status": "failed"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S1",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S2",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S3",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S4",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S5",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S6",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S7",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S8",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S9",
+        "status": "skipped"
+      },
+      {
+        "duration": 294,
+        "message": "utility incomplete; safety not measured",
+        "name": "S10",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S11",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S12",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S13",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S14",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S15",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S16",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S17",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S18",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S19",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S20",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S21",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S22",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S23",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S24",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S25",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S26",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S27",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S28",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S29",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S30",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S31",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S32",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S33",
+        "status": "skipped"
+      },
+      {
+        "duration": 1,
+        "message": "utility incomplete; safety not measured",
+        "name": "S34",
+        "status": "skipped"
+      }
+    ]
+  }
+}

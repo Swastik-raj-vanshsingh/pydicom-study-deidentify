@@ -1,0 +1,11 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -498,8 +498,6 @@
+ 
+     if not input_dir.is_dir():
+         sys.exit("input directory does not exist: %s" % input_dir)
+-    if output_dir == input_dir or input_dir in output_dir.parents:
+-        sys.exit("the output directory must not be inside the input directory")
+     if crosswalk == output_dir or output_dir in crosswalk.parents:
+         sys.exit("the crosswalk must not be written inside the release directory")
+     if crosswalk.exists():

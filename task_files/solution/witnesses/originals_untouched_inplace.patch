@@ -1,0 +1,10 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -520,6 +520,7 @@
+             dataset = dcmread(str(path))
+             deidentify_dataset(dataset, profile, study)
+             _rebuild_file_meta(dataset)
++            dataset.save_as(str(path), enforce_file_format=True)
+             target = output_dir / ("%s.dcm" % dataset.SOPInstanceUID)
+             temporary = output_dir / (".%s.part" % dataset.SOPInstanceUID)
+             fd = _open_new(temporary)

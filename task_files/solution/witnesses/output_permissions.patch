@@ -1,0 +1,10 @@
+--- a/src/pydicom/cli/deidentify.py
++++ b/src/pydicom/cli/deidentify.py
+@@ -509,7 +509,6 @@
+     study = Study(args.patient_prefix)
+ 
+     output_dir.mkdir(parents=True, exist_ok=True)
+-    _private(output_dir, 0o700)
+ 
+     written = refused = failed = skipped = 0
+     for path in _iter_candidates(input_dir):
